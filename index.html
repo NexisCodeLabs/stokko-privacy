@@ -1,254 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexisCodeLabs | Modern Software Engineering</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>NexisCodeLabs | Premium Software Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7' }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --surface-color: #f8fafc;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --accent-black: #000000;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: var(--accent-black);
-            text-decoration: none;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 6rem 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: -1.5px;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero p {
-            font-size: 1.125rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        /* Projects Section */
-        .projects-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 5%;
-        }
-
-        .section-title {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Project Card */
-        .card {
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            border-color: var(--accent-black);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
-            transform: translateY(-2px);
-        }
-
-        /* Image Placeholder for App Screenshots */
-        .app-image-container {
-            width: 100%;
-            height: 200px;
-            background-color: var(--surface-color);
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-        }
-
-        .app-image-container img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            background-color: var(--surface-color);
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            padding: 0.25rem 0.75rem;
-            border-radius: 99px;
-            font-weight: 600;
-        }
-
-        .link-group {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .link {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--accent-black);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-
-        .link:hover {
-            border-bottom-color: var(--accent-black);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 3rem 5%;
-            text-align: center;
-            margin-top: 4rem;
-            color: var(--text-muted);
-            font-size: 0.875rem;
+        /* تأثيرات الإضاءة الخلفية */
+        .glow-bg {
+            position: absolute; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, rgba(15,23,42,0) 70%);
+            top: -200px; left: 50%; transform: translateX(-50%); z-index: -1;
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-950 text-slate-300 font-sans antialiased relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
 
-    <nav>
-        <a href="#" class="logo">NexisCodeLabs</a>
+    <div class="glow-bg"></div>
+
+    <nav class="fixed w-full z-50 top-0 border-b border-slate-800/60 bg-slate-950/70 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <svg class="w-8 h-8 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                <span class="text-xl font-bold text-white tracking-tight">NexisCodeLabs</span>
+            </div>
+            <a href="mailto:contact@nexiscode.online" class="text-sm font-medium hover:text-white transition-colors duration-200">Contact Us</a>
+        </div>
     </nav>
 
-    <header class="hero">
-        <h1>Engineering clean,<br>high-performance systems.</h1>
-        <p>Developing native Android applications and robust cloud architecture, driven by minimalist UI/UX design and scalable logic.</p>
-    </header>
+    <main class="pt-40 pb-20 px-6 max-w-7xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-8 shadow-sm">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+            </span>
+            Building the Future
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-tight">
+            Engineering <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-400">High-Performance</span> <br class="hidden md:block"> Systems.
+        </h1>
+        <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 font-light">
+            We develop native Android applications and robust cloud architectures, driven by minimalist UI/UX design and scalable logic.
+        </p>
+    </main>
 
-    <main class="projects-container">
-        <div class="section-title">Featured Products</div>
-        <div class="grid">
+    <section class="max-w-7xl mx-auto px-6 pb-32">
+        <h2 class="text-2xl font-bold text-white mb-10 border-b border-slate-800 pb-4">Our Products</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <!-- Stokko Project -->
-            <div class="card">
-                <!-- ضع مسار صورة تطبيق Stokko بدلاً من stokko-mockup.png -->
-                <div class="app-image-container">
-                    <img src="stokko-mockup.png" alt="Stokko Interface" onerror="this.style.display='none'">
+            <div class="group relative bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:bg-slate-800/50 hover:border-brand-500/50 transition-all duration-300 cursor-default shadow-lg">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center mb-6 shadow-lg shadow-orange-500/20">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
                 </div>
-                <h3>Stokko</h3>
-                <p>A comprehensive point-of-sale and retail inventory management system. Built to handle complex product databases with a streamlined, clutter-free interface.</p>
-                <div class="tags">
-                    <span class="tag">Kotlin</span>
-                    <span class="tag">Jetpack Compose</span>
-                    <span class="tag">Supabase</span>
+                <h3 class="text-xl font-bold text-white mb-2">Stokko</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                    Enterprise-grade inventory management and POS system built for high-performance retail operations. Syncs seamlessly to the cloud.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300 border border-slate-700">Kotlin</span>
+                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300 border border-slate-700">Jetpack Compose</span>
+                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300 border border-slate-700">Supabase</span>
                 </div>
-                <div class="link-group">
-                    <a href="https://nexiscode.online/stokko-privacy" class="link">Privacy Policy</a>
+                <a href="/stokko-privacy" class="inline-flex items-center text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors">
+                    Privacy Policy
+                    <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="group relative bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:bg-slate-800/50 hover:border-brand-500/50 transition-all duration-300 cursor-default shadow-lg">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/20">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">EnergyZ</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                    Advanced battery monitoring utility. Designed to track device power consumption and health metrics with precise, native performance.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300 border border-slate-700">Android APIs</span>
+                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300 border border-slate-700">Java</span>
                 </div>
             </div>
 
-            <!-- EnergyZ Project -->
-            <div class="card">
-                <!-- ضع مسار صورة تطبيق EnergyZ بدلاً من energyz-mockup.png -->
-                <div class="app-image-container">
-                    <img src="energyz-mockup.png" alt="EnergyZ Interface" onerror="this.style.display='none'">
+            <div class="group relative bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:bg-slate-800/50 hover:border-brand-500/50 transition-all duration-300 cursor-default shadow-lg">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center mb-6 shadow-lg shadow-purple-500/20">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    </svg>
                 </div>
-                <h3>EnergyZ</h3>
-                <p>Advanced battery monitoring utility. Designed to track device power consumption and health metrics with precise, native performance.</p>
-                <div class="tags">
-                    <span class="tag">Android System APIs</span>
-                    <span class="tag">Java</span>
-                </div>
-            </div>
-
-            <!-- Vocalify Project -->
-            <div class="card">
-                <!-- ضع مسار صورة تطبيق Vocalify بدلاً من vocalify-mockup.png -->
-                <div class="app-image-container">
-                    <img src="vocalify-mockup.png" alt="Vocalify Interface" onerror="this.style.display='none'">
-                </div>
-                <h3>Vocalify</h3>
-                <p>A fast and reliable text-to-speech utility, transforming text into natural sounding audio instantly.</p>
-                <div class="tags">
-                    <span class="tag">TTS Engine</span>
-                    <span class="tag">Utility</span>
+                <h3 class="text-xl font-bold text-white mb-2">Vocalify</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                    A fast and reliable text-to-speech utility, transforming text into natural sounding audio instantly using native engines.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-auto">
+                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300 border border-slate-700">TTS Engine</span>
+                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300 border border-slate-700">Utility</span>
                 </div>
             </div>
 
         </div>
-    </main>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 NexisCodeLabs, led by Amin. All rights reserved.</p>
+    <footer class="border-t border-slate-800/60 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-500 text-sm">© 2026 NexisCodeLabs. All rights reserved.</p>
+            <div class="flex items-center gap-4">
+                <span class="text-slate-600 text-sm">Based in Algeria</span>
+            </div>
+        </div>
     </footer>
 
 </body>
