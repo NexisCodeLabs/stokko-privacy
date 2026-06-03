@@ -1,2 +1,44 @@
-<h1>NexisCodeLabs is Live!</h1>
-<p>Welcome to our official website.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexisCodeLabs | Engineering Solutions</title>
+    <style>
+        :root { --bg: #ffffff; --text: #000000; --accent: #000000; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
+        header { padding: 40px 20px; border-bottom: 1px solid #eaeaea; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        h1 { font-size: 2rem; font-weight: 700; margin: 0; }
+        .section { margin-top: 60px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
+        .card { padding: 30px; border: 1px solid #eaeaea; border-radius: 8px; }
+        .card h3 { margin-top: 0; }
+        .card p { color: #666; font-size: 0.95rem; }
+        .btn { display: inline-block; margin-top: 15px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text); border-bottom: 2px solid var(--text); padding-bottom: 2px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>NexisCodeLabs</h1>
+        </div>
+    </header>
+    <main class="container">
+        <section class="section">
+            <h2 style="font-size: 1.2rem; margin-bottom: 20px;">Products</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Stokko</h3>
+                    <p>Enterprise-grade inventory management and POS system built for high-performance retail operations.</p>
+                    <a href="/stokko-privacy" class="btn">Privacy Policy</a>
+                </div>
+                <div class="card">
+                    <h3>EnergyZ</h3>
+                    <p>Advanced battery monitoring and optimization suite designed for system reliability.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
