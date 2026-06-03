@@ -3,42 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexisCodeLabs | Engineering Solutions</title>
+    <title>NexisCodeLabs | Modern Software Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #000000; --accent: #000000; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
-        header { padding: 40px 20px; border-bottom: 1px solid #eaeaea; }
-        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-        h1 { font-size: 2rem; font-weight: 700; margin: 0; }
-        .section { margin-top: 60px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
-        .card { padding: 30px; border: 1px solid #eaeaea; border-radius: 8px; }
-        .card h3 { margin-top: 0; }
-        .card p { color: #666; font-size: 0.95rem; }
-        .btn { display: inline-block; margin-top: 15px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text); border-bottom: 2px solid var(--text); padding-bottom: 2px; }
+        :root {
+            --bg-color: #ffffff;
+            --surface-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-black: #000000;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--accent-black);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 6rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Project Card */
+        .card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--accent-black);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Image Placeholder for App Screenshots */
+        .app-image-container {
+            width: 100%;
+            height: 200px;
+            background-color: var(--surface-color);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .app-image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background-color: var(--surface-color);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
+            font-weight: 600;
+        }
+
+        .link-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .link {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-black);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .link:hover {
+            border-bottom-color: var(--accent-black);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>NexisCodeLabs</h1>
-        </div>
+
+    <nav>
+        <a href="#" class="logo">NexisCodeLabs</a>
+    </nav>
+
+    <header class="hero">
+        <h1>Engineering clean,<br>high-performance systems.</h1>
+        <p>Developing native Android applications and robust cloud architecture, driven by minimalist UI/UX design and scalable logic.</p>
     </header>
-    <main class="container">
-        <section class="section">
-            <h2 style="font-size: 1.2rem; margin-bottom: 20px;">Products</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Stokko</h3>
-                    <p>Enterprise-grade inventory management and POS system built for high-performance retail operations.</p>
-                    <a href="/stokko-privacy" class="btn">Privacy Policy</a>
+
+    <main class="projects-container">
+        <div class="section-title">Featured Products</div>
+        <div class="grid">
+            
+            <!-- Stokko Project -->
+            <div class="card">
+                <!-- ضع مسار صورة تطبيق Stokko بدلاً من stokko-mockup.png -->
+                <div class="app-image-container">
+                    <img src="stokko-mockup.png" alt="Stokko Interface" onerror="this.style.display='none'">
                 </div>
-                <div class="card">
-                    <h3>EnergyZ</h3>
-                    <p>Advanced battery monitoring and optimization suite designed for system reliability.</p>
+                <h3>Stokko</h3>
+                <p>A comprehensive point-of-sale and retail inventory management system. Built to handle complex product databases with a streamlined, clutter-free interface.</p>
+                <div class="tags">
+                    <span class="tag">Kotlin</span>
+                    <span class="tag">Jetpack Compose</span>
+                    <span class="tag">Supabase</span>
+                </div>
+                <div class="link-group">
+                    <a href="https://nexiscode.online/stokko-privacy" class="link">Privacy Policy</a>
                 </div>
             </div>
-        </section>
+
+            <!-- EnergyZ Project -->
+            <div class="card">
+                <!-- ضع مسار صورة تطبيق EnergyZ بدلاً من energyz-mockup.png -->
+                <div class="app-image-container">
+                    <img src="energyz-mockup.png" alt="EnergyZ Interface" onerror="this.style.display='none'">
+                </div>
+                <h3>EnergyZ</h3>
+                <p>Advanced battery monitoring utility. Designed to track device power consumption and health metrics with precise, native performance.</p>
+                <div class="tags">
+                    <span class="tag">Android System APIs</span>
+                    <span class="tag">Java</span>
+                </div>
+            </div>
+
+            <!-- Vocalify Project -->
+            <div class="card">
+                <!-- ضع مسار صورة تطبيق Vocalify بدلاً من vocalify-mockup.png -->
+                <div class="app-image-container">
+                    <img src="vocalify-mockup.png" alt="Vocalify Interface" onerror="this.style.display='none'">
+                </div>
+                <h3>Vocalify</h3>
+                <p>A fast and reliable text-to-speech utility, transforming text into natural sounding audio instantly.</p>
+                <div class="tags">
+                    <span class="tag">TTS Engine</span>
+                    <span class="tag">Utility</span>
+                </div>
+            </div>
+
+        </div>
     </main>
+
+    <footer>
+        <p>&copy; 2026 NexisCodeLabs, led by Amin. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
