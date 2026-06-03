@@ -69,7 +69,7 @@ We may update these Terms at any time. Continued use of the App after changes co
 These Terms are governed by the laws of Algeria. Any disputes shall be resolved in the competent courts of Algeria.
 
 ## 12. Contact Us
-For any questions regarding these Terms, please contact us at: [Insert Developer Email]
+For any questions regarding these Terms, please contact us at: [ssecure90@gmail.com]
 
 ---
 
@@ -144,4 +144,4 @@ Stokko هو تطبيق لإدارة نقاط البيع (POS) والمخزون،
 تخضع هذه الشروط لقوانين الجمهورية الجزائرية الديمقراطية الشعبية. يتم حل أي نزاعات أمام المحاكم المختصة في الجزائر.
 
 ## 12. اتصل بنا
-لأي استفسارات تتعلق بهذه الشروط، يرجى التواصل معنا عبر: [أدخل بريدك الإلكتروني هنا]
+لأي استفسارات تتعلق بهذه الشروط، يرجى التواصل معنا عبر: [ssecure90@gmail.com]
