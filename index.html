@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- تحسين الـ SEO (التقييم 4/10 سيرتفع الآن) -->
     <meta name="description" content="NexisCodeLabs is an independent software development studio based in Algeria, creating high-performance Android apps like Stokko, EnergyZ, and Vocalify.">
     <meta name="keywords" content="Android Development, Stokko POS, Inventory Management App, Jetpack Compose, Algeria Developer, Software Startup">
     <meta name="author" content="Amin - NexisCodeLabs">
     
     <title>NexisCodeLabs | Premium Android & Software Solutions</title>
     
-    <!-- دمج Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -30,13 +28,14 @@
             background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, rgba(15,23,42,0) 70%);
             top: -200px; left: 50%; transform: translateX(-50%); z-index: -1;
         }
+        /* Smooth scrolling for anchor links */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-300 font-sans antialiased relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
 
     <div class="glow-bg"></div>
 
-    <!-- Navbar -->
     <nav class="fixed w-full z-50 top-0 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -47,7 +46,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <main class="pt-40 pb-16 px-6 max-w-7xl mx-auto text-center">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-8 shadow-sm">
             <span class="relative flex h-2 w-2">
@@ -64,23 +62,20 @@
         </p>
     </main>
 
-    <!-- About Section (بناء الثقة - التقييم 5/10 سيرتفع) -->
     <section class="max-w-3xl mx-auto px-6 pb-20 text-center">
         <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 backdrop-blur-sm">
             <h2 class="text-lg font-semibold text-white mb-3">About The Developer</h2>
             <p class="text-slate-400 leading-relaxed text-sm md:text-base">
-                Hi, I'm Amin, an independent software developer based in Algeria. With a Master's degree in Industrial Automation and Informatics, my focus bridges the gap between complex logic and user-friendly software. <strong>NexisCodeLabs</strong> is my digital workshop where I build and publish tools designed to optimize daily operations—from sophisticated retail point-of-sale systems to advanced system utilities.
+                Hi, I'm Amin, an independent software developer based in Algeria. With a background in Industrial Automation and Informatics, my focus bridges the gap between complex logic and user-friendly software. <strong>NexisCodeLabs</strong> is my digital workshop where I build and publish tools designed to optimize daily operations—from sophisticated retail point-of-sale systems to advanced system utilities.
             </p>
         </div>
     </section>
 
-    <!-- Products Section -->
     <section id="products" class="max-w-7xl mx-auto px-6 pb-32">
         <h2 class="text-2xl font-bold text-white mb-10 border-b border-slate-800 pb-4">Featured Products</h2>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
             
-            <!-- Stokko -->
             <div class="group bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8 hover:border-brand-500/50 transition-all flex flex-col h-full">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center shadow-lg shadow-orange-500/20">
@@ -92,10 +87,8 @@
                     </div>
                 </div>
                 
-                <!-- مكان مخصص لصورة التطبيق (Screenshot) -->
                 <div class="w-full aspect-video bg-slate-800/50 rounded-xl mb-6 overflow-hidden border border-slate-700/50 relative">
-                    <!-- استبدل stokko-screenshot.png باسم صورتك الفعلية التي سترفعها -->
-                    <img src="stokko-screenshot.png" alt="Stokko App Interface" class="w-full h-full object-cover object-top" onerror="this.outerHTML='<div class=\'absolute inset-0 flex items-center justify-center text-slate-500 text-sm\'>[App Screenshot Here]</div>'">
+                    <img src="stokko-screenshot.png" alt="Stokko App Interface" class="w-full h-full object-cover object-top" onerror="this.outerHTML='<div class=\'absolute inset-0 flex items-center justify-center text-slate-500 text-sm\'>[Upload stokko-screenshot.png]</div>'">
                 </div>
 
                 <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
@@ -104,20 +97,18 @@
                 <div class="flex flex-wrap gap-2 mb-8">
                     <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Jetpack Compose</span>
                     <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Supabase</span>
+                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Kotlin</span>
                 </div>
                 
-                <!-- CTA: Download Button + Privacy -->
                 <div class="flex flex-wrap items-center gap-4 mt-auto">
-                    <!-- استبدل الرابط # برابط تطبيقك الفعلي على المتجر -->
                     <a href="#" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors flex items-center gap-2 shadow-lg shadow-brand-500/25">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5 2.5v19l15-9.5-15-9.5z"/></svg>
-                        Get it on Google Play
+                        Coming Soon to Play Store
                     </a>
                     <a href="/stokko-privacy" class="text-sm font-medium text-slate-400 hover:text-white underline-offset-4 hover:underline transition-colors">Privacy Policy</a>
                 </div>
             </div>
 
-            <!-- EnergyZ -->
             <div class="group bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8 hover:border-brand-500/50 transition-all flex flex-col h-full">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
@@ -129,10 +120,8 @@
                     </div>
                 </div>
 
-                <!-- مكان مخصص لصورة التطبيق (Screenshot) -->
                 <div class="w-full aspect-video bg-slate-800/50 rounded-xl mb-6 overflow-hidden border border-slate-700/50 relative">
-                    <!-- استبدل energyz-screenshot.png باسم صورتك الفعلية -->
-                    <img src="energyz-screenshot.png" alt="EnergyZ App Interface" class="w-full h-full object-cover object-top" onerror="this.outerHTML='<div class=\'absolute inset-0 flex items-center justify-center text-slate-500 text-sm\'>[App Screenshot Here]</div>'">
+                    <img src="energyz-screenshot.png" alt="EnergyZ App Interface" class="w-full h-full object-cover object-top" onerror="this.outerHTML='<div class=\'absolute inset-0 flex items-center justify-center text-slate-500 text-sm\'>[Upload energyz-screenshot.png]</div>'">
                 </div>
 
                 <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
@@ -143,12 +132,41 @@
                     <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Android System APIs</span>
                 </div>
                 
-                <!-- CTA: Download Button -->
                 <div class="flex flex-wrap items-center gap-4 mt-auto">
-                    <!-- استبدل الرابط # برابط تطبيقك الفعلي -->
+                    <a href="https://play.google.com/store/apps/details?id=com.badj.energyz&hl=en" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors flex items-center gap-2 shadow-lg shadow-emerald-500/25">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5 2.5v19l15-9.5-15-9.5z"/></svg>
+                        Get it on Google Play
+                    </a>
+                </div>
+            </div>
+
+            <div class="group bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8 hover:border-brand-500/50 transition-all flex flex-col h-full lg:col-span-2 max-w-3xl mx-auto w-full">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Vocalify</h3>
+                        <p class="text-purple-400 text-sm font-medium">Text-to-Speech Engine</p>
+                    </div>
+                </div>
+
+                <div class="w-full aspect-video bg-slate-800/50 rounded-xl mb-6 overflow-hidden border border-slate-700/50 relative">
+                    <img src="vocalify-screenshot.png" alt="Vocalify App Interface" class="w-full h-full object-cover object-center" onerror="this.outerHTML='<div class=\'absolute inset-0 flex items-center justify-center text-slate-500 text-sm\'>[Upload vocalify-screenshot.png]</div>'">
+                </div>
+
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
+                    A fast, reliable text-to-speech utility that transforms text into natural-sounding audio instantly. Built to be lightweight and accessible for everyday productivity.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Android TTS</span>
+                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Utility</span>
+                </div>
+                
+                <div class="flex flex-wrap items-center gap-4 mt-auto">
                     <a href="#" class="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors border border-slate-700 flex items-center gap-2">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5 2.5v19l15-9.5-15-9.5z"/></svg>
-                        Download App
+                        View Project
                     </a>
                 </div>
             </div>
@@ -156,10 +174,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="border-t border-slate-800/60 bg-slate-950">
         <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-slate-500 text-sm">© 2026 NexisCodeLabs. Developed with precision.</p>
+            <p class="text-slate-500 text-sm">© 2026 NexisCodeLabs. Engineered with precision.</p>
         </div>
     </footer>
 
