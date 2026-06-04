@@ -1,184 +1,789 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NexisCodeLabs is an independent software development studio based in Algeria, creating high-performance Android apps like Stokko, EnergyZ, and Vocalify.">
-    <meta name="keywords" content="Android Development, Stokko POS, Inventory Management App, Jetpack Compose, Algeria Developer, Software Startup">
-    <meta name="author" content="Amin - NexisCodeLabs">
-    
-    <title>NexisCodeLabs | Premium Android & Software Solutions</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { brand: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7' } }
-                }
-            }
-        }
-    </script>
-    <style>
-        .glow-bg {
-            position: absolute; width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, rgba(15,23,42,0) 70%);
-            top: -200px; left: 50%; transform: translateX(-50%); z-index: -1;
-        }
-        /* Smooth scrolling for anchor links */
-        html { scroll-behavior: smooth; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexisCodeLabs — Android Apps & Software Solutions · Algeria</title>
+  <meta name="description" content="NexisCodeLabs builds native Android apps and software tools for real businesses. Creator of Stokko — inventory management and POS for Algerian retail." />
+  <meta name="keywords" content="Stokko, inventory management Algeria, POS app Android, NexisCode, EnergyZ, Android developer Algeria" />
+  <meta name="author" content="NexisCodeLabs" />
+  <meta property="og:title" content="NexisCodeLabs — Android Apps & Software" />
+  <meta property="og:description" content="Native Android apps built for real-world retail and utility use cases. Based in Algeria." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexiscode.online/" />
+  <link rel="canonical" href="https://nexiscode.online/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #E8650A;
+      --orange-dim: #b34e06;
+      --orange-pale: #FFF0E6;
+      --orange-pale2: #FFE4CC;
+      --bg: #0C0C0B;
+      --bg2: #141412;
+      --bg3: #1C1C19;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.12);
+      --text: #F2F0EB;
+      --text2: #A09E98;
+      --text3: #5C5A55;
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      background: rgba(12,12,11,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-brand span { color: var(--orange); }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--text2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      font-size: 13px !important;
+      color: var(--orange) !important;
+      border: 1px solid rgba(232,101,10,0.35);
+      padding: 7px 16px;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--orange) !important;
+      color: #fff !important;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 100px 40px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--orange);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--orange);
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(38px, 6vw, 72px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: var(--text);
+      max-width: 800px;
+      margin-bottom: 24px;
+    }
+
+    .hero-title .accent { color: var(--orange); }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--text2);
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--orange-dim); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text2);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: 1px solid var(--border2);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .btn-ghost:hover { border-color: var(--text3); color: var(--text); transform: translateY(-1px); }
+
+    /* PRODUCTS SECTION */
+    .section {
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 80px;
+    }
+
+    /* STOKKO FEATURE CARD */
+    .product-featured {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+    }
+
+    .product-featured-content {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+
+    .product-featured-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+
+    .product-featured-sub {
+      font-size: 14px;
+      color: var(--orange);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .product-featured-desc {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .feature-list li {
+      font-size: 13px;
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-list li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      background: var(--orange);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .product-featured-screens {
+      background: var(--bg3);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 12px;
+      padding: 32px 24px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone-mockup {
+      width: 120px;
+      border-radius: 18px 18px 0 0;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-bottom: none;
+      overflow: hidden;
+      background: #1a1a17;
+      flex-shrink: 0;
+    }
+
+    .phone-mockup.tall { margin-bottom: -8px; width: 130px; }
+
+    .phone-mockup img {
+      width: 100%;
+      display: block;
+    }
+
+    .phone-placeholder {
+      width: 100%;
+      aspect-ratio: 9/16;
+      background: var(--bg2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--text3);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .tech-stack {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .tech-pill {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text3);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    /* SMALL PRODUCT CARDS */
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .product-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: border-color 0.2s;
+    }
+
+    .product-card:hover { border-color: var(--border2); }
+
+    .product-card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--bg3);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .product-card-icon svg { width: 20px; height: 20px; stroke: var(--orange); fill: none; stroke-width: 1.5; }
+
+    .product-card-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .product-card-tagline {
+      font-size: 13px;
+      color: var(--orange);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .product-card-desc {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.65;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    .product-card-link {
+      font-size: 13px;
+      color: var(--orange);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .product-card-link:hover { gap: 10px; }
+
+    .product-card-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ABOUT STRIP */
+    .about-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 60px 40px;
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .about-desc {
+      font-size: 15px;
+      color: var(--text2);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .stat-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--orange);
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text3);
+      font-weight: 400;
+    }
+
+    /* CONTACT SECTION */
+    .contact-section {
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .contact-sub {
+      font-size: 15px;
+      color: var(--text2);
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      color: var(--orange);
+      text-decoration: none;
+      border: 1px solid rgba(232,101,10,0.3);
+      padding: 14px 28px;
+      border-radius: 10px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .contact-email:hover { background: rgba(232,101,10,0.08); transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text3);
+    }
+
+    .footer-brand span { color: var(--orange); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text2); }
+
+    .footer-right {
+      font-size: 12px;
+      color: var(--text3);
+    }
+
+    /* DIVIDER LINE */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+      .nav-links a:not(.nav-cta):not(:last-child) { display: none; }
+      .hero { padding: 60px 20px 60px; }
+      .hero-title { font-size: 38px; letter-spacing: -1.5px; }
+      .section { padding: 60px 20px; }
+      .product-featured { grid-template-columns: 1fr; }
+      .product-featured-screens { min-height: 260px; align-items: center; padding: 24px; flex-direction: row; }
+      .phone-mockup { width: 100px; }
+      .phone-mockup.tall { width: 110px; }
+      .products-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; gap: 32px; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { justify-content: center; }
+      .about-strip { padding: 48px 20px; }
+      .contact-section { padding: 60px 20px; }
+    }
+  </style>
 </head>
-<body class="bg-slate-950 text-slate-300 font-sans antialiased relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
+<body>
 
-    <div class="glow-bg"></div>
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-brand">Nexis<span>Code</span></a>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Contact us</a>
+    </div>
+  </nav>
 
-    <nav class="fixed w-full z-50 top-0 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <svg class="w-8 h-8 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                <span class="text-xl font-bold text-white tracking-tight">NexisCodeLabs</span>
-            </div>
-            <a href="#products" class="text-sm font-medium hover:text-white transition-colors">Our Apps</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">NexisCodeLabs · Based in Algeria</div>
+    <h1 class="hero-title">
+      We build apps<br>
+      that <span class="accent">actually work</span><br>
+      in the real world.
+    </h1>
+    <p class="hero-sub">
+      Native Android applications and software tools — designed for everyday retail, built to perform under real Algerian conditions.
+    </p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Our products
+      </a>
+      <a href="#contact" class="btn-ghost">
+        Get in touch
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRODUCTS -->
+  <section class="section" id="products">
+    <div class="section-label">Our products</div>
+
+    <!-- STOKKO FEATURED -->
+    <div class="product-featured">
+      <div class="product-featured-content">
+        <div>
+          <div class="product-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Available now on Google Play
+          </div>
+          <h2 class="product-featured-title">Stokko</h2>
+          <div class="product-featured-sub">Inventory management & POS for retail</div>
+          <p class="product-featured-desc">
+            A complete store management system built for small and growing Algerian businesses. Manage your inventory, run sales at the counter, track supplier debts, and keep your books — all from your Android phone, with or without internet.
+          </p>
+          <ul class="feature-list">
+            <li>Barcode scanning & POS</li>
+            <li>Inventory & stock alerts</li>
+            <li>Customer debt book</li>
+            <li>Supplier purchases</li>
+            <li>VIP plans & multi-user</li>
+            <li>Cloud sync via Supabase</li>
+          </ul>
         </div>
-    </nav>
-
-    <main class="pt-40 pb-16 px-6 max-w-7xl mx-auto text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-8 shadow-sm">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
-            </span>
-            Independent Tech Studio
+        <div>
+          <div class="product-actions">
+            <a href="https://play.google.com/store/apps/details?id=com.nexiscode.stokko" class="btn-primary" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="m10 8 6 4-6 4V8z"/></svg>
+              Download on Play Store
+            </a>
+            <a href="stokko-privacy" class="btn-ghost">Privacy policy</a>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">Kotlin</span>
+            <span class="tech-pill">Jetpack Compose</span>
+            <span class="tech-pill">Supabase</span>
+            <span class="tech-pill">Android</span>
+          </div>
         </div>
-        <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-tight">
-            Engineering <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-400">High-Performance</span> <br class="hidden md:block"> Systems.
-        </h1>
-        <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 font-light">
-            Crafting native Android applications and robust cloud architectures with a focus on clean code, seamless UX, and reliable logic.
+      </div>
+      <div class="product-featured-screens">
+        <div class="phone-mockup">
+          <div class="phone-placeholder">Sales</div>
+        </div>
+        <div class="phone-mockup tall">
+          <div class="phone-placeholder">Inventory</div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-placeholder">Purchases</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENERGYZ + VOCALIFY -->
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="product-card-name">EnergyZ</div>
+        <div class="product-card-tagline">Battery & phone analyzer</div>
+        <p class="product-card-desc">
+          Monitor battery health, charging speed, voltage, current, and device info in real time. Set alerts and track performance curves — built with native Android APIs for accurate readings.
         </p>
-    </main>
-
-    <section class="max-w-3xl mx-auto px-6 pb-20 text-center">
-        <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 backdrop-blur-sm">
-            <h2 class="text-lg font-semibold text-white mb-3">About The Developer</h2>
-            <p class="text-slate-400 leading-relaxed text-sm md:text-base">
-                Hi, I'm Amin, an independent software developer based in Algeria. With a background in Industrial Automation and Informatics, my focus bridges the gap between complex logic and user-friendly software. <strong>NexisCodeLabs</strong> is my digital workshop where I build and publish tools designed to optimize daily operations—from sophisticated retail point-of-sale systems to advanced system utilities.
-            </p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+          <span class="tech-pill">Android APIs</span>
+          <span class="tech-pill">Java</span>
+          <span class="tech-pill" style="color:var(--orange);border-color:rgba(232,101,10,0.3);">4.8 ★ on Play Store</span>
         </div>
-    </section>
+        <a href="https://play.google.com/store/apps/details?id=com.badj.energyz" class="product-card-link" target="_blank" rel="noopener">
+          View on Play Store
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
 
-    <section id="products" class="max-w-7xl mx-auto px-6 pb-32">
-        <h2 class="text-2xl font-bold text-white mb-10 border-b border-slate-800 pb-4">Featured Products</h2>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            
-            <div class="group bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8 hover:border-brand-500/50 transition-all flex flex-col h-full">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center shadow-lg shadow-orange-500/20">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">Stokko</h3>
-                        <p class="text-brand-400 text-sm font-medium">POS & Inventory Management</p>
-                    </div>
-                </div>
-                
-                <div class="w-full aspect-video bg-slate-800/50 rounded-xl mb-6 overflow-hidden border border-slate-700/50 relative">
-                    <img src="stokko-screenshot.png" alt="Stokko App Interface" class="w-full h-full object-cover object-top" onerror="this.outerHTML='<div class=\'absolute inset-0 flex items-center justify-center text-slate-500 text-sm\'>[Upload stokko-screenshot.png]</div>'">
-                </div>
-
-                <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
-                    An enterprise-grade system designed to streamline retail operations. Features real-time cloud sync, comprehensive sales tracking, and an intuitive, clutter-free interface for fast checkouts.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Jetpack Compose</span>
-                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Supabase</span>
-                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Kotlin</span>
-                </div>
-                
-                <div class="flex flex-wrap items-center gap-4 mt-auto">
-                    <a href="#" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors flex items-center gap-2 shadow-lg shadow-brand-500/25">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5 2.5v19l15-9.5-15-9.5z"/></svg>
-                        Coming Soon to Play Store
-                    </a>
-                    <a href="/stokko-privacy" class="text-sm font-medium text-slate-400 hover:text-white underline-offset-4 hover:underline transition-colors">Privacy Policy</a>
-                </div>
-            </div>
-
-            <div class="group bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8 hover:border-brand-500/50 transition-all flex flex-col h-full">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">EnergyZ</h3>
-                        <p class="text-emerald-400 text-sm font-medium">Battery Analytics Utility</p>
-                    </div>
-                </div>
-
-                <div class="w-full aspect-video bg-slate-800/50 rounded-xl mb-6 overflow-hidden border border-slate-700/50 relative">
-                    <img src="energyz-screenshot.png" alt="EnergyZ App Interface" class="w-full h-full object-cover object-top" onerror="this.outerHTML='<div class=\'absolute inset-0 flex items-center justify-center text-slate-500 text-sm\'>[Upload energyz-screenshot.png]</div>'">
-                </div>
-
-                <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
-                    Advanced battery monitoring tool engineered to deliver precise health metrics, charge cycles, and power consumption statistics using native Android system APIs.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Java</span>
-                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Android System APIs</span>
-                </div>
-                
-                <div class="flex flex-wrap items-center gap-4 mt-auto">
-                    <a href="https://play.google.com/store/apps/details?id=com.badj.energyz&hl=en" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors flex items-center gap-2 shadow-lg shadow-emerald-500/25">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5 2.5v19l15-9.5-15-9.5z"/></svg>
-                        Get it on Google Play
-                    </a>
-                </div>
-            </div>
-
-            <div class="group bg-slate-900/50 border border-slate-800 rounded-2xl p-6 md:p-8 hover:border-brand-500/50 transition-all flex flex-col h-full lg:col-span-2 max-w-3xl mx-auto w-full">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">Vocalify</h3>
-                        <p class="text-purple-400 text-sm font-medium">Text-to-Speech Engine</p>
-                    </div>
-                </div>
-
-                <div class="w-full aspect-video bg-slate-800/50 rounded-xl mb-6 overflow-hidden border border-slate-700/50 relative">
-                    <img src="vocalify-screenshot.png" alt="Vocalify App Interface" class="w-full h-full object-cover object-center" onerror="this.outerHTML='<div class=\'absolute inset-0 flex items-center justify-center text-slate-500 text-sm\'>[Upload vocalify-screenshot.png]</div>'">
-                </div>
-
-                <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
-                    A fast, reliable text-to-speech utility that transforms text into natural-sounding audio instantly. Built to be lightweight and accessible for everyday productivity.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Android TTS</span>
-                    <span class="px-2 py-1 text-xs font-medium rounded-md bg-slate-800 text-slate-300">Utility</span>
-                </div>
-                
-                <div class="flex flex-wrap items-center gap-4 mt-auto">
-                    <a href="#" class="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-colors border border-slate-700 flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5 2.5v19l15-9.5-15-9.5z"/></svg>
-                        View Project
-                    </a>
-                </div>
-            </div>
-
+      <div class="product-card">
+        <div class="product-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"/></svg>
         </div>
-    </section>
-
-    <footer class="border-t border-slate-800/60 bg-slate-950">
-        <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-slate-500 text-sm">© 2026 NexisCodeLabs. Engineered with precision.</p>
+        <div class="product-card-name">Vocalify</div>
+        <div class="product-card-tagline">Text-to-speech utility</div>
+        <p class="product-card-desc">
+          Fast and reliable text-to-speech conversion using native Android TTS engines. Transforms any text into natural-sounding audio instantly — lightweight, offline-ready, and distraction-free.
+        </p>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+          <span class="tech-pill">TTS Engine</span>
+          <span class="tech-pill">Android</span>
+          <span class="tech-pill" style="color:var(--text3);border-color:var(--border);">Coming soon</span>
         </div>
-    </footer>
+        <span style="font-size:13px;color:var(--text3);">In development</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <div class="about-strip" id="about">
+    <div class="about-inner">
+      <div>
+        <h2 class="about-title">Built by a developer<br>who uses what he ships.</h2>
+        <p class="about-desc">
+          NexisCodeLabs is an independent software studio based in Algeria. We focus on Android-first tools that solve real problems for local businesses — not generic software copy-pasted from Western templates. Every product is designed, coded, and tested by us, with direct feedback from real users.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Apps in production</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">4.8★</div>
+          <div class="stat-label">EnergyZ rating</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">1K+</div>
+          <div class="stat-label">EnergyZ downloads</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">DZ</div>
+          <div class="stat-label">Headquartered, Algeria</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <h2 class="contact-title">Let's talk.</h2>
+    <p class="contact-sub">For business inquiries, partnerships, or feedback on any of our products.</p>
+    <a href="mailto:contact@nexiscode.online" class="contact-email">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      contact@nexiscode.online
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Nexis<span>Code</span>Labs</div>
+    <div class="footer-links">
+      <a href="#products">Products</a>
+      <a href="stokko-privacy">Stokko Privacy</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-right">© 2026 NexisCodeLabs · Algeria</div>
+  </footer>
 
 </body>
 </html>
