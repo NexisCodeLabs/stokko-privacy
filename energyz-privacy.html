@@ -1,49 +1,139 @@
-# Privacy Policy
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy for EnergyZ</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #1a73e8;
+            font-size: 2.2rem;
+            margin-top: 0;
+            border-bottom: 2px solid #eef2f6;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #202124;
+            font-size: 1.5rem;
+            margin-top: 30px;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #3c4043;
+            font-size: 1.2rem;
+        }
+        p, li {
+            font-size: 1rem;
+            color: #5f6368;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .highlight {
+            background-color: #e8f0fe;
+            border-left: 4px solid #1a73e8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .highlight p {
+            margin: 0;
+            color: #1967d2;
+            font-weight: 500;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #9aa0a6;
+            border-top: 1px solid #eef2f6;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p><strong>Effective Date:</strong> June 29, 2026</p>
 
-**Effective Date:** June 29, 2026
+        <div class="highlight">
+            <p>This Privacy Policy explains how EnergyZ ("we", "our", or "us") collects, uses, processes, and discloses information when you use our mobile application, EnergyZ (the "App").</p>
+        </div>
 
-This Privacy Policy explains how EnergyZ ("we", "our", or "us"), developed by Nexis Code, collects, uses, processes, and discloses information when you use our mobile application, EnergyZ (the "App").
+        <p>We are committed to protecting your privacy. We process your data in accordance with applicable laws, including the Google Play Developer Policies.</p>
 
-We are committed to protecting your privacy. We process your data in accordance with applicable laws, including the Google Play Developer Policies.
+        <h2>1. Information We Process</h2>
+        
+        <h3>A. System and Device Diagnostics (Processed Locally)</h3>
+        <p>The App displays real-time hardware, battery, and system parameters. This information is processed <strong>locally on your device</strong> and is not transmitted to our servers. This includes:</p>
+        <ul>
+            <li><strong>Battery Status:</strong> Level, capacity (mAh), voltage, current (mA), power (W), temperature, and overall health status.</li>
+            <li><strong>Device Details:</strong> Manufacturer, model, Android operating system version, and system ABI/Architecture.</li>
+            <li><strong>CPU and Memory:</strong> Processor name, CPU architecture, and RAM memory usage.</li>
+            <li><strong>Display Information:</strong> Screen resolution, DPI, and screen refresh rate (Hz).</li>
+            <li><strong>Performance Metrics:</strong> Real-time Frames Per Second (FPS).</li>
+        </ul>
 
-## 1. Information We Process
+        <h3>B. Device and Other Identifiers (Collected by Third Parties)</h3>
+        <p>To support the App's functionalities and provide monetized features, the App integrates third-party Software Development Kits (SDKs). These SDKs may collect and transmit data off your device, specifically:</p>
+        <ul>
+            <li><strong>Device Identifiers:</strong> Unique advertising identifiers (such as the Google Advertising ID - GAID) and IP addresses. These are collected by the <strong>Google Mobile Ads (AdMob) SDK</strong> to deliver targeted and non-targeted advertisements, track ad performance, and prevent fraud.</li>
+            <li><strong>Billing Identifiers:</strong> Purchase tokens and transaction details collected by the <strong>Google Play Billing SDK</strong> to manage, verify, and activate premium/in-app purchases.</li>
+        </ul>
 
-### A. System and Device Diagnostics (Processed Locally)
-The App displays real-time hardware, battery, and system parameters. This information is processed **locally on your device** and is not transmitted to our servers. This includes:
-* **Battery Status:** Level, capacity (mAh), voltage, current (mA), power (W), temperature, and overall health status.
-* **Device Details:** Manufacturer, model, Android operating system version, and system ABI/Architecture.
-* **CPU and Memory:** Processor name, CPU architecture, and RAM memory usage.
-* **Display Information:** Screen resolution, DPI, and screen refresh rate (Hz).
-* **Performance Metrics:** Real-time Frames Per Second (FPS).
+        <h2>2. Android Permissions We Request</h2>
+        <p>To provide its core monitoring services and user interface, the App requires the following permissions:</p>
+        <ul>
+            <li><strong>SYSTEM_ALERT_WINDOW (Draw over other apps):</strong> Required to display the floating widget with real-time FPS, memory usage, and battery statistics.</li>
+            <li><strong>FOREGROUND_SERVICE & FOREGROUND_SERVICE_SPECIAL_USE:</strong> Required to keep the battery service active in the background to monitor charge/discharge cycles and trigger alerts.</li>
+            <li><strong>POST_NOTIFICATIONS:</strong> Required to send you battery status alerts and status bar notifications.</li>
+            <li><strong>RECEIVE_BOOT_COMPLETED:</strong> Required to restart the battery monitoring service automatically when your device finishes booting.</li>
+            <li><strong>INTERNET:</strong> Required to request advertisements from AdMob and process transactions with the Google Play Billing Library.</li>
+            <li><strong>BILLING (com.android.vending.BILLING):</strong> Required to handle premium subscriptions and remove ads.</li>
+        </ul>
 
-### B. Device and Other Identifiers (Collected by Third Parties)
-To support the App's functionalities and provide monetized features, the App integrates third-party Software Development Kits (SDKs). These SDKs may collect and transmit data off your device, specifically:
-* **Device Identifiers:** Unique advertising identifiers (such as the Google Advertising ID - GAID) and IP addresses. These are collected by the **Google Mobile Ads (AdMob) SDK** to deliver targeted and non-targeted advertisements, track ad performance, and prevent fraud.
-* **Billing Identifiers:** Purchase tokens and transaction details collected by the **Google Play Billing SDK** to manage, verify, and activate premium/in-app purchases.
+        <h2>3. Third-Party Service Providers</h2>
+        <p>We use third-party services that may collect information used to identify you. Below are links to the privacy policies of the third-party service providers used by the App:</p>
+        <ul>
+            <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+            <li><a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener noreferrer">Google AdMob</a></li>
+        </ul>
 
-## 2. Android Permissions We Request
-To provide its core monitoring services and user interface, the App requires the following permissions:
-* **SYSTEM_ALERT_WINDOW (Draw over other apps):** Required to display the floating widget with real-time FPS, memory usage, and battery statistics.
-* **FOREGROUND_SERVICE & FOREGROUND_SERVICE_SPECIAL_USE:** Required to keep the battery service active in the background to monitor charge/discharge cycles and trigger alerts.
-* **POST_NOTIFICATIONS:** Required to send you battery status alerts and status bar notifications.
-* **RECEIVE_BOOT_COMPLETED:** Required to restart the battery monitoring service automatically when your device finishes booting.
-* **INTERNET:** Required to request advertisements from AdMob and process transactions with the Google Play Billing Library.
-* **BILLING (com.android.vending.BILLING):** Required to handle premium subscriptions and remove ads.
+        <h2>4. Data Retention and Security</h2>
+        <p>Since the App does not host any user databases or backend servers, we do not store your personal details. All system diagnostic details remain on your physical device. The third-party services we use (Google Play Billing and AdMob) handle data securely in accordance with their respective privacy policies.</p>
 
-## 3. Third-Party Service Providers
-We use third-party services that may collect information used to identify you. Below are links to the privacy policies of the third-party service providers used by the App:
-* [Google Play Services](https://policies.google.com/privacy)
-* [Google AdMob](https://support.google.com/admob/answer/6128543)
+        <h2>5. Children's Privacy</h2>
+        <p>Our App is not intended for use by children under the age of 13. We do not knowingly collect personal identifiable information from children under 13.</p>
 
-## 4. Data Retention and Security
-Since the App does not host any user databases or backend servers, we do not store your personal details. All system diagnostic details remain on your physical device. The third-party services we use (Google Play Billing and AdMob) handle data securely in accordance with their respective privacy policies.
+        <h2>6. Changes to This Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
 
-## 5. Children's Privacy
-Our App is not intended for use by children under the age of 13. We do not knowingly collect personal identifiable information from children under 13.
+        <h2>7. Contact Us</h2>
+        <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:</p>
+        <p><strong>Email:</strong> contact@nexiscode.online</p>
 
-## 6. Changes to This Privacy Policy
-We may update our Privacy Policy from time to time. We advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.
-
-## 7. Contact Us
-If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:
-* **Email:** contact@nexiscode.com
+        <div class="footer">
+            <p>&copy; 2026 Nexis Code. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
