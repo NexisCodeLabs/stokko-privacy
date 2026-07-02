@@ -58,7 +58,7 @@ These Terms shall be governed by and construed in accordance with the laws of th
 ### 1.9 LEGAL PUBLISHER NOTICE & CONTACT INFORMATION
 * **Developer Brand:** Nexiscode (Google Play publisher handle)
 * **Legal Owner & Publisher:** Stokko is owned, operated, and published by **Mohssin Badji Amrane** as an independent software developer, who binds himself to all obligations, limitations, and agreements under the trading handle "Nexiscode".
-* **Email Support:** ssecure90@gmail.com
+* **Email Support:** support@nexiscode.online
 
 ---
 
@@ -106,7 +106,7 @@ These Terms shall be governed by and construed in accordance with the laws of th
 ### 2.7 الإشعار القانوني للمنشور ومعلومات الاتصال
 * **الاسم التجاري للمطور:** Nexiscode (اسم المطور المعتمد على متجر Google Play).
 * **الناشر والمالك القانوني:** هذا التطبيق مملوك ومُدار بالكامل بواسطة مطور البرمجيات المستقل **Mohssin Badji Amrane** بصفته الشخصية، وهو المسؤول والملتزم بكافة التعهدات والالتزامات الواردة في هذه الاتفاقية تحت الاسم التجاري المستعار "Nexiscode".
-* **البريد الإلكتروني:** ssecure90@gmail.com
+* **البريد الإلكتروني:** support@nexiscode.online
 
 ---
 
@@ -154,4 +154,4 @@ Ces Conditions d'utilisation sont régies et interprétées conformément aux lo
 ### 3.7 AVIS D'ÉDITEUR LÉGAL ET CONTACT
 * **Nom de marque :** Nexiscode (identifiant de publication Google Play)
 * **Éditeur et Propriétaire Légal :** L'Application Stokko est détenue, éditée et exploitée par le développeur de logiciels indépendant **Mohssin Badji Amrane** à titre individuel sous le pseudonyme commercial "Nexiscode".
-* **Support E-mail :** ssecure90@gmail.com
+* **Support E-mail :** support@nexiscode.online
