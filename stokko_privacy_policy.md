@@ -46,7 +46,7 @@ To facilitate quick inventory setup, Stokko builds a shared global catalog of pr
 ### 1.5 DATA RETENTION & DELETION RIGHTS
 We respect your rights under data protection laws (Law 18-07 / GDPR), including the right to access, correct, and delete your data.
 * **Offline Data Deletion:** If you operate on the Free Tier, uninstalling the Application or clearing its storage will permanently delete all your local database (Room DB) records.
-* **Cloud Data Deletion (VIP):** VIP users can request the permanent deletion of their account and all associated cloud-synced database files. You can request account deletion directly within the Application settings or by emailing us at **ssecure90@gmail.com**. Upon receipt of an account deletion request, all your store records on Firebase will be permanently and irreversibly purged from our active databases.
+* **Cloud Data Deletion (VIP):** VIP users can request the permanent deletion of their account and all associated cloud-synced database files. You can request account deletion directly within the Application settings or by emailing us at **support@nexiscode.online**. Upon receipt of an account deletion request, all your store records on Firebase will be permanently and irreversibly purged from our active databases.
 
 ### 1.6 SECURITY MEASURES & THIRD-PARTY SERVICES
 We implement technical measures (TLS/SSL for transit, Firebase Rules) to protect your data. Stokko utilizes:
@@ -57,7 +57,7 @@ These services are governed by Google's Privacy Policy.
 ### 1.7 LEGAL PUBLISHER NOTICE & CONTACT INFORMATION
 * **Developer Brand:** Nexiscode (Google Play publisher handle)
 * **Legal Owner & Publisher:** Stokko is owned, operated, and published by **Mohssin Badji Amrane** as an independent software developer, who binds himself to all obligations and data processor requirements under the trading handle "Nexiscode".
-* **Email Support:** ssecure90@gmail.com
+* **Email Support:** support@nexiscode.online
 
 ---
 
@@ -103,7 +103,7 @@ These services are governed by Google's Privacy Policy.
 ### 2.5 حقوق المستخدم والاحتفاظ بالبيانات
 نحن نحترم حقوقك القانونية في الوصول إلى بياناتك وتصحيحها وحذفها:
 * **حذف البيانات محلياً:** في الفئة المجانية، يؤدي إلغاء تثبيت التطبيق أو مسح بياناته من إعدادات الهاتف إلى حذف قاعدة البيانات المحلية (Room DB) نهائياً وبشكل غير قابل للاسترجاع.
-* **حذف البيانات سحابياً (VIP):** يمكنك طلب حذف حسابك وقاعدة بياناتك السحابية نهائياً في أي وقت من خلال إعدادات التطبيق أو بمراسلتنا على البريد الإلكتروني **ssecure90@gmail.com**. عند استلام طلبك، سيتم مسح جميع سجلات متجرك على خوادم Firebase فوراً وبشكل نهائي.
+* **حذف البيانات سحابياً (VIP):** يمكنك طلب حذف حسابك وقاعدة بياناتك السحابية نهائياً في أي وقت من خلال إعدادات التطبيق أو بمراسلتنا على البريد الإلكتروني **support@nexiscode.online**. عند استلام طلبك، سيتم مسح جميع سجلات متجرك على خوادم Firebase فوراً وبشكل نهائي.
 
 ### 2.6 الخدمات والجهات الخارجية
 يستخدم Stokko خدمات من معالجين خارجيين لتوفير المصادقة وقواعد البيانات:
@@ -114,7 +114,7 @@ These services are governed by Google's Privacy Policy.
 ### 2.7 الإشعار القانوني للمنشور ومعلومات الاتصال
 * **الاسم التجاري للمطور:** Nexiscode (اسم المطور المعتمد على متجر Google Play).
 * **المالك والناشر القانوني:** هذا التطبيق مملوك ومُدار بالكامل بواسطة مطور البرمجيات المستقل **Mohssin Badji Amrane** بصفته الشخصية، وهو المسؤول والملتزم بكافة تعهدات الخصوصية الواردة في هذه الوثيقة تحت اسم المطور المستعار "Nexiscode".
-* **البريد الإلكتروني:** ssecure90@gmail.com
+* **البريد الإلكتروني:** support@nexiscode.online
 
 ---
 
@@ -159,7 +159,7 @@ Pour faciliter la saisie automatique du stock, Stokko construit un catalogue par
 
 ### 3.5 CONSERVATION ET SUPPRESSION DES DONNÉES
 * **Suppression locale :** Sur le plan gratuit, la suppression de l'application ou l'effacement de ses données supprime définitivement la base de données Room DB de l'appareil.
-* **Suppression Cloud (VIP) :** Les membres VIP peuvent demander la suppression définitive de leur compte et de toutes les données Firebase à tout moment via les paramètres ou par e-mail à **ssecure90@gmail.com**. Toutes les données cloud seront alors définitivement purgées de nos serveurs.
+* **Suppression Cloud (VIP) :** Les membres VIP peuvent demander la suppression définitive de leur compte et de toutes les données Firebase à tout moment via les paramètres ou par e-mail à **support@nexiscode.online**. Toutes les données cloud seront alors définitivement purgées de nos serveurs.
 
 ### 3.6 SÉCURITÉ ET SERVICES TIERS
 Stokko utilise :
@@ -169,4 +169,4 @@ Stokko utilise :
 ### 3.7 AVIS D'ÉDITEUR LÉGAL ET CONTACT
 * **Nom de marque :** Nexiscode (identifiant de publication Google Play)
 * **Éditeur et Propriétaire Légal :** L'Application Stokko est détenue, éditée et exploitée par le développeur de logiciels indépendant **Mohssin Badji Amrane** à titre individuel sous le pseudonyme commercial "Nexiscode".
-* **Support E-mail :** ssecure90@gmail.com
+* **Support E-mail :** support@nexiscode.online
