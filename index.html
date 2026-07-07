@@ -75,8 +75,8 @@
     border-bottom:1px solid var(--line);
   }
   .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1180px;margin:0 auto;}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:1.28rem;}
-  .brand img{width:30px;height:30px;border-radius:8px;}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:1.32rem;}
+  .brand img{width:42px;height:42px;object-fit:contain;display:block;}
   .brand span.accent{color:var(--orange);}
   .nav-links{display:flex;align-items:center;gap:34px;font-size:.94rem;color:var(--ink-dim);font-weight:500;}
   .nav-links a:hover{color:var(--ink);}
@@ -147,15 +147,29 @@
   .gallery{
     display:flex;gap:20px;width:max-content;
     animation:scrollGallery 34s linear infinite;
+    animation-play-state:paused;
   }
+  .gallery-mask.in-view .gallery{animation-play-state:running;}
   .gallery-mask:hover .gallery{animation-play-state:paused;}
   .gallery img{
     flex:0 0 auto;width:200px;border-radius:18px;
     border:1px solid var(--line);
     box-shadow:0 20px 50px -20px rgba(0,0,0,.6);
-    transition:transform .25s ease;
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
+    will-change:opacity, transform;
   }
-  .gallery img:hover{transform:translateY(-8px);}
+  .gallery-mask.in-view img{opacity:1;transform:translateY(0);}
+  .gallery img:nth-child(1){transition-delay:.03s;}
+  .gallery img:nth-child(2){transition-delay:.11s;}
+  .gallery img:nth-child(3){transition-delay:.19s;}
+  .gallery img:nth-child(4){transition-delay:.27s;}
+  .gallery img:nth-child(5){transition-delay:.35s;}
+  .gallery img:nth-child(6){transition-delay:.43s;}
+  .gallery img:nth-child(7){transition-delay:.51s;}
+  .gallery img:nth-child(8){transition-delay:.59s;}
+  .gallery img:hover{transform:translateY(-8px) !important;}
   @keyframes scrollGallery{
     from{transform:translateX(0);}
     to{transform:translateX(-50%);}
@@ -359,7 +373,7 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <div class="brand" style="font-size:1.05rem;"><img src="LOGO.png" alt="NexisCode logo" style="width:24px;height:24px;">Nexis<span class="accent">Code</span></div>
+    <div class="brand" style="font-size:1.05rem;"><img src="LOGO.png" alt="NexisCode logo" style="width:34px;height:34px;">Nexis<span class="accent">Code</span></div>
     <div class="footer-links">
       <a href="#products">Products</a>
       <a href="stokko_privacy_policy.html">Stokko Privacy</a>
@@ -369,6 +383,26 @@
     <div class="copyright">© 2026 NexisCodeLabs · Algeria</div>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var mask = document.querySelector('.gallery-mask');
+    if(!mask) return;
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            mask.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.25});
+      io.observe(mask);
+    } else {
+      mask.classList.add('in-view');
+    }
+  })();
+</script>
 
 </body>
 </html>
