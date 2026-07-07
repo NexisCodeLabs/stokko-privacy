@@ -1,796 +1,374 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NexisCodeLabs — Android Apps & Software Solutions · Algeria</title>
-  <meta name="description" content="NexisCodeLabs builds native Android apps and software tools for real businesses. Creator of Stokko — inventory management and POS for Algerian retail." />
-  <meta name="keywords" content="Stokko, inventory management Algeria, POS app Android, NexisCode, EnergyZ, Android developer Algeria" />
-  <meta name="author" content="NexisCodeLabs" />
-  <meta property="og:title" content="NexisCodeLabs — Android Apps & Software" />
-  <meta property="og:description" content="Native Android apps built for real-world retail and utility use cases. Based in Algeria." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nexiscode.online/" />
-  <link rel="canonical" href="https://nexiscode.online/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --orange: #E8650A;
-      --orange-dim: #b34e06;
-      --orange-pale: #FFF0E6;
-      --orange-pale2: #FFE4CC;
-      --bg: #0C0C0B;
-      --bg2: #141412;
-      --bg3: #1C1C19;
-      --border: rgba(255,255,255,0.07);
-      --border2: rgba(255,255,255,0.12);
-      --text: #F2F0EB;
-      --text2: #A09E98;
-      --text3: #5C5A55;
-      --radius: 12px;
-      --radius-lg: 20px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 40px;
-      background: rgba(12,12,11,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-brand {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 18px;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -0.3px;
-    }
-
-    .nav-brand span { color: var(--orange); }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      color: var(--text2);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-cta {
-      font-size: 13px !important;
-      color: var(--orange) !important;
-      border: 1px solid rgba(232,101,10,0.35);
-      padding: 7px 16px;
-      border-radius: 8px;
-      transition: background 0.2s, color 0.2s !important;
-    }
-
-    .nav-cta:hover {
-      background: var(--orange) !important;
-      color: #fff !important;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 100px 40px 80px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--orange);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--orange);
-    }
-
-    .hero-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(38px, 6vw, 72px);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -2px;
-      color: var(--text);
-      max-width: 800px;
-      margin-bottom: 24px;
-    }
-
-    .hero-title .accent { color: var(--orange); }
-
-    .hero-sub {
-      font-size: 17px;
-      color: var(--text2);
-      max-width: 500px;
-      line-height: 1.7;
-      margin-bottom: 40px;
-      font-weight: 300;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--orange);
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 12px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-    }
-
-    .btn-primary:hover { background: var(--orange-dim); transform: translateY(-1px); }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--text2);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      padding: 12px 24px;
-      border-radius: 10px;
-      border: 1px solid var(--border2);
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s, transform 0.15s;
-    }
-
-    .btn-ghost:hover { border-color: var(--text3); color: var(--text); transform: translateY(-1px); }
-
-    /* PRODUCTS SECTION */
-    .section {
-      padding: 80px 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text3);
-      margin-bottom: 48px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-      max-width: 80px;
-    }
-
-    /* STOKKO FEATURE CARD */
-    .product-featured {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      margin-bottom: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 480px;
-    }
-
-    .product-featured-content {
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .product-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 20px;
-    }
-
-    .product-featured-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 40px;
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      color: var(--text);
-      margin-bottom: 6px;
-      line-height: 1;
-    }
-
-    .product-featured-sub {
-      font-size: 14px;
-      color: var(--orange);
-      font-weight: 500;
-      margin-bottom: 20px;
-    }
-
-    .product-featured-desc {
-      font-size: 15px;
-      color: var(--text2);
-      line-height: 1.7;
-      font-weight: 300;
-      margin-bottom: 32px;
-    }
-
-    .feature-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 32px;
-    }
-
-    .feature-list li {
-      font-size: 13px;
-      color: var(--text2);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .feature-list li::before {
-      content: '';
-      display: block;
-      width: 5px;
-      height: 5px;
-      background: var(--orange);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .product-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .product-featured-screens {
-      background: var(--bg3);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      gap: 12px;
-      padding: 32px 24px 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .phone-mockup {
-      width: 120px;
-      border-radius: 18px 18px 0 0;
-      border: 1.5px solid rgba(255,255,255,0.1);
-      border-bottom: none;
-      overflow: hidden;
-      background: #1a1a17;
-      flex-shrink: 0;
-    }
-
-    .phone-mockup.tall { margin-bottom: -8px; width: 130px; }
-
-    .phone-mockup img {
-      width: 100%;
-      display: block;
-    }
-
-    .phone-placeholder {
-      width: 100%;
-      aspect-ratio: 9/16;
-      background: var(--bg2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: var(--text3);
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .tech-stack {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .tech-pill {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--text3);
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      padding: 4px 10px;
-      border-radius: 6px;
-      letter-spacing: 0.3px;
-    }
-
-    /* SMALL PRODUCT CARDS */
-    .products-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .product-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      transition: border-color 0.2s;
-    }
-
-    .product-card:hover { border-color: var(--border2); }
-
-    .product-card-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--bg3);
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .product-card-icon svg { width: 20px; height: 20px; stroke: var(--orange); fill: none; stroke-width: 1.5; }
-
-    .product-card-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
-      letter-spacing: -0.5px;
-    }
-
-    .product-card-tagline {
-      font-size: 13px;
-      color: var(--orange);
-      margin-bottom: 14px;
-      font-weight: 500;
-    }
-
-    .product-card-desc {
-      font-size: 14px;
-      color: var(--text2);
-      line-height: 1.65;
-      font-weight: 300;
-      margin-bottom: 24px;
-    }
-
-    .product-card-link {
-      font-size: 13px;
-      color: var(--orange);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.2s;
-    }
-
-    .product-card-link:hover { gap: 10px; }
-
-    .product-card-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
-
-    /* ABOUT STRIP */
-    .about-strip {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-      padding: 60px 40px;
-    }
-
-    .about-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.8px;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .about-desc {
-      font-size: 15px;
-      color: var(--text2);
-      line-height: 1.75;
-      font-weight: 300;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .stat-box {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-    }
-
-    .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--orange);
-      letter-spacing: -1px;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: var(--text3);
-      font-weight: 400;
-    }
-
-    /* CONTACT SECTION */
-    .contact-section {
-      padding: 80px 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .contact-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-    }
-
-    .contact-sub {
-      font-size: 15px;
-      color: var(--text2);
-      margin-bottom: 32px;
-      font-weight: 300;
-    }
-
-    .contact-email {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 16px;
-      color: var(--orange);
-      text-decoration: none;
-      border: 1px solid rgba(232,101,10,0.3);
-      padding: 14px 28px;
-      border-radius: 10px;
-      transition: background 0.2s, transform 0.15s;
-    }
-
-    .contact-email:hover { background: rgba(232,101,10,0.08); transform: translateY(-1px); }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-brand {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--text3);
-    }
-
-    .footer-brand span { color: var(--orange); }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      color: var(--text3);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--text2); }
-
-    .footer-right {
-      font-size: 12px;
-      color: var(--text3);
-    }
-
-    /* DIVIDER LINE */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 14px 20px; }
-      .nav-links { gap: 16px; }
-      .nav-links a:not(.nav-cta):not(:last-child) { display: none; }
-      .hero { padding: 60px 20px 60px; }
-      .hero-title { font-size: 38px; letter-spacing: -1.5px; }
-      .section { padding: 60px 20px; }
-      .product-featured { grid-template-columns: 1fr; }
-      .product-featured-screens { min-height: 260px; align-items: center; padding: 24px; flex-direction: row; }
-      .phone-mockup { width: 100px; }
-      .phone-mockup.tall { width: 110px; }
-      .products-grid { grid-template-columns: 1fr; }
-      .about-inner { grid-template-columns: 1fr; gap: 32px; }
-      .about-stats { grid-template-columns: 1fr 1fr; }
-      footer { flex-direction: column; gap: 16px; text-align: center; }
-      .footer-links { justify-content: center; }
-      .about-strip { padding: 48px 20px; }
-      .contact-section { padding: 60px 20px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexisCodeLabs — Android Apps &amp; Software Solutions · Algeria</title>
+<meta name="author" content="NexisCodeLabs">
+<meta name="description" content="NexisCodeLabs builds native Android apps and software tools for real businesses. Creator of Stokko — inventory management and POS for Algerian retail.">
+<meta name="keywords" content="Stokko, inventory management Algeria, POS app Android, NexisCode, EnergyZ, Android developer Algeria">
+<link rel="canonical" href="https://nexiscode.online/">
+<meta property="og:title" content="NexisCodeLabs — Android Apps &amp; Software">
+<meta property="og:description" content="Native Android apps built for real-world retail and utility use cases. Based in Algeria.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nexiscode.online/">
+<meta property="og:image" content="https://nexiscode.online/header.png">
+<link rel="icon" href="LOGO.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08080a;
+    --bg-soft:#111114;
+    --panel:#141417;
+    --line:rgba(255,255,255,.08);
+    --ink:#f2efe9;
+    --ink-dim:#9a9a9f;
+    --orange:#f97316;
+    --orange-deep:#ea580c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'DM Sans',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Syne',sans-serif;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    line-height:1.05;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'DM Sans',sans-serif;font-weight:700;
+    font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--orange);
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--orange);display:inline-block;}
+  section{position:relative;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:100px;
+    font-weight:700;font-size:.92rem;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease;
+    white-space:nowrap;
+  }
+  .btn-solid{background:var(--orange);color:#08080a;}
+  .btn-solid:hover{background:#fb923c;transform:translateY(-2px);}
+  .btn-outline{border:1.5px solid var(--line);color:var(--ink);}
+  .btn-outline:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px);}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(8,8,10,.78);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1180px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;font-weight:700;font-size:1.28rem;}
+  .brand img{width:30px;height:30px;border-radius:8px;}
+  .brand span.accent{color:var(--orange);}
+  .nav-links{display:flex;align-items:center;gap:34px;font-size:.94rem;color:var(--ink-dim);font-weight:500;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links .btn{padding:10px 20px;font-size:.85rem;}
+  .nav-toggle{display:none;}
+
+  /* HERO */
+  .hero{padding:120px 0 90px;overflow:hidden;position:relative;}
+  .hero-inner{position:relative;z-index:1;max-width:820px;}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin:22px 0 26px;color:var(--ink);}
+  .hero h1 .hl{color:var(--orange);}
+  .hero p{font-size:1.15rem;color:var(--ink-dim);max-width:560px;margin-bottom:38px;}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+
+  /* SECTION HEADERS */
+  .section-head{max-width:600px;margin-bottom:56px;}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-top:16px;}
+  .section-tag{color:var(--ink-dim);font-size:1.02rem;margin-top:14px;}
+
+  #products{padding:110px 0;border-top:1px solid var(--line);}
+
+  /* PRODUCT CARD - STOKKO (featured) */
+  .stokko-card{
+    background:linear-gradient(155deg,var(--panel),var(--bg-soft));
+    border:1px solid var(--line);
+    border-radius:28px;
+    padding:56px;
+    margin-bottom:40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .stokko-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:8px;}
+  .badge-live{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:#86efac;background:rgba(134,239,172,.1);border:1px solid rgba(134,239,172,.25);
+    padding:6px 14px;border-radius:100px;
+  }
+  .badge-live::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ade80;}
+  .stokko-card h3{font-size:2.1rem;margin:14px 0 6px;}
+  .stokko-sub{color:var(--orange);font-weight:600;font-size:1rem;margin-bottom:20px;}
+  .stokko-desc{color:var(--ink-dim);font-size:1.02rem;max-width:640px;margin-bottom:28px;}
+  .feature-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px 28px;
+    margin-bottom:32px;max-width:680px;
+  }
+  .feature-grid div{
+    display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--ink);
+  }
+  .feature-grid div::before{content:"";width:6px;height:6px;background:var(--orange);border-radius:2px;flex:none;}
+  .stack-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px;}
+  .chip{
+    font-size:.78rem;font-weight:600;color:var(--ink-dim);
+    border:1px solid var(--line);padding:6px 14px;border-radius:100px;
+  }
+  .stokko-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+  .link-quiet{color:var(--ink-dim);font-size:.9rem;font-weight:600;align-self:center;}
+  .link-quiet:hover{color:var(--ink);}
+
+  /* SCREENSHOT GALLERY — continuous auto-scroll marquee */
+  .gallery-mask{
+    overflow:hidden;
+    margin:14px -56px -56px;
+    padding:14px 56px 56px;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 56px,#000 calc(100% - 56px),transparent 100%);
+  }
+  .gallery{
+    display:flex;gap:20px;width:max-content;
+    animation:scrollGallery 34s linear infinite;
+  }
+  .gallery-mask:hover .gallery{animation-play-state:paused;}
+  .gallery img{
+    flex:0 0 auto;width:200px;border-radius:18px;
+    border:1px solid var(--line);
+    box-shadow:0 20px 50px -20px rgba(0,0,0,.6);
+    transition:transform .25s ease;
+  }
+  .gallery img:hover{transform:translateY(-8px);}
+  @keyframes scrollGallery{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .gallery{animation:none;overflow-x:auto;}
+  }
+
+  /* SECONDARY PRODUCTS */
+  .other-products{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .mini-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:36px;
+  }
+  .mini-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+  .mini-card h4{font-family:'Syne',sans-serif;font-weight:700;font-size:1.35rem;}
+  .stat-pill{font-size:.82rem;color:var(--orange);font-weight:700;}
+  .mini-card p{color:var(--ink-dim);font-size:.95rem;margin-bottom:22px;}
+  .soon-pill{
+    font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--ink-dim);border:1px dashed var(--line);padding:5px 12px;border-radius:100px;
+  }
+
+  /* ABOUT */
+  #about{padding:110px 0;border-top:1px solid var(--line);}
+  .about-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;}
+  #about p{color:var(--ink-dim);font-size:1.05rem;max-width:520px;}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .stat-grid div{border-left:2px solid var(--orange);padding-left:16px;}
+  .stat-grid .num{font-family:'Syne',sans-serif;font-weight:800;font-size:2.1rem;display:block;}
+  .stat-grid .lbl{color:var(--ink-dim);font-size:.85rem;margin-top:4px;}
+
+  /* CONTACT */
+  #contact{padding:110px 0 130px;border-top:1px solid var(--line);text-align:center;}
+  #contact h2{font-size:clamp(2.2rem,4.4vw,3.4rem);margin-bottom:20px;}
+  #contact p{color:var(--ink-dim);font-size:1.05rem;margin-bottom:36px;}
+  .mail-link{font-family:'Syne',sans-serif;font-weight:700;font-size:1.3rem;color:var(--orange);border-bottom:2px solid transparent;}
+  .mail-link:hover{border-color:var(--orange);}
+
+  footer{border-top:1px solid var(--line);padding:38px 0;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:26px;font-size:.85rem;color:var(--ink-dim);flex-wrap:wrap;}
+  .footer-links a:hover{color:var(--ink);}
+  .copyright{font-size:.82rem;color:var(--ink-dim);}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .about-inner{grid-template-columns:1fr;}
+    .feature-grid{grid-template-columns:1fr 1fr;}
+    .other-products{grid-template-columns:1fr;}
+    .stokko-card{padding:34px 24px;}
+    .hero{padding:100px 0 60px;}
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="/" class="nav-brand">Nexis<span>Code</span></a>
-    <div class="nav-links">
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><img src="LOGO.png" alt="NexisCode logo">Nexis<span class="accent">Code</span></a>
+    <nav class="nav-links">
       <a href="#products">Products</a>
       <a href="#about">About</a>
-      <a href="#contact" class="nav-cta">Contact us</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-eyebrow">NexisCodeLabs · Based in Algeria</div>
-    <h1 class="hero-title">
-      We build apps<br>
-      that <span class="accent">actually work</span><br>
-      in the real world.
-    </h1>
-    <p class="hero-sub">
-      Native Android applications and software tools — designed for everyday retail, built to perform under real Algerian conditions.
-    </p>
-    <div class="hero-actions">
-      <a href="#products" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        Our products
-      </a>
-      <a href="#contact" class="btn-ghost">
-        Get in touch
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- PRODUCTS -->
-  <section class="section" id="products">
-    <div class="section-label">Our products</div>
-
-    <!-- STOKKO FEATURED -->
-    <div class="product-featured">
-      <div class="product-featured-content">
-        <div>
-          <div class="product-tag">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            Available now on Google Play
-          </div>
-          <h2 class="product-featured-title">Stokko</h2>
-          <div class="product-featured-sub">Inventory management & POS for retail</div>
-          <p class="product-featured-desc">
-            A complete store management system built for small and growing Algerian businesses. Manage your inventory, run sales at the counter, track supplier debts, and keep your books — all from your Android phone, with or without internet.
-          </p>
-          <ul class="feature-list">
-            <li>Barcode scanning & POS</li>
-            <li>Inventory & stock alerts</li>
-            <li>Customer debt book</li>
-            <li>Supplier purchases</li>
-            <li>VIP plans & multi-user</li>
-            <li>Cloud sync via Supabase</li>
-          </ul>
-        </div>
-        <div>
-          <div class="product-actions">
-            <a href="https://play.google.com/store/apps/details?id=com.nexiscode.stokko" class="btn-primary" target="_blank" rel="noopener">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="m10 8 6 4-6 4V8z"/></svg>
-              Download on Play Store
-            </a>
-            <a href="stokko_privacy_policy.html" class="btn-ghost">Privacy policy</a>
-          </div>
-          <div class="tech-stack">
-            <span class="tech-pill">Kotlin</span>
-            <span class="tech-pill">Jetpack Compose</span>
-            <span class="tech-pill">Supabase</span>
-            <span class="tech-pill">Android</span>
-          </div>
-        </div>
-      </div>
-      <div class="product-featured-screens">
-        <div class="phone-mockup">
-<img src="screenshot-sales.png" alt="Stokko sales screen" />
-        </div>
-        <div class="phone-mockup tall">
-<img src="screenshot-inventory.png" alt="Stokko inventory screen" />
-        </div>
-        <div class="phone-mockup">
-<img src="screenshot-purchases.png" alt="Stokko purchases screen" />
-        </div>
-      </div>
-    </div>
-
-    <!-- ENERGYZ + VOCALIFY -->
-    <div class="products-grid">
-      <div class="product-card">
-        <div class="product-card-icon">
-          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <div class="product-card-name">EnergyZ</div>
-        <div class="product-card-tagline">Battery & phone analyzer</div>
-        <p class="product-card-desc">
-          Monitor battery health, charging speed, voltage, current, and device info in real time. Set alerts and track performance curves — built with native Android APIs for accurate readings.
-        </p>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
-          <span class="tech-pill">Android APIs</span>
-          <span class="tech-pill">Java</span>
-          <span class="tech-pill" style="color:var(--orange);border-color:rgba(232,101,10,0.3);">4.8 ★ on Play Store</span>
-        </div>
-        <div style="display: flex; gap: 16px; align-items: center;">
-          <a href="https://play.google.com/store/apps/details?id=com.badj.energyz" class="product-card-link" target="_blank" rel="noopener">
-            View on Play Store
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <span style="color: var(--text3);">|</span>
-          <a href="energyz-privacy.html" class="product-card-link" style="color: var(--text2);">
-            Privacy policy
-          </a>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-card-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"/></svg>
-        </div>
-        <div class="product-card-name">Vocalify</div>
-        <div class="product-card-tagline">Text-to-speech utility</div>
-        <p class="product-card-desc">
-          Fast and reliable text-to-speech conversion using native Android TTS engines. Transforms any text into natural-sounding audio instantly — lightweight, offline-ready, and distraction-free.
-        </p>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
-          <span class="tech-pill">TTS Engine</span>
-          <span class="tech-pill">Android</span>
-          <span class="tech-pill" style="color:var(--text3);border-color:var(--border);">Coming soon</span>
-        </div>
-        <span style="font-size:13px;color:var(--text3);">In development</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT STRIP -->
-  <div class="about-strip" id="about">
-    <div class="about-inner">
-      <div>
-        <h2 class="about-title">Built by a developer<br>who uses what he ships.</h2>
-        <p class="about-desc">
-          NexisCodeLabs is an independent software studio based in Algeria. We focus on Android-first tools that solve real problems for local businesses — not generic software copy-pasted from Western templates. Every product is designed, coded, and tested by us, with direct feedback from real users.
-        </p>
-      </div>
-      <div class="about-stats">
-        <div class="stat-box">
-          <div class="stat-num">3</div>
-          <div class="stat-label">Apps in production</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">4.8★</div>
-          <div class="stat-label">EnergyZ rating</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">1K+</div>
-          <div class="stat-label">EnergyZ downloads</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">DZ</div>
-          <div class="stat-label">Headquartered, Algeria</div>
-        </div>
-      </div>
-    </div>
+      <a class="btn btn-outline" href="#contact">Contact us</a>
+    </nav>
   </div>
+</header>
 
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <h2 class="contact-title">Let's talk.</h2>
-    <p class="contact-sub">For business inquiries, partnerships, or feedback on any of our products.</p>
-    <a href="mailto:contact@nexiscode.online" class="contact-email">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-      contact@nexiscode.online
-    </a>
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">NexisCodeLabs</span>
+      <h1>We build apps <span class="hl">that actually work</span> in the real world.</h1>
+      <p>Native Android applications and software tools — designed for everyday retail, built to perform under real Algerian conditions.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="#products">Our products</a>
+        <a class="btn btn-outline" href="#contact">Get in touch</a>
+      </div>
+    </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-brand">Nexis<span>Code</span>Labs</div>
+  <section id="products">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Our products</span>
+        <h2>Available now on Google Play</h2>
+      </div>
+
+      <!-- STOKKO -->
+      <article class="stokko-card">
+        <div class="stokko-top">
+          <div>
+            <span class="badge-live">Live on Play Store</span>
+            <h3>Stokko</h3>
+            <div class="stokko-sub">Inventory management &amp; POS for retail</div>
+          </div>
+        </div>
+        <p class="stokko-desc">A complete store management system built for small and growing Algerian businesses. Manage your inventory, run sales at the counter, track supplier debts, and keep your books — all from your Android phone, with or without internet.</p>
+
+        <div class="feature-grid">
+          <div>Barcode scanning &amp; POS</div>
+          <div>Inventory &amp; stock alerts</div>
+          <div>Customer debt book</div>
+          <div>Supplier purchases</div>
+          <div>VIP plans &amp; multi-user</div>
+          <div>Cloud sync via Supabase</div>
+        </div>
+
+        <div class="stack-row">
+          <span class="chip">Kotlin</span>
+          <span class="chip">Jetpack Compose</span>
+          <span class="chip">Supabase</span>
+          <span class="chip">Android</span>
+        </div>
+
+        <div class="stokko-ctas">
+          <a class="btn btn-solid" href="https://play.google.com/store/apps/details?id=com.nexiscode.stokko">Download on Play Store</a>
+          <a class="link-quiet" href="stokko_privacy_policy.html">Privacy policy</a>
+        </div>
+
+        <div class="gallery-mask">
+          <div class="gallery" role="list" aria-label="Stokko app screenshots">
+            <img src="stokko_screenshot_1.png" alt="Stokko screenshot 1" loading="lazy">
+            <img src="stokko_screenshot_2.png" alt="Stokko screenshot 2" loading="lazy">
+            <img src="stokko_screenshot_3.png" alt="Stokko screenshot 3" loading="lazy">
+            <img src="stokko_screenshot_4.png" alt="Stokko screenshot 4" loading="lazy">
+            <img src="stokko_screenshot_5.png" alt="Stokko screenshot 5" loading="lazy">
+            <img src="stokko_screenshot_6.png" alt="Stokko screenshot 6" loading="lazy">
+            <img src="stokko_screenshot_7.png" alt="Stokko screenshot 7" loading="lazy">
+            <img src="stokko_screenshot_8.png" alt="Stokko screenshot 8" loading="lazy">
+            <!-- duplicated set for seamless infinite loop -->
+            <img src="stokko_screenshot_1.png" alt="" aria-hidden="true" loading="lazy">
+            <img src="stokko_screenshot_2.png" alt="" aria-hidden="true" loading="lazy">
+            <img src="stokko_screenshot_3.png" alt="" aria-hidden="true" loading="lazy">
+            <img src="stokko_screenshot_4.png" alt="" aria-hidden="true" loading="lazy">
+            <img src="stokko_screenshot_5.png" alt="" aria-hidden="true" loading="lazy">
+            <img src="stokko_screenshot_6.png" alt="" aria-hidden="true" loading="lazy">
+            <img src="stokko_screenshot_7.png" alt="" aria-hidden="true" loading="lazy">
+            <img src="stokko_screenshot_8.png" alt="" aria-hidden="true" loading="lazy">
+          </div>
+        </div>
+      </article>
+
+      <!-- SECONDARY PRODUCTS -->
+      <div class="other-products">
+        <div class="mini-card">
+          <div class="mini-top">
+            <h4>EnergyZ</h4>
+            <span class="stat-pill">4.8★ Play Store</span>
+          </div>
+          <p>Monitor battery health, charging speed, voltage, current, and device info in real time. Set alerts and track performance curves — built with native Android APIs for accurate readings.</p>
+          <div class="stack-row" style="margin-bottom:20px;">
+            <span class="chip">Android APIs</span>
+            <span class="chip">Java</span>
+          </div>
+          <div class="stokko-ctas" style="margin-bottom:0;">
+            <a class="btn btn-outline" href="https://play.google.com/store/apps/details?id=com.badj.energyz">View on Play Store</a>
+            <a class="link-quiet" href="energyz-privacy.html">Privacy policy</a>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-top">
+            <h4>Vocalify</h4>
+            <span class="soon-pill">Coming soon</span>
+          </div>
+          <p>Fast and reliable text-to-speech conversion using native Android TTS engines. Transforms any text into natural-sounding audio instantly — lightweight, offline-ready, and distraction-free.</p>
+          <div class="stack-row">
+            <span class="chip">TTS Engine</span>
+            <span class="chip">Android</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-inner">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem);margin:16px 0 20px;">Built by a developer who uses what he ships.</h2>
+        <p>NexisCodeLabs is an independent software studio based in Algeria. We focus on Android-first tools that solve real problems for local businesses — not generic software copy-pasted from Western templates. Every product is designed, coded, and tested by us, with direct feedback from real users.</p>
+      </div>
+      <div class="stat-grid">
+        <div><span class="num">3</span><span class="lbl">Apps in production</span></div>
+        <div><span class="num">4.8★</span><span class="lbl">EnergyZ rating</span></div>
+        <div><span class="num">1K+</span><span class="lbl">EnergyZ downloads</span></div>
+        <div><span class="num">DZ</span><span class="lbl">Headquartered, Algeria</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <span class="eyebrow" style="justify-content:center;">Get in touch</span>
+      <h2 style="margin-top:18px;">Let's talk.</h2>
+      <p>For business inquiries, partnerships, or feedback on any of our products.</p>
+      <a class="mail-link" href="mailto:contact@nexiscode.online">contact@nexiscode.online</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="brand" style="font-size:1.05rem;"><img src="LOGO.png" alt="NexisCode logo" style="width:24px;height:24px;">Nexis<span class="accent">Code</span></div>
     <div class="footer-links">
       <a href="#products">Products</a>
       <a href="stokko_privacy_policy.html">Stokko Privacy</a>
       <a href="energyz-privacy.html">EnergyZ Privacy</a>
       <a href="#contact">Contact</a>
     </div>
-    <div class="footer-right">© 2026 NexisCodeLabs · Algeria</div>
-  </footer>
+    <div class="copyright">© 2026 NexisCodeLabs · Algeria</div>
+  </div>
+</footer>
 
 </body>
 </html>
