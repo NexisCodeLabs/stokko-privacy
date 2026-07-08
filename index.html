@@ -742,13 +742,22 @@
       for(var i = 0; i < count; i++){
         var big = Math.random() > 0.88;
         nodes.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
+          baseX: Math.random() * w,
+          baseY: Math.random() * h,
+          x: 0, y: 0,
           vx: (Math.random() - 0.5) * 0.22,
           vy: (Math.random() - 0.5) * 0.22,
           r: big ? (7 + Math.random() * 3) : (2 + Math.random() * 2.2),
           big: big,
-          pulse: Math.random() * Math.PI * 2
+          pulse: Math.random() * Math.PI * 2,
+          swimAmpX: 10 + Math.random() * 16,
+          swimAmpY: 8 + Math.random() * 14,
+          swimSpeedX: 0.25 + Math.random() * 0.35,
+          swimSpeedY: 0.2 + Math.random() * 0.3,
+          swimPhaseX: Math.random() * Math.PI * 2,
+          swimPhaseY: Math.random() * Math.PI * 2,
+          rot: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.25
         });
       }
     }
@@ -764,9 +773,10 @@
     }, {passive:true});
     document.addEventListener('mouseleave', function(){ mouse.active = false; });
 
-    function drawHexNode(x, y, r, alpha){
+    function drawHexNode(x, y, r, alpha, rot){
       ctx.save();
       ctx.translate(x, y);
+      ctx.rotate(rot || 0);
       ctx.beginPath();
       for(var i = 0; i < 6; i++){
         var ang = (Math.PI / 3) * i - Math.PI / 2;
@@ -795,26 +805,37 @@
       io.observe(canvas);
     }
 
-    function tick(){
+    var startTime = null;
+    function tick(ts){
       requestAnimationFrame(tick);
       if(!visible) return;
+      if(!startTime) startTime = ts;
+      var t = (ts - startTime) / 1000;
       ctx.clearRect(0, 0, w, h);
 
       nodes.forEach(function(n){
-        n.x += n.vx; n.y += n.vy;
-        if(n.x < -20) n.x = w + 20; if(n.x > w + 20) n.x = -20;
-        if(n.y < -20) n.y = h + 20; if(n.y > h + 20) n.y = -20;
+        n.baseX += n.vx; n.baseY += n.vy;
+        if(n.baseX < -30) n.baseX = w + 30; if(n.baseX > w + 30) n.baseX = -30;
+        if(n.baseY < -30) n.baseY = h + 30; if(n.baseY > h + 30) n.baseY = -30;
+
         if(mouse.active){
-          var dx = n.x - mouse.x, dy = n.y - mouse.y;
+          var dx = n.baseX - mouse.x, dy = n.baseY - mouse.y;
           var d = Math.sqrt(dx*dx + dy*dy);
-          if(d < 130 && d > 0.01){
-            var f = (130 - d) / 130 * 0.035;
+          if(d < 150 && d > 0.01){
+            var f = (150 - d) / 150 * 0.05;
             n.vx += (dx/d) * f; n.vy += (dy/d) * f;
           }
         }
         n.vx *= 0.985; n.vy *= 0.985;
         var speed = Math.sqrt(n.vx*n.vx + n.vy*n.vy);
         if(speed < 0.04){ n.vx += (Math.random()-0.5)*0.015; n.vy += (Math.random()-0.5)*0.015; }
+        var maxSpeed = 0.9;
+        if(speed > maxSpeed){ n.vx = (n.vx/speed)*maxSpeed; n.vy = (n.vy/speed)*maxSpeed; }
+
+        /* organic swimming offset, independent of base drift */
+        n.x = n.baseX + Math.sin(t * n.swimSpeedX + n.swimPhaseX) * n.swimAmpX;
+        n.y = n.baseY + Math.cos(t * n.swimSpeedY + n.swimPhaseY) * n.swimAmpY;
+        n.rot += n.rotSpeed * 0.01;
       });
 
       ctx.lineWidth = 1;
@@ -837,7 +858,7 @@
         n.pulse += 0.02;
         var glowAlpha = 0.75 + Math.sin(n.pulse) * 0.2;
         if(n.big){
-          drawHexNode(n.x, n.y, n.r, glowAlpha);
+          drawHexNode(n.x, n.y, n.r, glowAlpha, n.rot);
         } else {
           var haloGrad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 2.6);
           haloGrad.addColorStop(0, 'rgba(' + ORANGE + ',' + (glowAlpha * 0.5) + ')');
@@ -857,7 +878,7 @@
         }
       });
     }
-    tick();
+    requestAnimationFrame(tick);
   })();
 
   /* ---------- Magnetic buttons ---------- */
