@@ -16,7 +16,7 @@
 <link rel="icon" href="LOGO.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#08080a;
@@ -111,24 +111,19 @@
     border-right-color: var(--orange-deep);
     animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
   }
-  @keyframes spin {
-    100% { transform: rotate(360deg); }
-  }
-  /* تعديل لقص المربع الأسود وجعله دائرياً */
+  @keyframes spin { 100% { transform: rotate(360deg); } }
   .loader-mark {
-    width: 48px; 
-    height: 48px; 
-    z-index: 2;
-    border-radius: 50%;
-    overflow: hidden; 
-    background: #000; /* في حال كانت هناك حواف شفافة */
+    width: 48px; height: 48px; z-index: 2;
+    border-radius: 50%; overflow: hidden; background: #000;
   }
   .loader-mark img{width:100%;height:100%;object-fit:cover; transform: scale(1.05);}
   @keyframes markIn{to{opacity:1;transform:scale(1);}}
   
-  .loader-word{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.02em;
+  /* تعديل خط لودر ليكون مثل العناوين (Syne) ومتصل */
+  .loader-word{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-0.02em;
     opacity:0;animation:markIn .8s cubic-bezier(.2,.8,.2,1) .25s forwards;}
   .loader-word .accent{color:var(--orange);}
+  
   .loader-bar{width:180px;height:2px;background:var(--line);border-radius:2px;overflow:hidden;
     opacity:0;animation:markIn .6s ease .4s forwards;}
   .loader-bar span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--orange-deep),var(--orange));
@@ -187,9 +182,12 @@
   }
   header.nav.scrolled{background:rgba(8,8,10,.9);}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1180px;margin:0 auto;}
-  .brand{display:flex;align-items:center;gap:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:1.32rem;}
+  
+  /* تعديل الخط في الهيدر ليكون حاد ومتصل */
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Syne',sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:-0.02em;}
   .brand img{width:42px;height:42px;object-fit:contain;display:block;}
   .brand span.accent{color:var(--orange);}
+  
   .nav-links{display:flex;align-items:center;gap:34px;font-size:.94rem;color:var(--ink-dim);font-weight:500;}
   .nav-links a:not(.btn){position:relative;padding-bottom:4px;transition:color .25s ease;}
   .nav-links a:not(.btn)::after{
@@ -222,11 +220,7 @@
   .aurora span:nth-child(1){ width:520px;height:520px;left:2%;top:6%; background:radial-gradient(circle,rgba(249,115,22,.55),transparent 70%); animation-duration:26s; }
   .aurora span:nth-child(2){ width:440px;height:440px;right:6%;top:-4%; background:radial-gradient(circle,rgba(234,88,12,.4),transparent 70%); animation-duration:31s;animation-delay:-6s; }
   .aurora span:nth-child(3){ width:380px;height:380px;left:32%;bottom:-10%; background:radial-gradient(circle,rgba(249,115,22,.28),transparent 70%); animation-duration:19s;animation-delay:-11s; }
-  @keyframes drift{
-    0%,100%{transform:translate(0,0) scale(1);}
-    33%{transform:translate(4%,6%) scale(1.08);}
-    66%{transform:translate(-5%,-3%) scale(.94);}
-  }
+  @keyframes drift{ 0%,100%{transform:translate(0,0) scale(1);} 33%{transform:translate(4%,6%) scale(1.08);} 66%{transform:translate(-5%,-3%) scale(.94);} }
   #particleCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
   .nn-readout{
     position:absolute;left:32px;bottom:14px;z-index:1;
@@ -328,21 +322,25 @@
   }
   .feature-grid div::before{content:"";width:6px;height:6px;background:var(--orange);border-radius:2px;flex:none;}
   .stack-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px;}
+  
+  /* جعل الرقاقات قابلة للنقر (روابط) */
   .chip{
     font-size:.78rem;font-weight:600;color:var(--ink-dim);
     border:1px solid var(--line);padding:6px 14px;border-radius:100px;
     transition:border-color .25s ease,color .25s ease,transform .25s ease;
+    display: inline-block; cursor: pointer; text-decoration: none;
   }
   .chip:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px);}
+  
   .stokko-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
   .link-quiet{color:var(--ink-dim);font-size:.9rem;font-weight:600;align-self:center;}
   .link-quiet:hover{color:var(--ink);}
 
-  /* ================= SWIPEABLE CAROUSEL (Enlarged) ================= */
+  /* ================= SWIPEABLE CAROUSEL (Enlarged & Drag Fixed) ================= */
   .gallery-single{margin-top:20px;display:flex;flex-direction:column;align-items:center;perspective:1000px;}
   .gallery-frame{
     position:relative;
-    width: 280px; /* تكبير حجم العرض */
+    width: 280px; 
     max-width: 75vw;
     aspect-ratio:1080/1920;
     border-radius:24px;
@@ -353,6 +351,8 @@
     transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;
     cursor: grab;
     touch-action: pan-y; 
+    user-select: none; /* منع تحديد النص بالخطأ */
+    -webkit-user-select: none;
   }
   .gallery-frame:active{cursor: grabbing;}
   .gallery-frame:hover{transform:rotateX(2deg) rotateY(-4deg) translateY(-4px);box-shadow:0 40px 90px -25px rgba(249,115,22,.18);}
@@ -370,10 +370,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    pointer-events: none; 
+    pointer-events: none; /* يمنع الماوس من الإمساك بالصورة نفسها بدلاً من الإطار */
   }
   
-  /* Swipe Hints < > */
   .swipe-hint {
     position: absolute;
     inset: 0;
@@ -445,11 +444,15 @@
 
   footer{border-top:1px solid var(--line);padding:38px 0;}
   .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  
+  /* تعديل الخط في الفوتر أيضاً ليكون متسقاً */
+  .footer-inner .brand{font-size:1.15rem;} 
+  
   .footer-links{display:flex;gap:26px;font-size:.85rem;color:var(--ink-dim);flex-wrap:wrap;}
   .footer-links a:hover{color:var(--ink);}
   .copyright{font-size:.82rem;color:var(--ink-dim);}
 
-  /* ================= LIGHTBOX (Enlarge Image) ================= */
+  /* ================= LIGHTBOX ================= */
   .lightbox {
     position: fixed;
     inset: 0;
@@ -463,41 +466,22 @@
     pointer-events: none;
     transition: opacity 0.3s ease;
   }
-  .lightbox.is-open {
-    opacity: 1;
-    pointer-events: all;
-  }
+  .lightbox.is-open { opacity: 1; pointer-events: all; }
   .lightbox img {
-    max-height: 90vh;
-    max-width: 90vw;
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    transform: scale(0.95);
-    transition: transform 0.3s cubic-bezier(.2,.8,.2,1);
+    max-height: 90vh; max-width: 90vw;
+    border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transform: scale(0.95); transition: transform 0.3s cubic-bezier(.2,.8,.2,1);
     object-fit: contain;
   }
-  .lightbox.is-open img {
-    transform: scale(1);
-  }
+  .lightbox.is-open img { transform: scale(1); }
   .lightbox-close {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    color: white;
-    font-size: 2.5rem;
-    cursor: pointer;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
+    position: absolute; top: 24px; right: 24px; color: white;
+    font-size: 2.5rem; cursor: pointer; width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.1); border-radius: 50%;
     transition: background 0.2s ease;
   }
-  .lightbox-close:hover {
-    background: rgba(249,115,22,0.8);
-  }
+  .lightbox-close:hover { background: rgba(249,115,22,0.8); }
 
   @media (max-width:860px){
     .nav-links{display:none;}
@@ -580,7 +564,6 @@
         <h2>Available now on Google Play</h2>
       </div>
 
-      <!-- STOKKO -->
       <article class="stokko-card reveal tilt-card">
         <div class="stokko-top">
           <div>
@@ -601,10 +584,10 @@
         </div>
 
         <div class="stack-row">
-          <span class="chip">Kotlin</span>
-          <span class="chip">Jetpack Compose</span>
-          <span class="chip">Supabase</span>
-          <span class="chip">Android</span>
+          <a href="https://kotlinlang.org/" target="_blank" class="chip">Kotlin</a>
+          <a href="https://developer.android.com/jetpack/compose" target="_blank" class="chip">Jetpack Compose</a>
+          <a href="https://supabase.com/" target="_blank" class="chip">Supabase</a>
+          <a href="https://developer.android.com/" target="_blank" class="chip">Android</a>
         </div>
 
         <div class="stokko-ctas">
@@ -614,18 +597,16 @@
 
         <div class="gallery-single" data-parallax="0.04">
           <div class="gallery-frame" aria-label="Stokko app screenshots" title="Swipe to change, Click to enlarge">
-            <!-- مسار الصور القابل للسحب والضغط -->
             <div class="gallery-track" id="galleryTrack">
-              <img src="stokko_screenshot_1.png" alt="Stokko screenshot 1">
-              <img src="stokko_screenshot_2.png" alt="Stokko screenshot 2" loading="lazy">
-              <img src="stokko_screenshot_3.png" alt="Stokko screenshot 3" loading="lazy">
-              <img src="stokko_screenshot_4.png" alt="Stokko screenshot 4" loading="lazy">
-              <img src="stokko_screenshot_5.png" alt="Stokko screenshot 5" loading="lazy">
-              <img src="stokko_screenshot_6.png" alt="Stokko screenshot 6" loading="lazy">
-              <img src="stokko_screenshot_7.png" alt="Stokko screenshot 7" loading="lazy">
-              <img src="stokko_screenshot_8.png" alt="Stokko screenshot 8" loading="lazy">
+              <img src="stokko_screenshot_1.png" alt="Stokko screenshot 1" draggable="false">
+              <img src="stokko_screenshot_2.png" alt="Stokko screenshot 2" loading="lazy" draggable="false">
+              <img src="stokko_screenshot_3.png" alt="Stokko screenshot 3" loading="lazy" draggable="false">
+              <img src="stokko_screenshot_4.png" alt="Stokko screenshot 4" loading="lazy" draggable="false">
+              <img src="stokko_screenshot_5.png" alt="Stokko screenshot 5" loading="lazy" draggable="false">
+              <img src="stokko_screenshot_6.png" alt="Stokko screenshot 6" loading="lazy" draggable="false">
+              <img src="stokko_screenshot_7.png" alt="Stokko screenshot 7" loading="lazy" draggable="false">
+              <img src="stokko_screenshot_8.png" alt="Stokko screenshot 8" loading="lazy" draggable="false">
             </div>
-            <!-- تلميحات السحب -->
             <div class="swipe-hint">
                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -644,7 +625,6 @@
         </div>
       </article>
 
-      <!-- SECONDARY PRODUCTS -->
       <div class="other-products stagger">
         <div class="mini-card">
           <div class="mini-top">
@@ -653,8 +633,8 @@
           </div>
           <p>Monitor battery health, charging speed, voltage, current, and device info in real time. Set alerts and track performance curves — built with native Android APIs for accurate readings.</p>
           <div class="stack-row" style="margin-bottom:20px;">
-            <span class="chip">Android APIs</span>
-            <span class="chip">Java</span>
+            <a href="https://developer.android.com/reference" target="_blank" class="chip">Android APIs</a>
+            <a href="https://developer.android.com/jetpack/compose" target="_blank" class="chip">Jetpack Compose</a>
           </div>
           <div class="stokko-ctas" style="margin-bottom:0;">
             <a class="btn btn-outline magnetic" href="https://play.google.com/store/apps/details?id=com.badj.energyz">View on Play Store</a>
@@ -669,8 +649,8 @@
           </div>
           <p>Fast and reliable text-to-speech conversion using native Android TTS engines. Transforms any text into natural-sounding audio instantly — lightweight, offline-ready, and distraction-free.</p>
           <div class="stack-row">
-            <span class="chip">TTS Engine</span>
-            <span class="chip">Android</span>
+            <a href="https://developer.android.com/reference/android/speech/tts/TextToSpeech" target="_blank" class="chip">TTS Engine</a>
+            <a href="https://developer.android.com/" target="_blank" class="chip">Android</a>
           </div>
         </div>
       </div>
@@ -706,7 +686,7 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <div class="brand" style="font-size:1.05rem;"><img src="LOGO.png" alt="NexisCode logo" style="width:34px;height:34px;">Nexis<span class="accent">Code</span></div>
+    <div class="brand" style="font-size:1.15rem;"><img src="LOGO.png" alt="NexisCode logo" style="width:34px;height:34px;">Nexis<span class="accent">Code</span></div>
     <div class="footer-links">
       <a href="#products">Products</a>
       <a href="stokko_privacy_policy.html">Stokko Privacy</a>
@@ -717,7 +697,6 @@
   </div>
 </footer>
 
-<!-- Lightbox Modal -->
 <div id="lightbox" class="lightbox">
   <div class="lightbox-close" id="lightboxClose">&times;</div>
   <img id="lightboxImg" src="" alt="Enlarged screenshot">
@@ -809,7 +788,7 @@
     revealTargets.forEach(function(t){ ro.observe(t); });
   } else { revealTargets.forEach(function(t){ t.classList.add('is-visible'); }); }
 
-  /* ---------- Canvas Net (Condensed) ---------- */
+  /* ---------- Canvas Net ---------- */
   (function initNetwork(){
     var canvas = document.getElementById('particleCanvas'); if(reduceMotion || !canvas) return;
     var ctx = canvas.getContext('2d'); if(!ctx) return;
@@ -887,7 +866,7 @@
   document.querySelectorAll('.btn,.chip,.gallery-dots button,.scrollspy button,.gallery-frame').forEach(function(el){ el.addEventListener('click', pop); });
   sndTog.addEventListener('click', function(){ snd=!snd; localStorage.setItem('nx-sound', snd?'on':'off'); sndTog.style.opacity=snd?'1':'.45'; if(snd) pop(); });
 
-  /* ---------- Screenshot Gallery (Swipe + Click + Auto) ---------- */
+  /* ---------- Screenshot Gallery (Fixed Drag) ---------- */
   var frame = document.querySelector('.gallery-frame'), track = document.getElementById('galleryTrack');
   var lightbox = document.getElementById('lightbox'), lightboxImg = document.getElementById('lightboxImg');
   
@@ -907,12 +886,14 @@
       isDragging = true; isClick = true; stopAuto();
       startX = e.type === 'touchstart' ? e.touches[0].clientX : e.pageX;
       prevTrans = currTrans;
+      // منع التحديد الافتراضي عند الضغط
+      e.preventDefault(); 
     }
     function dm(e){
       if(!isDragging) return;
       var x = e.type === 'touchmove' ? e.touches[0].clientX : e.pageX;
       var diff = x - startX;
-      if(Math.abs(diff) > 5) isClick = false; // إذا تحرك أكثر من 5 بكسل، فهو سحب وليس ضغطة
+      if(Math.abs(diff) > 5) isClick = false; 
       
       track.classList.add('is-dragging');
       if((currentIdx===0 && diff>0) || (currentIdx===dots.length-1 && diff<0)) diff *= 0.3;
@@ -929,7 +910,6 @@
       }
       
       if(isClick) {
-        // فتح الصورة المكبرة (Lightbox)
         lightboxImg.src = imgs[currentIdx].src;
         lightbox.classList.add('is-open');
       }
@@ -937,8 +917,23 @@
       render(true); startAuto();
     }
 
-    frame.addEventListener('mousedown', ds); window.addEventListener('mousemove', dm); window.addEventListener('mouseup', de);
-    frame.addEventListener('touchstart', ds, {passive:true}); window.addEventListener('touchmove', dm, {passive:true}); window.addEventListener('touchend', de);
+    // إضافة مستمع للأحداث لإلغاء السحب إذا خرج الماوس من الإطار
+    function dl(){
+       if(isDragging){
+          isDragging = false;
+          render(true);
+          startAuto();
+       }
+    }
+
+    frame.addEventListener('mousedown', ds); 
+    window.addEventListener('mousemove', dm); 
+    window.addEventListener('mouseup', de);
+    frame.addEventListener('mouseleave', dl); // الحل لمشكلة التصاق الماوس
+
+    frame.addEventListener('touchstart', ds, {passive:false}); // changed to false to allow preventDefault
+    window.addEventListener('touchmove', dm, {passive:true}); 
+    window.addEventListener('touchend', de);
 
     dots.forEach(function(dot){ dot.addEventListener('click', function(e){ e.stopPropagation(); currentIdx = parseInt(dot.getAttribute('data-index'), 10); render(true); startAuto(); }); });
     
@@ -948,7 +943,6 @@
     window.addEventListener('resize', function(){ render(false); });
     if('IntersectionObserver' in window){ var io2 = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ if(!reduceMotion) startAuto(); io2.unobserve(e.target); }}); }, {threshold:.4}); io2.observe(frame); } else startAuto();
 
-    // إغلاق نافذة العرض المكبرة
     document.getElementById('lightboxClose').addEventListener('click', function(){ lightbox.classList.remove('is-open'); });
     lightbox.addEventListener('click', function(e){ if(e.target === lightbox) lightbox.classList.remove('is-open'); });
   }
