@@ -119,9 +119,13 @@
   .loader-mark img{width:100%;height:100%;object-fit:cover; transform: scale(1.05);}
   @keyframes markIn{to{opacity:1;transform:scale(1);}}
   
-  /* تعديل خط لودر ليكون مثل العناوين (Syne) ومتصل */
-  .loader-word{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-0.02em;
-    opacity:0;animation:markIn .8s cubic-bezier(.2,.8,.2,1) .25s forwards;}
+  /* معالجة التحام الشعار في اللودر */
+  .loader-word{
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;
+    letter-spacing:-0.03em; /* تقريب الحروف */
+    opacity:0;animation:markIn .8s cubic-bezier(.2,.8,.2,1) .25s forwards;
+  }
   .loader-word .accent{color:var(--orange);}
   
   .loader-bar{width:180px;height:2px;background:var(--line);border-radius:2px;overflow:hidden;
@@ -183,10 +187,16 @@
   header.nav.scrolled{background:rgba(8,8,10,.9);}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1180px;margin:0 auto;}
   
-  /* تعديل الخط في الهيدر ليكون حاد ومتصل */
-  .brand{display:flex;align-items:center;gap:12px;font-family:'Syne',sans-serif;font-weight:800;font-size:1.45rem;letter-spacing:-0.02em;}
+  /* معالجة حاسمة لشعار NexisCode ليكون ملتصقاً وحاداً */
+  .brand-logo-wrap { display:flex; align-items:center; gap:12px; }
+  .brand-text {
+    display:flex; align-items:center;
+    font-family:'Syne',sans-serif; font-weight:800; font-size:1.55rem;
+    letter-spacing:-0.04em; /* دمج الحروف بشدة */
+    color:var(--ink);
+  }
+  .brand-text .accent { color:var(--orange); }
   .brand img{width:42px;height:42px;object-fit:contain;display:block;}
-  .brand span.accent{color:var(--orange);}
   
   .nav-links{display:flex;align-items:center;gap:34px;font-size:.94rem;color:var(--ink-dim);font-weight:500;}
   .nav-links a:not(.btn){position:relative;padding-bottom:4px;transition:color .25s ease;}
@@ -323,7 +333,6 @@
   .feature-grid div::before{content:"";width:6px;height:6px;background:var(--orange);border-radius:2px;flex:none;}
   .stack-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px;}
   
-  /* جعل الرقاقات قابلة للنقر (روابط) */
   .chip{
     font-size:.78rem;font-weight:600;color:var(--ink-dim);
     border:1px solid var(--line);padding:6px 14px;border-radius:100px;
@@ -336,60 +345,38 @@
   .link-quiet{color:var(--ink-dim);font-size:.9rem;font-weight:600;align-self:center;}
   .link-quiet:hover{color:var(--ink);}
 
-  /* ================= SWIPEABLE CAROUSEL (Enlarged & Drag Fixed) ================= */
+  /* ================= SWIPEABLE CAROUSEL ================= */
   .gallery-single{margin-top:20px;display:flex;flex-direction:column;align-items:center;perspective:1000px;}
   .gallery-frame{
-    position:relative;
-    width: 280px; 
-    max-width: 75vw;
-    aspect-ratio:1080/1920;
-    border-radius:24px;
-    overflow:hidden;
-    border:1px solid var(--line);
-    background:var(--bg-soft);
-    box-shadow:0 30px 70px -25px rgba(0,0,0,.7);
+    position:relative; width: 280px; max-width: 75vw; aspect-ratio:1080/1920;
+    border-radius:24px; overflow:hidden; border:1px solid var(--line);
+    background:var(--bg-soft); box-shadow:0 30px 70px -25px rgba(0,0,0,.7);
     transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;
-    cursor: grab;
-    touch-action: pan-y; 
-    user-select: none; /* منع تحديد النص بالخطأ */
-    -webkit-user-select: none;
+    cursor: grab; touch-action: pan-y; 
+    user-select: none; -webkit-user-select: none;
   }
   .gallery-frame:active{cursor: grabbing;}
   .gallery-frame:hover{transform:rotateX(2deg) rotateY(-4deg) translateY(-4px);box-shadow:0 40px 90px -25px rgba(249,115,22,.18);}
   
   .gallery-track {
-    display: flex;
-    width: 100%;
-    height: 100%;
+    display: flex; width: 100%; height: 100%;
     transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: transform;
   }
   .gallery-track.is-dragging { transition: none; }
   .gallery-track img {
-    flex: 0 0 100%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none; /* يمنع الماوس من الإمساك بالصورة نفسها بدلاً من الإطار */
+    flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover;
+    pointer-events: none; 
   }
   
   .swipe-hint {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 12px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 12px; pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
   }
   .gallery-frame:hover .swipe-hint { opacity: 1; }
   .swipe-hint svg {
-    width: 22px; height: 22px;
-    color: rgba(255,255,255,0.7);
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
-    animation: nudgeX 1.5s ease-in-out infinite alternate;
+    width: 22px; height: 22px; color: rgba(255,255,255,0.7);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); animation: nudgeX 1.5s ease-in-out infinite alternate;
   }
   .swipe-hint svg:first-child { animation-direction: alternate-reverse; }
   @keyframes nudgeX { 0% { transform: translateX(-3px); } 100% { transform: translateX(3px); } }
@@ -397,8 +384,7 @@
   .gallery-dots{display:flex;gap:8px;margin-top:22px;}
   .gallery-dots button{
     width:7px;height:7px;padding:0;border-radius:100px;border:none;
-    background:var(--line);cursor:pointer;
-    transition:background .3s ease, width .3s ease;
+    background:var(--line);cursor:pointer; transition:background .3s ease, width .3s ease;
   }
   .gallery-dots button.is-active{background:var(--orange);width:22px;box-shadow:0 0 10px var(--orange-glow);}
 
@@ -409,8 +395,7 @@
     transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .4s ease,box-shadow .4s ease;
   }
   .mini-card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(249,115,22,.4);
+    transform:translateY(-6px); border-color:rgba(249,115,22,.4);
     box-shadow:0 26px 60px -30px rgba(249,115,22,.3), inset 0 0 30px rgba(249,115,22,.03);
   }
   .mini-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
@@ -444,42 +429,45 @@
 
   footer{border-top:1px solid var(--line);padding:38px 0;}
   .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-  
-  /* تعديل الخط في الفوتر أيضاً ليكون متسقاً */
-  .footer-inner .brand{font-size:1.15rem;} 
-  
   .footer-links{display:flex;gap:26px;font-size:.85rem;color:var(--ink-dim);flex-wrap:wrap;}
   .footer-links a:hover{color:var(--ink);}
   .copyright{font-size:.82rem;color:var(--ink-dim);}
 
-  /* ================= LIGHTBOX ================= */
+  /* ================= LIGHTBOX SWIPEABLE ================= */
   .lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(8, 8, 10, 0.95);
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(8, 8, 10, 0.95); backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
   }
   .lightbox.is-open { opacity: 1; pointer-events: all; }
-  .lightbox img {
-    max-height: 90vh; max-width: 90vw;
-    border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    transform: scale(0.95); transition: transform 0.3s cubic-bezier(.2,.8,.2,1);
-    object-fit: contain;
+  
+  .lightbox-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    color: rgba(255,255,255,0.4); font-size: 3rem; font-weight: 300;
+    cursor: pointer; padding: 20px; user-select: none;
+    transition: color 0.3s ease, transform 0.2s ease; z-index: 2;
   }
-  .lightbox.is-open img { transform: scale(1); }
+  .lightbox-nav:hover { color: var(--orange); transform: translateY(-50%) scale(1.1); }
+  .lightbox-prev { left: 15px; }
+  .lightbox-next { right: 15px; }
+
+  #lightboxImg {
+    max-height: 90vh; max-width: 90vw;
+    border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    transform: scale(0.95) translateX(0); 
+    transition: transform 0.3s cubic-bezier(.2,.8,.2,1), opacity 0.2s ease;
+    object-fit: contain; cursor: grab; user-select: none;
+  }
+  #lightboxImg:active { cursor: grabbing; }
+  .lightbox.is-open #lightboxImg { transform: scale(1) translateX(0); }
+  
   .lightbox-close {
     position: absolute; top: 24px; right: 24px; color: white;
     font-size: 2.5rem; cursor: pointer; width: 44px; height: 44px;
     display: flex; align-items: center; justify-content: center;
     background: rgba(255,255,255,0.1); border-radius: 50%;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease; z-index: 2;
   }
   .lightbox-close:hover { background: rgba(249,115,22,0.8); }
 
@@ -491,6 +479,7 @@
     .stokko-card{padding:34px 24px;}
     .hero{padding:110px 0 60px;}
     .cursor-glow,.cursor-dot,.cursor-ring{display:none;}
+    .lightbox-nav { display: none; /* إخفاء الأزرار الجانبية في الهاتف والاعتماد على السحب */ }
   }
   @media (prefers-reduced-motion:reduce){
     *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
@@ -508,6 +497,7 @@
     <div class="loader-circle">
         <div class="loader-mark"><img src="LOGO.png" alt="NexisCode"></div>
     </div>
+    <!-- تم دمج النص بالكامل -->
     <div class="loader-word">Nexis<span class="accent">Code</span></div>
     <div class="loader-bar"><span id="loaderFill"></span></div>
     <div class="loader-pct" id="loaderPct">0%</div>
@@ -529,7 +519,13 @@
 
 <header class="nav" id="siteNav">
   <div class="nav-inner">
-    <a class="brand" href="#top"><img src="LOGO.png" alt="NexisCode logo">Nexis<span class="accent">Code</span></a>
+    <a class="brand" href="#top">
+      <div class="brand-logo-wrap">
+        <img src="LOGO.png" alt="NexisCode logo">
+        <!-- دمج الشعار باستخدام خصائص CSS المحدثة -->
+        <div class="brand-text">Nexis<span class="accent">Code</span></div>
+      </div>
+    </a>
     <nav class="nav-links">
       <a href="#products" class="scramble">Products</a>
       <a href="#about" class="scramble">About</a>
@@ -564,6 +560,7 @@
         <h2>Available now on Google Play</h2>
       </div>
 
+      <!-- STOKKO -->
       <article class="stokko-card reveal tilt-card">
         <div class="stokko-top">
           <div>
@@ -625,6 +622,7 @@
         </div>
       </article>
 
+      <!-- SECONDARY PRODUCTS -->
       <div class="other-products stagger">
         <div class="mini-card">
           <div class="mini-top">
@@ -686,7 +684,10 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <div class="brand" style="font-size:1.15rem;"><img src="LOGO.png" alt="NexisCode logo" style="width:34px;height:34px;">Nexis<span class="accent">Code</span></div>
+    <div class="brand-logo-wrap" style="opacity:0.8;">
+      <img src="LOGO.png" alt="NexisCode logo" style="width:34px;height:34px;">
+      <div class="brand-text" style="font-size:1.25rem;">Nexis<span class="accent">Code</span></div>
+    </div>
     <div class="footer-links">
       <a href="#products">Products</a>
       <a href="stokko_privacy_policy.html">Stokko Privacy</a>
@@ -697,9 +698,12 @@
   </div>
 </footer>
 
+<!-- Lightbox Modal مع أزرار التنقل -->
 <div id="lightbox" class="lightbox">
   <div class="lightbox-close" id="lightboxClose">&times;</div>
-  <img id="lightboxImg" src="" alt="Enlarged screenshot">
+  <div class="lightbox-nav lightbox-prev" id="lbPrev">&lsaquo;</div>
+  <img id="lightboxImg" src="" alt="Enlarged screenshot" draggable="false">
+  <div class="lightbox-nav lightbox-next" id="lbNext">&rsaquo;</div>
 </div>
 
 <script>
@@ -756,7 +760,7 @@
     document.addEventListener('mousemove', function(e){
       body.classList.add('has-mouse'); mx = e.clientX; my = e.clientY;
       glow.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)'; dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
-      var target = e.target; body.classList.toggle('cursor-active', !!(target.closest && target.closest('a,button,.chip,.gallery-dots button,.gallery-frame')));
+      var target = e.target; body.classList.toggle('cursor-active', !!(target.closest && target.closest('a,button,.chip,.gallery-dots button,.gallery-frame, .lightbox-nav')));
     }, {passive:true});
     function ringLoop(){ ringX += (mx - ringX) * 0.18; ringY += (my - ringY) * 0.18; ring.style.transform = 'translate(' + ringX + 'px,' + ringY + 'px) translate(-50%,-50%)'; requestAnimationFrame(ringLoop); }
     ringLoop();
@@ -843,18 +847,7 @@
   var spyBtns = Array.prototype.slice.call(document.querySelectorAll('.scrollspy button'));
   spyBtns.forEach(function(btn){ btn.addEventListener('click', function(){ var t=document.querySelector(btn.getAttribute('data-target')); if(t) t.scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth'}); }); });
 
-  /* ---------- Interactive & Sound ---------- */
-  if(!reduceMotion && hasFinePointer){
-    document.querySelectorAll('.magnetic').forEach(function(btn){
-      btn.addEventListener('mousemove', function(e){ var r=btn.getBoundingClientRect(); btn.style.transform='translate('+((e.clientX-r.left-r.width/2)*0.25)+'px,'+((e.clientY-r.top-r.height/2)*0.4)+'px)'; });
-      btn.addEventListener('mouseleave', function(){ btn.style.transform='translate(0,0)'; });
-    });
-    document.querySelectorAll('.tilt-card').forEach(function(card){
-      card.addEventListener('mousemove', function(e){ var r=card.getBoundingClientRect(); card.style.transform='rotateX('+(((e.clientY-r.top)/r.height-0.5)*-2.2)+'deg) rotateY('+(((e.clientX-r.left)/r.width-0.5)*2.6)+'deg) translateY(-2px)'; });
-      card.addEventListener('mouseleave', function(){ card.style.transform='rotateX(0) rotateY(0) translateY(0)'; });
-    });
-  }
-
+  /* ---------- Sound ---------- */
   var snd=localStorage.getItem('nx-sound')!=='off', sndTog=document.getElementById('soundToggle'), actx=null;
   sndTog.style.opacity=snd?'1':'.45';
   function pop(){
@@ -863,89 +856,142 @@
     g.gain.setValueAtTime(0.06,actx.currentTime); g.gain.exponentialRampToValueAtTime(0.0001,actx.currentTime+0.09); o.connect(g); g.connect(actx.destination); o.start(); o.stop(actx.currentTime+0.1);
     }catch(e){}
   }
-  document.querySelectorAll('.btn,.chip,.gallery-dots button,.scrollspy button,.gallery-frame').forEach(function(el){ el.addEventListener('click', pop); });
+  document.querySelectorAll('.btn,.chip,.gallery-dots button,.scrollspy button,.gallery-frame,.lightbox-nav').forEach(function(el){ el.addEventListener('click', pop); });
   sndTog.addEventListener('click', function(){ snd=!snd; localStorage.setItem('nx-sound', snd?'on':'off'); sndTog.style.opacity=snd?'1':'.45'; if(snd) pop(); });
 
-  /* ---------- Screenshot Gallery (Fixed Drag) ---------- */
+  /* ---------- Primary Gallery Logic ---------- */
   var frame = document.querySelector('.gallery-frame'), track = document.getElementById('galleryTrack');
-  var lightbox = document.getElementById('lightbox'), lightboxImg = document.getElementById('lightboxImg');
-  
-  if(frame && track){
-    var dots = Array.prototype.slice.call(document.querySelectorAll('.gallery-dots button'));
-    var imgs = Array.prototype.slice.call(track.querySelectorAll('img'));
-    var currentIdx = 0, isDragging = false, isClick = true, startX = 0, currTrans = 0, prevTrans = 0, timer = null;
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.gallery-dots button'));
+  var imgs = Array.prototype.slice.call(track.querySelectorAll('img'));
+  var currentIdx = 0, isDragging = false, isClick = true, startX = 0, currTrans = 0, prevTrans = 0, timer = null;
 
-    function render(animate){
-      if(animate === false) track.classList.add('is-dragging'); else track.classList.remove('is-dragging');
-      currTrans = -currentIdx * frame.offsetWidth;
-      track.style.transform = 'translateX(' + currTrans + 'px)';
-      dots.forEach(function(d, i){ d.classList.toggle('is-active', i === currentIdx); });
+  function render(animate){
+    if(animate === false) track.classList.add('is-dragging'); else track.classList.remove('is-dragging');
+    currTrans = -currentIdx * frame.offsetWidth;
+    track.style.transform = 'translateX(' + currTrans + 'px)';
+    dots.forEach(function(d, i){ d.classList.toggle('is-active', i === currentIdx); });
+  }
+
+  function ds(e){
+    isDragging = true; isClick = true; stopAuto();
+    startX = e.type === 'touchstart' ? e.touches[0].clientX : e.pageX;
+    prevTrans = currTrans;
+    e.preventDefault(); 
+  }
+  function dm(e){
+    if(!isDragging) return;
+    var x = e.type === 'touchmove' ? e.touches[0].clientX : e.pageX;
+    var diff = x - startX;
+    if(Math.abs(diff) > 5) isClick = false; 
+    track.classList.add('is-dragging');
+    if((currentIdx===0 && diff>0) || (currentIdx===dots.length-1 && diff<0)) diff *= 0.3;
+    track.style.transform = 'translateX(' + (prevTrans + diff) + 'px)';
+  }
+  function de(e){
+    if(!isDragging) return; isDragging = false;
+    var x = e.type === 'touchend' ? (e.changedTouches ? e.changedTouches[0].clientX : startX) : e.pageX;
+    var diff = x - startX;
+    if(!isClick && Math.abs(diff) > 40) {
+      if(diff < 0 && currentIdx < dots.length - 1) currentIdx++;
+      else if(diff > 0 && currentIdx > 0) currentIdx--;
     }
+    if(isClick) { openLightbox(); }
+    render(true); startAuto();
+  }
+  function dl(){ if(isDragging){ isDragging = false; render(true); startAuto(); } }
 
-    function ds(e){
-      isDragging = true; isClick = true; stopAuto();
-      startX = e.type === 'touchstart' ? e.touches[0].clientX : e.pageX;
-      prevTrans = currTrans;
-      // منع التحديد الافتراضي عند الضغط
-      e.preventDefault(); 
-    }
-    function dm(e){
-      if(!isDragging) return;
-      var x = e.type === 'touchmove' ? e.touches[0].clientX : e.pageX;
-      var diff = x - startX;
-      if(Math.abs(diff) > 5) isClick = false; 
-      
-      track.classList.add('is-dragging');
-      if((currentIdx===0 && diff>0) || (currentIdx===dots.length-1 && diff<0)) diff *= 0.3;
-      track.style.transform = 'translateX(' + (prevTrans + diff) + 'px)';
-    }
-    function de(e){
-      if(!isDragging) return; isDragging = false;
-      var x = e.type === 'touchend' ? (e.changedTouches ? e.changedTouches[0].clientX : startX) : e.pageX;
-      var diff = x - startX;
-
-      if(!isClick && Math.abs(diff) > 40) {
-        if(diff < 0 && currentIdx < dots.length - 1) currentIdx++;
-        else if(diff > 0 && currentIdx > 0) currentIdx--;
-      }
-      
-      if(isClick) {
-        lightboxImg.src = imgs[currentIdx].src;
-        lightbox.classList.add('is-open');
-      }
-      
-      render(true); startAuto();
-    }
-
-    // إضافة مستمع للأحداث لإلغاء السحب إذا خرج الماوس من الإطار
-    function dl(){
-       if(isDragging){
-          isDragging = false;
-          render(true);
-          startAuto();
-       }
-    }
-
-    frame.addEventListener('mousedown', ds); 
-    window.addEventListener('mousemove', dm); 
-    window.addEventListener('mouseup', de);
-    frame.addEventListener('mouseleave', dl); // الحل لمشكلة التصاق الماوس
-
-    frame.addEventListener('touchstart', ds, {passive:false}); // changed to false to allow preventDefault
-    window.addEventListener('touchmove', dm, {passive:true}); 
-    window.addEventListener('touchend', de);
-
+  if(frame) {
+    frame.addEventListener('mousedown', ds); window.addEventListener('mousemove', dm); window.addEventListener('mouseup', de); frame.addEventListener('mouseleave', dl);
+    frame.addEventListener('touchstart', ds, {passive:false}); window.addEventListener('touchmove', dm, {passive:true}); window.addEventListener('touchend', de);
     dots.forEach(function(dot){ dot.addEventListener('click', function(e){ e.stopPropagation(); currentIdx = parseInt(dot.getAttribute('data-index'), 10); render(true); startAuto(); }); });
-    
     function startAuto(){ stopAuto(); timer = setInterval(function(){ currentIdx = (currentIdx+1)%dots.length; render(true); }, 3800); }
     function stopAuto(){ clearInterval(timer); }
-    
     window.addEventListener('resize', function(){ render(false); });
     if('IntersectionObserver' in window){ var io2 = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ if(!reduceMotion) startAuto(); io2.unobserve(e.target); }}); }, {threshold:.4}); io2.observe(frame); } else startAuto();
-
-    document.getElementById('lightboxClose').addEventListener('click', function(){ lightbox.classList.remove('is-open'); });
-    lightbox.addEventListener('click', function(e){ if(e.target === lightbox) lightbox.classList.remove('is-open'); });
   }
+/* ---------- Animated stat counters ---------- */
+  var counters = document.querySelectorAll('.num[data-count]');
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var isDecimal = target % 1 !== 0;
+    var duration = 1400, startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var value = target * eased;
+      el.textContent = (isDecimal ? value.toFixed(1) : Math.round(value)) + suffix;
+      if(progress < 1) requestAnimationFrame(step); else el.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+  if(counters.length && 'IntersectionObserver' in window){
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){ 
+        if(entry.isIntersecting){ animateCount(entry.target); co.unobserve(entry.target); } 
+      });
+    }, {threshold:.5});
+    counters.forEach(function(c){ co.observe(c); });
+  }
+  /* ---------- Lightbox Swipe Logic ---------- */
+  var lightbox = document.getElementById('lightbox'), lbImg = document.getElementById('lightboxImg');
+  var lbPrev = document.getElementById('lbPrev'), lbNext = document.getElementById('lbNext');
+  var lbIsDragging = false, lbStartX = 0;
+
+  function updateLightboxImg() {
+    lbImg.style.opacity = '0';
+    lbImg.style.transform = 'scale(0.95) translateX(0)';
+    setTimeout(function() {
+      lbImg.src = imgs[currentIdx].src;
+      lbImg.style.opacity = '1';
+      lbImg.style.transform = 'scale(1) translateX(0)';
+    }, 150);
+    render(false); // تحديث المعرض المصغر في الخلفية
+  }
+
+  function openLightbox() {
+    lbImg.src = imgs[currentIdx].src;
+    lightbox.classList.add('is-open');
+    stopAuto();
+  }
+
+  lbPrev.addEventListener('click', function(e) { e.stopPropagation(); currentIdx = (currentIdx - 1 + dots.length) % dots.length; updateLightboxImg(); });
+  lbNext.addEventListener('click', function(e) { e.stopPropagation(); currentIdx = (currentIdx + 1) % dots.length; updateLightboxImg(); });
+
+  function lbDs(e) {
+    if(!lightbox.classList.contains('is-open')) return;
+    lbIsDragging = true;
+    lbStartX = e.type === 'touchstart' ? e.touches[0].clientX : e.pageX;
+    e.preventDefault();
+  }
+  function lbDm(e) {
+    if(!lbIsDragging) return;
+    var x = e.type === 'touchmove' ? e.touches[0].clientX : e.pageX;
+    var diff = x - lbStartX;
+    lbImg.style.transform = 'scale(1) translateX(' + diff + 'px)';
+  }
+  function lbDe(e) {
+    if(!lbIsDragging) return;
+    lbIsDragging = false;
+    var x = e.type === 'touchend' ? (e.changedTouches ? e.changedTouches[0].clientX : lbStartX) : e.pageX;
+    var diff = x - lbStartX;
+    
+    if(diff < -50) {
+      currentIdx = (currentIdx + 1) % dots.length; updateLightboxImg();
+    } else if(diff > 50) {
+      currentIdx = (currentIdx - 1 + dots.length) % dots.length; updateLightboxImg();
+    } else {
+      lbImg.style.transform = 'scale(1) translateX(0)';
+    }
+  }
+
+  lbImg.addEventListener('mousedown', lbDs); window.addEventListener('mousemove', lbDm); window.addEventListener('mouseup', lbDe);
+  lbImg.addEventListener('touchstart', lbDs, {passive:false}); window.addEventListener('touchmove', lbDm, {passive:true}); window.addEventListener('touchend', lbDe);
+
+  document.getElementById('lightboxClose').addEventListener('click', function(){ lightbox.classList.remove('is-open'); startAuto(); });
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox) { lightbox.classList.remove('is-open'); startAuto(); } });
+
 })();
 </script>
 
