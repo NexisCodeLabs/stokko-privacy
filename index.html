@@ -28,7 +28,7 @@
 
 <style>
   :root{
-    /* النسخة الداكنة (الافتراضية) */
+    /* Dark Mode (Default) */
     --bg: #08080a;
     --bg-soft: #111114;
     --panel: #141417;
@@ -46,7 +46,7 @@
   }
 
   [data-theme="light"] {
-    /* النسخة النهارية (الفاتحة) */
+    /* Light Mode */
     --bg: #f5f5f7;
     --bg-soft: #ffffff;
     --panel: #ffffff;
@@ -154,7 +154,7 @@
   .brand-logo-wrap { display:flex; align-items:center; gap:12px; }
   .brand-text { display:flex; align-items:center; font-family:'Syne',sans-serif; font-weight:800; font-size:1.55rem; letter-spacing:-0.04em; color:var(--ink); }
   .brand-text .accent { color:var(--orange); }
-  .brand img{width:42px;height:42px;object-fit:contain;display:block;}
+  .brand img{width:42px;height:42px;object-fit:cover;display:block; border-radius: 50%;}
   
   .nav-links{display:flex;align-items:center;gap:24px;font-size:.94rem;color:var(--ink-dim);font-weight:500;}
   .nav-links a:not(.btn){position:relative;padding-bottom:4px;transition:color .25s ease;}
@@ -345,6 +345,7 @@
   .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .footer-inner .brand-logo-wrap{opacity:0.8;}
   .footer-inner .brand-text{font-size:1.25rem;} 
+  .footer-inner img{border-radius: 50%; object-fit: cover;}
   
   .footer-links{display:flex;gap:26px;font-size:.85rem;color:var(--ink-dim);flex-wrap:wrap;}
   .footer-links a:hover{color:var(--ink);}
@@ -735,13 +736,12 @@
     counters.forEach(function(c){ co.observe(c); });
   }
 
-  /* ---------- Canvas Net (Fully Restored & Responsive to Theme) ---------- */
+  /* ---------- Canvas Net ---------- */
   (function initNetwork(){
     var canvas = document.getElementById('particleCanvas');
     if(reduceMotion || !canvas) return;
     var ctx = canvas.getContext('2d');
     if(!ctx) return;
-    var readoutEl = document.getElementById('nnReadout');
 
     var w, h, dpr, layers = [], connections = [];
     var mouse = {x:null, y:null, active:false};
@@ -829,10 +829,6 @@
     var pulses = [], phase = 'forward', pTimer = 0;
     var FD = 5200, BD = 5200, PD = 2200, epoch = 0, loss = 1.15 + Math.random() * 0.35;
 
-    function pad3(n){ return (n < 10 ? '00' : n < 100 ? '0' : '') + n; }
-    function upR(){ if(readoutEl) readoutEl.textContent = 'epoch ' + pad3(epoch) + ' · loss ' + loss.toFixed(4); }
-    upR();
-
     function spF(n){ n.out.forEach(function(c){ if(pulses.length > 140) return; pulses.push({c:c, d:'f', t:0, dur: 2000 + Math.random()*900, trail:[]}); }); }
     function spB(n){ n.inc.forEach(function(c){ if(pulses.length > 140) return; pulses.push({c:c, d:'b', t:0, dur: 2000 + Math.random()*900, trail:[]}); }); }
     function nW(c){ c.w += (Math.random() - 0.5) * 0.09; if(c.w > 1) c.w = 1; if(c.w < -1) c.w = -1; }
@@ -850,7 +846,9 @@
     function fin(){
       phase = 'pause'; pTimer = 0; epoch++;
       loss = Math.max(0.012, loss * (0.94 + Math.random() * 0.05));
-      if(Math.random() < 0.14) loss += Math.random() * 0.018; upR();
+      if(Math.random() < 0.14) loss += Math.random() * 0.018; 
+      var readoutEl = document.getElementById('nnReadout');
+      if(readoutEl) readoutEl.textContent = 'epoch ' + (epoch < 10 ? '00' : epoch < 100 ? '0' : '') + epoch + ' · loss ' + loss.toFixed(4);
     }
 
     var lastTs = null; stF();
@@ -861,7 +859,6 @@
       if(!lastTs) lastTs = ts;
       var dt = Math.min(ts - lastTs, 50); lastTs = ts; var t = ts / 1000;
 
-      // تحقق من النمط ديناميكياً
       var isLight = document.documentElement.getAttribute('data-theme') === 'light';
       var SLATE = isLight ? '160,160,170' : '134,163,201';
       var CREAM = isLight ? '255,255,255' : '242,239,233';
@@ -1068,3 +1065,4 @@
 
 </body>
 </html>
+```eof
