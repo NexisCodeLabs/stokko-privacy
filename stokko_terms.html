@@ -3,261 +3,449 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شروط الخدمة | Stokko Terms of Service - Nexiscode</title>
+    <title>شروط الخدمة | Stokko Terms of Service - NexisCode</title>
+    <meta name="description" content="شروط الخدمة الرسمية لتطبيق Stokko - NexisCode Software Labs. متوافقة مع القانون الجزائري ومتطلبات Google Play Console.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #E65100;
             --primary-dark: #BF360C;
-            --primary-light: #FFE0B2;
-            --bg: #F8F9FA;
+            --primary-light: #FFF3E0;
+            --bg-main: #F8F9FA;
             --surface: #FFFFFF;
             --text-main: #212121;
-            --text-muted: #616161;
+            --text-muted: #666666;
             --border: #E0E0E0;
-            --shadow: 0 4px 20px rgba(0,0,0,0.06);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.06);
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg);
+            font-family: 'Cairo', 'Inter', -apple-system, sans-serif;
+            background: var(--bg-main);
             color: var(--text-main);
-            line-height: 1.8;
-            padding: 40px 20px;
+            line-height: 1.85;
+            padding: 24px 16px 48px;
         }
+
         .container {
-            max-width: 900px;
+            max-width: 920px;
             margin: 0 auto;
             background: var(--surface);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
+            border-radius: var(--radius-lg);
+            padding: 44px 36px;
+            box-shadow: var(--shadow-md);
             border: 1px solid var(--border);
         }
-        .header {
+
+        header {
             text-align: center;
-            border-bottom: 2px solid var(--primary-light);
-            padding-bottom: 25px;
-            margin-bottom: 30px;
+            border-bottom: 2px solid #EEEEEE;
+            padding-bottom: 24px;
+            margin-bottom: 32px;
         }
-        .header h1 {
-            color: var(--primary);
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .badge {
+
+        .brand-badge {
             display: inline-block;
             background: var(--primary-light);
             color: var(--primary-dark);
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 14px;
             font-weight: 700;
+            font-size: 0.9rem;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 12px;
         }
-        .nav-tabs {
+
+        h1 { font-size: 2rem; font-weight: 800; color: var(--text-main); margin-bottom: 8px; }
+        .last-updated { color: var(--text-muted); font-size: 0.95rem; }
+
+        .lang-switch {
             display: flex;
-            gap: 10px;
             justify-content: center;
-            margin-bottom: 30px;
+            gap: 10px;
+            margin: 24px 0 0;
+            flex-wrap: wrap;
         }
-        .tab-btn {
-            background: #EEEEEE;
-            border: none;
-            padding: 10px 22px;
-            border-radius: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 15px;
-            transition: all 0.2s;
+
+        .lang-btn {
+            background: #F5F5F5;
+            border: 1.5px solid #D6D6D6;
+            color: var(--text-main);
+            padding: 8px 22px;
+            border-radius: 50px;
             font-family: inherit;
+            font-weight: 700;
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .tab-btn.active {
+
+        .lang-btn.active, .lang-btn:hover {
             background: var(--primary);
             color: #FFFFFF;
+            border-color: var(--primary);
         }
-        .content-section {
-            display: none;
-        }
-        .content-section.active {
-            display: block;
-        }
-        .ltr-text {
-            direction: ltr;
-            text-align: left;
-            font-family: 'Inter', sans-serif;
-        }
+
+        .policy-section { margin-bottom: 36px; }
+
         h2 {
+            font-size: 1.22rem;
             color: var(--primary-dark);
-            font-size: 20px;
-            margin-top: 25px;
-            margin-bottom: 12px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        p, li { color: #374151; font-size: 1.02rem; margin-bottom: 10px; }
+        ul { padding-right: 22px; margin-bottom: 14px; }
+        html[dir="ltr"] ul { padding-right: 0; padding-left: 22px; }
+        li { margin-bottom: 8px; }
+        a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+
+        .warning-box {
+            background: #FFF3E0;
             border-right: 4px solid var(--primary);
-            padding-right: 12px;
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            margin: 18px 0;
         }
-        .ltr-text h2 {
-            border-right: none;
-            border-left: 4px solid var(--primary);
-            padding-left: 12px;
+        html[dir="ltr"] .warning-box { border-right: none; border-left: 4px solid var(--primary); }
+        .warning-box p { margin-bottom: 0; color: #4E342E; font-weight: 600; }
+
+        .info-box {
+            background: #E8F5E9;
+            border-right: 4px solid #43A047;
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            margin: 18px 0;
         }
-        p, ul {
-            margin-bottom: 15px;
-            color: #37474F;
+        html[dir="ltr"] .info-box { border-right: none; border-left: 4px solid #43A047; }
+        .info-box p { margin-bottom: 0; color: #1B5E20; font-weight: 600; }
+
+        .billing-box {
+            background: #E3F2FD;
+            border: 1.5px solid #90CAF9;
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            margin: 18px 0;
         }
-        ul {
-            padding-right: 20px;
+        .billing-box h3 { color: #0D47A1; font-size: 1.08rem; margin-bottom: 10px; }
+        .billing-box p, .billing-box li { color: #1565C0; }
+
+        .ip-box {
+            background: #F3E5F5;
+            border-right: 4px solid #8E24AA;
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            margin: 18px 0;
         }
-        .ltr-text ul {
-            padding-right: 0;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .card-highlight {
-            background: #FFEBEE;
-            border: 1px solid #FFCDD2;
-            border-radius: 12px;
-            padding: 18px;
-            margin: 20px 0;
-            font-size: 14.5px;
-        }
-        .footer-note {
-            text-align: center;
+        html[dir="ltr"] .ip-box { border-right: none; border-left: 4px solid #8E24AA; }
+        .ip-box p { margin-bottom: 0; color: #4A148C; font-weight: 600; }
+
+        footer {
             margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            border-top: 1px solid #EEEEEE;
+            text-align: center;
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 24px 16px; }
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.12rem; }
+            p, li { font-size: 0.98rem; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <h1>STOKKO — شروط وسياسات الخدمة</h1>
-        <span class="badge">آخر تحديث / Last Updated: 16 أوت 2026</span>
+
+    <header>
+        <div class="brand-badge">NexisCode Software Labs</div>
+        <h1 id="mainTitle">شروط الخدمة واتفاقية الاستخدام</h1>
+        <div class="last-updated" id="lastUpdated">آخر تحديث: 16 أوت 2026 &nbsp;|&nbsp; الإصدار 2.0 (المطابق لمتطلبات Google Play)</div>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLanguage('ar', this)">🇩🇿 العربية</button>
+            <button class="lang-btn" onclick="switchLanguage('fr', this)">🇫🇷 Français</button>
+            <button class="lang-btn" onclick="switchLanguage('en', this)">🇬🇧 English</button>
+        </div>
+    </header>
+
+    <!-- ══════════════════ ARABIC ══════════════════ -->
+    <div id="content-ar">
+
+        <div class="policy-section">
+            <h2>1. نطاق الاتفاقية والهوية التجارية</h2>
+            <p>مرحباً بكم في <strong>Stokko</strong>. تمثل هذه الشروط اتفاقية قانونية ملزمة بينكم (المشار إليكم بـ "التاجر" أو "المستخدم") وبين <strong>NexisCode Software Labs</strong> (الجهة المطورة والناشرة للتطبيق).</p>
+            <p>بتحميلك للتطبيق أو تسجيل حساب أو استخدام أي ميزة من مميزاته، فإنك توافق صراحةً على الالتزام التام بأحكام هذه الاتفاقية.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>2. طبيعة الخدمة (أداة B2B لإدارة نقاط البيع والمخازن)</h2>
+            <p>تطبيق <strong>Stokko</strong> هو أداة برمجية موجهة حصرياً للتجار والمحلات التجارية (B2B) ومصمم ليعمل بشكل رئيسي في وضع عدم الاتصال (Offline-First):</p>
+            <ul>
+                <li><strong>ليس منصة تجارة إلكترونية:</strong> تطبيق Stokko ليس متجراً رقمياً، ولا منصة تجارة إلكترونية، ولا سوقاً استهلاكياً، ولا بوابة دفع وسيطة بين التاجر والمستهلك النهائي.</li>
+                <li><strong>دفتر حسابات رقمي داخلي:</strong> يعمل التطبيق حصرياً كسجل رقمي لتسجيل المبيعات والمخزون وديون الزبائن محلياً داخل المحل التجاري.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>3. إخلاء المسؤولية والسلع المقيدة</h2>
+            <ul>
+                <li><strong>قاموس مرجعي فقط:</strong> قاعدة البيانات المرفقة للباركود هي قاموس استرشادي "كما هو" ولا نضمن دقة أو اكتمال أو قانونية أي اسم أو تصنيف وارد فيها.</li>
+                <li><strong>مسؤولية المخزون صفر:</strong> لا تتحمل NexisCode أي مسؤولية قانونية أو رقابية عن السلع المادية التي يختار التاجر تخزينها أو بيعها.</li>
+                <li><strong>السلع المقيدة والمنظمة:</strong> ينطبق هذا الإخلاء التام على التبغ، السجائر الإلكترونية، المستحضرات الصيدلانية والأدوية، والسلع المقيدة بالسن.</li>
+            </ul>
+            <div class="warning-box">
+                <p>⚠️ التاجر هو المسؤول الوحيد والحصري (100%) عن مطابقة نشاطه التجاري وتراخيصه وفواتيره مع القوانين والتشريعات السارية في بلده.</p>
+            </div>
+        </div>
+
+        <div class="policy-section">
+            <h2>4. حفظ السجلات والمسؤولية الجبائية (القانون 07-11)</h2>
+            <p>يحتفظ التطبيق بسجلات المبيعات والعمليات المحاسبية محلياً في جهاز التاجر لمساعدته على الوفاء بالتزامه القانوني بحفظ الوثائق المحاسبية لمدة 10 سنوات طبقاً للمادة 11 من القانون 07-11 (النظام المحاسبي المالي SCF).</p>
+            <p>التاجر هو المسؤول الحصري عن صحة معاملاته، واستخراج فواتيره الرسمية المتضمنة لرقمه الجبائي (NIF)، وتقديم تصريحاته لمصالح الضرائب. تقارير الضرائب التقديرية (TVA و IFU) هي أدوات استرشادية داخلية فحسب.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>5. فئات الحسابات والاشتراكات والتجديد التلقائي</h2>
+            <ul>
+                <li><strong>الفئة المجانية (FREE):</strong> استخدام أساسي مجاني مع حد أقصى للمنتجات والمزايا. تُخزن كافة السجلات محلياً فقط بدون مزامنة سحابية.</li>
+                <li><strong>الفئة الذهبية (VIP):</strong> اشتراك مدفوع يتيح المزامنة السحابية متعددة الأجهزة والمزايا المتقدمة غير المحدودة.</li>
+            </ul>
+            <div class="billing-box">
+                <h3>💳 شروط الاشتراك والتجديد التلقائي (Google Play Billing)</h3>
+                <ul>
+                    <li>تتم فوترة الاشتراك VIP <strong>تلقائياً عبر نظام Google Play الرسمي</strong> في بداية كل دورة اشتراك (شهرية أو سنوية حسب الخطة المختارة).</li>
+                    <li>يتجدد الاشتراك تلقائياً ما لم يتم إلغاؤه <strong>قبل 24 ساعة على الأقل</strong> من تاريخ التجديد.</li>
+                    <li>يمكن إدارة الاشتراك وإلغاؤه في أي وقت عبر: <strong>Google Play Store ← حسابي ← الاشتراكات</strong>، أو من داخل التطبيق عبر إعدادات الحساب.</li>
+                    <li>لا تُسترد الرسوم المدفوعة عن الفترة الجارية عند الإلغاء، ويستمر الوصول حتى نهاية الفترة المدفوعة.</li>
+                    <li>تخضع جميع عمليات الدفع لسياسة Google Play الرسمية. لا تجمع NexisCode أو تخزن أي بيانات بطاقات بنكية أو وسائل دفع.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="policy-section">
+            <h2>6. سياسة الاسترداد (Refund Policy)</h2>
+            <div class="info-box">
+                <p>✅ تخضع جميع عمليات الشراء والاشتراكات المُجراة عبر Google Play لـ <a href="https://support.google.com/googleplay/answer/2479637" target="_blank">سياسة الاسترداد الرسمية لـ Google Play</a>. يمكن للمستخدمين طلب استرداد المبالغ مباشرةً من Google Play خلال الإطار الزمني المحدد في السياسة. للاستفسار: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
+            </div>
+        </div>
+
+        <div class="policy-section">
+            <h2>7. الملكية الفكرية وحقوق التأليف والنشر</h2>
+            <div class="ip-box">
+                <p>🔒 تطبيق Stokko، واسمه التجاري، وشعاره، وكوده المصدري، وقاعدة بيانات الباركود الجزائرية المضمّنة، وجميع واجهاته ومحتوياته هي ملكية فكرية حصرية لـ <strong>NexisCode Software Labs</strong> محمية بموجب حقوق التأليف والنشر والعلامات التجارية. يُحظر تماماً نسخها، إعادة تصميمها، تفكيكها، أو توزيعها بأي شكل دون إذن كتابي صريح.</p>
+            </div>
+            <p>تُمنح المستخدمَ رخصة استخدام شخصية غير قابلة للتحويل ومحدودة لاستخدام التطبيق وفق هذه الشروط فحسب.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>8. القانون المعمول به وفض النزاعات ومعلومات الاتصال</h2>
+            <p>تخضع هذه الاتفاقية وتُفسَّر وفقاً لقوانين <strong>الجمهورية الجزائرية الديمقراطية الشعبية</strong>، ويكون الاختصاص القضائي الحصري لمحاكم الجزائر العاصمة.</p>
+            <p><strong>الناشر:</strong> NexisCode Software Labs &nbsp;|&nbsp; <strong>الدعم:</strong> <a href="mailto:support@nexiscode.online">support@nexiscode.online</a> &nbsp;|&nbsp; <a href="https://nexiscode.online">nexiscode.online</a></p>
+        </div>
+
     </div>
 
-    <!-- تبديل اللغة -->
-    <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchLang('ar', event)">العربية 🇩🇿</button>
-        <button class="tab-btn" onclick="switchLang('fr', event)">Français 🇫🇷</button>
-        <button class="tab-btn" onclick="switchLang('en', event)">English 🇬🇧</button>
+    <!-- ══════════════════ FRANÇAIS ══════════════════ -->
+    <div id="content-fr" style="display:none;">
+
+        <div class="policy-section">
+            <h2>1. Portée de l'Accord et Identité</h2>
+            <p>Bienvenue sur <strong>Stokko</strong>. Ces Conditions constituent un accord juridique contraignant entre vous (le "Marchand") et <strong>NexisCode Software Labs</strong> (éditeur et développeur de l'application).</p>
+            <p>En téléchargeant l'application, en créant un compte ou en utilisant ses fonctionnalités, vous acceptez expressément ces Conditions dans leur intégralité.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>2. Nature du Service (Utilitaire B2B Uniquement)</h2>
+            <p><strong>Stokko</strong> est strictement un utilitaire logiciel B2B (Business-to-Business), conçu principalement en mode hors-ligne (Offline-First) :</p>
+            <ul>
+                <li><strong>Pas une plateforme e-commerce :</strong> Stokko n'est ni une boutique en ligne, ni une plateforme de commerce électronique, ni un intermédiaire de paiement.</li>
+                <li><strong>Grand livre comptable numérique :</strong> L'application sert exclusivement de registre interne pour enregistrer les ventes, les stocks et les créances clients de la boutique.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h2>3. Limitation de Responsabilité et Produits Réglementés</h2>
+            <ul>
+                <li><strong>Dictionnaire indicatif :</strong> Le catalogue de codes-barres intégré est fourni "en l'état" à titre indicatif uniquement. NexisCode ne garantit pas l'exactitude ou la légalité des données qu'il contient.</li>
+                <li><strong>Responsabilité zéro sur les stocks :</strong> NexisCode n'assume aucune responsabilité légale concernant les marchandises physiques que le commerçant choisit de stocker ou de vendre.</li>
+                <li><strong>Produits réglementés :</strong> Cette exclusion couvre notamment le tabac, la cigarette électronique, les produits pharmaceutiques et les biens soumis à restriction d'âge.</li>
+            </ul>
+            <div class="warning-box">
+                <p>⚠️ Le commerçant est seul et entièrement responsable (100%) de la conformité de son activité, de ses licences et de ses factures avec les lois en vigueur dans son pays.</p>
+            </div>
+        </div>
+
+        <div class="policy-section">
+            <h2>4. Conservation Décennale et Fiscalité (Loi 07-11)</h2>
+            <p>Les registres de ventes sont conservés localement sur l'appareil du commerçant afin de l'aider à respecter l'obligation de conservation des pièces comptables pendant 10 ans (Art. 11 de la loi 07-11 — SCF).</p>
+            <p>Le commerçant est seul responsable de l'émission de ses factures avec son NIF, de ses déclarations fiscales et de sa conformité avec les services des impôts. Les rapports TVA/IFU intégrés sont des outils indicatifs de gestion interne uniquement.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>5. Abonnements et Renouvellement Automatique</h2>
+            <ul>
+                <li><strong>Version Gratuite (FREE) :</strong> Utilisation de base gratuite avec limitations sur les fonctionnalités et le nombre de produits. Toutes les données sont stockées localement sans synchronisation cloud.</li>
+                <li><strong>Version Premium (VIP) :</strong> Abonnement payant permettant la synchronisation multi-terminaux et l'accès aux fonctionnalités avancées illimitées.</li>
+            </ul>
+            <div class="billing-box">
+                <h3>💳 Conditions d'Abonnement et Renouvellement Automatique</h3>
+                <ul>
+                    <li>L'abonnement VIP est <strong>facturé automatiquement via Google Play</strong> au début de chaque cycle d'abonnement (mensuel ou annuel selon le plan choisi).</li>
+                    <li>L'abonnement se renouvelle automatiquement sauf annulation <strong>au moins 24 heures avant</strong> la date de renouvellement.</li>
+                    <li>Gérez ou annulez votre abonnement à tout moment via : <strong>Google Play Store → Mon compte → Abonnements</strong>, ou depuis les paramètres de compte dans l'application.</li>
+                    <li>Les frais de la période en cours ne sont pas remboursables en cas d'annulation. L'accès reste actif jusqu'à la fin de la période payée.</li>
+                    <li>NexisCode ne collecte ni ne stocke aucune donnée bancaire. Tous les paiements sont traités sécurisément par Google Play.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="policy-section">
+            <h2>6. Politique de Remboursement</h2>
+            <div class="info-box">
+                <p>✅ Tous les achats effectués via Google Play sont soumis à la <a href="https://support.google.com/googleplay/answer/2479637" target="_blank">Politique de Remboursement officielle de Google Play</a>. Les demandes de remboursement doivent être soumises directement à Google Play dans les délais prévus. Contact : <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
+            </div>
+        </div>
+
+        <div class="policy-section">
+            <h2>7. Propriété Intellectuelle</h2>
+            <div class="ip-box">
+                <p>🔒 L'application Stokko, son nom commercial, son logo, son code source, sa base de données de codes-barres et l'intégralité de ses contenus sont la propriété intellectuelle exclusive de <strong>NexisCode Software Labs</strong>, protégée par le droit d'auteur et les marques déposées. Toute reproduction, décompilation, reverse engineering ou distribution sans autorisation écrite explicite est strictement interdite.</p>
+            </div>
+            <p>Une licence d'utilisation personnelle, non transférable et limitée vous est accordée pour utiliser l'application conformément aux présentes Conditions uniquement.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>8. Droit Applicable, Juridiction et Contact</h2>
+            <p>Ces Conditions sont régies par les lois de la <strong>République Algérienne Démocratique et Populaire</strong>. Tout litige sera soumis à la juridiction exclusive des tribunaux compétents d'Alger.</p>
+            <p><strong>Éditeur :</strong> NexisCode Software Labs &nbsp;|&nbsp; <strong>Support :</strong> <a href="mailto:support@nexiscode.online">support@nexiscode.online</a> &nbsp;|&nbsp; <a href="https://nexiscode.online">nexiscode.online</a></p>
+        </div>
+
     </div>
 
-    <!-- 1. النسخة العربية -->
-    <div id="sec-ar" class="content-section active">
-        <h2>1. نطاق الاتفاقية والهوية التجارية</h2>
-        <p>مرحباً بكم في <strong>Stokko</strong> (المشار إليه بـ "التطبيق" أو "الخدمة"). تمثل هذه الشروط اتفاقية قانونية ملزمة بينكم (المشار إليكم بـ "التاجر" أو "المستخدم") وبين <strong>Nexiscode</strong> (الجهة المطورة والناشرة للتطبيق).</p>
-        <p>بتحميلك للتطبيق أو استخدامه، فإنك توافق على الالتزام بشروط هذه الاتفاقية.</p>
+    <!-- ══════════════════ ENGLISH ══════════════════ -->
+    <div id="content-en" style="display:none;">
 
-        <h2>2. طبيعة الخدمة (أداة B2B لإدارة نقاط البيع والمخازن)</h2>
-        <p>تطبيق Stokko هو أداة برمجية موجهة للشركات والأعمال (B2B) فقط ومصمم ليعمل محلياً (Offline-First):</p>
-        <ul>
-            <li><strong>ليس منصة تجارة إلكترونية:</strong> تطبيق Stokko ليس متجراً رقمياً، ولا منصة تجارة إلكترونية، ولا سوقاً استهلاكياً، ولا بوابة دفع وسيطة.</li>
-            <li><strong>انعدام المعاملات مع المستهلكين:</strong> لا نقوم بتسيير أو معالجة أو التوسط في المعاملات المالية والتجارية بين التاجر والمستهلك النهائي. التطبيق يعمل فقط كدفتر حسابات رقمي لتسجيل مبيعاتك ومخزونك محلياً.</li>
-        </ul>
+        <div class="policy-section">
+            <h2>1. Scope of Agreement & Identity</h2>
+            <p>Welcome to <strong>Stokko</strong>. These Terms of Service constitute a binding legal agreement between you (the "Merchant" or "User") and <strong>NexisCode Software Labs</strong> (developer and publisher).</p>
+            <p>By downloading, registering, or using the application, you expressly agree to these Terms in their entirety.</p>
+        </div>
 
-        <h2>3. إخلاء المسؤولية الصارم وبند السلع المقيدة والمنظمة</h2>
-        <p>يوفر التطبيق قاعدة بيانات مرجعية بالباركود للمساعدة في سرعة التعرف على المنتجات:</p>
-        <ul>
-            <li><strong>قاموس مرجعي:</strong> قاعدة البيانات المرفقة هي قاموس استرشادي "كما هو" ولا نضمن دقة أو قانونية أي اسم أو تصنيف وارد فيها.</li>
-            <li><strong>مسؤولية المخزون صفر:</strong> لا نتحمل أي مسؤولية قانونية أو رقابية عن السلع المادية الفعلية التي يختار التاجر تخزينها، مسحها، أو بيعها.</li>
-            <li><strong>السلع المقيدة والمنظمة:</strong> ينطبق هذا الإخلاء التام على التبغ، السجائر الإلكترونية، المواد الصيدلانية والأدوية، والسلع المقيدة بالسن.</li>
-            <li><strong>مسؤولية التاجر 100%:</strong> التاجر هو المسؤول الوحيد والحصري عن مطابقة نشاطه وتراخيصه وفواتيره مع القوانين السارية في بلده.</li>
-        </ul>
+        <div class="policy-section">
+            <h2>2. Nature of Service (B2B Utility Only)</h2>
+            <p><strong>Stokko</strong> is strictly an Offline-First B2B software tool designed exclusively for merchants and retail stores:</p>
+            <ul>
+                <li><strong>Not an E-Commerce Platform:</strong> Stokko does not facilitate, process, or intermediate consumer transactions, payments, or marketplace operations.</li>
+                <li><strong>Internal Digital Ledger:</strong> The application serves exclusively as an internal digital register for recording sales, inventory, and customer credit balances within the store.</li>
+            </ul>
+        </div>
 
-        <h2>4. حفظ السجلات والمسؤولية الجبائية (القانون 07-11)</h2>
-        <p>يحتفظ التطبيق بسجلات المبيعات والعمليات المحاسبية محلياً في جهاز التاجر لمساعدته على الوفاء بالتزامه القانوني بحفظ الوثائق المحاسبية لمدة <strong>10 سنوات</strong> طبقاً للمادة 11 من القانون 07-11 (النظام المحاسبي المالي SCF).</p>
-        <p>التاجر هو المسؤول الحصري عن صحة معاملاته، واستخراج فواتيره الرسمية المتضمنة لرقمه الجبائي (NIF)، وتقديم تصريحاته لمصالح الضرائب.</p>
+        <div class="policy-section">
+            <h2>3. Strict Limitation of Liability & Regulated Goods</h2>
+            <ul>
+                <li><strong>Reference Dictionary Only:</strong> The pre-loaded barcode database is provided "as-is" for reference purposes. NexisCode does not guarantee the accuracy, completeness, or legal compliance of any product name or category.</li>
+                <li><strong>Zero Stock Liability:</strong> NexisCode bears no legal or regulatory responsibility for physical merchandise the Merchant chooses to store or sell.</li>
+                <li><strong>Regulated Goods:</strong> This disclaimer fully applies to tobacco, e-cigarettes, pharmaceutical products, and age-restricted goods.</li>
+            </ul>
+            <div class="warning-box">
+                <p>⚠️ The Merchant is solely and entirely responsible (100%) for ensuring their commercial activity, licenses, and invoices comply with all applicable laws and regulations in their jurisdiction.</p>
+            </div>
+        </div>
 
-        <h2>5. فئات الحسابات والاشتراكات</h2>
-        <ul>
-            <li><strong>الفئة المجانية:</strong> تُخزن كافة السجلات محلياً في جهاز التاجر.</li>
-            <li><strong>الفئة الذهبية (VIP):</strong> تتيح المزامنة السحابية متعددة الأجهزة عبر Google Firebase وتُفوتر عبر نظام Google Play الرسمي.</li>
-        </ul>
+        <div class="policy-section">
+            <h2>4. Statutory Record Retention & Fiscal Responsibility (Law 07-11)</h2>
+            <p>Sales and accounting records are stored locally on the Merchant's device to assist in meeting the 10-year statutory accounting retention obligation under Article 11 of Algerian Law 07-11 (Financial Accounting System — SCF).</p>
+            <p>The Merchant is solely responsible for issuing legal invoices bearing their Tax ID (NIF), filing statutory tax returns, and ensuring compliance with tax authorities. Built-in tax estimates (TVA/IFU) are internal management tools only.</p>
+        </div>
 
-        <h2>6. القانون المعمول به وفض النزاعات</h2>
-        <p>تخضع هذه الشروط وتفسر وفقاً لقوانين <strong>الجمهورية الجزائرية الديمقراطية الشعبية</strong>، ويكون الاختصاص القضائي الحصري للمحاكم المختصة في <strong>الجزائر العاصمة</strong>.</p>
+        <div class="policy-section">
+            <h2>5. Account Tiers, Subscriptions & Auto-Renewal</h2>
+            <ul>
+                <li><strong>Free Tier (FREE):</strong> Basic free usage with limitations on features and product count. All data is stored locally with no cloud synchronization.</li>
+                <li><strong>Premium Tier (VIP):</strong> Paid subscription enabling multi-device cloud sync and unlimited advanced features.</li>
+            </ul>
+            <div class="billing-box">
+                <h3>💳 Subscription Terms & Auto-Renewal Policy</h3>
+                <ul>
+                    <li>VIP subscriptions are <strong>automatically billed via Google Play</strong> at the beginning of each billing cycle (monthly or annual, depending on selected plan).</li>
+                    <li>Subscriptions automatically renew unless cancelled <strong>at least 24 hours before</strong> the renewal date.</li>
+                    <li>Manage or cancel your subscription at any time via: <strong>Google Play Store → My Account → Subscriptions</strong>, or from within the app's account settings.</li>
+                    <li>Fees paid for the current billing period are non-refundable upon cancellation. Access remains active until the end of the paid period.</li>
+                    <li>NexisCode does not collect or store any banking or payment card data. All payments are securely processed by Google Play.</li>
+                </ul>
+            </div>
+        </div>
 
-        <h2>7. معلومات الاتصال والناشر</h2>
-        <p>الاسم التجاري والناشر: NexisCode Software Labs • البريد الإلكتروني: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
+        <div class="policy-section">
+            <h2>6. Refund Policy</h2>
+            <div class="info-box">
+                <p>✅ All in-app purchases and subscriptions are subject to the <a href="https://support.google.com/googleplay/answer/2479637" target="_blank">Google Play Refund Policy</a>. Refund requests must be submitted directly to Google Play within the applicable time window. For further support: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
+            </div>
+        </div>
+
+        <div class="policy-section">
+            <h2>7. Intellectual Property Rights</h2>
+            <div class="ip-box">
+                <p>🔒 The Stokko application, its name, logo, source code, embedded Algerian barcode database, and all content are the exclusive intellectual property of <strong>NexisCode Software Labs</strong>, protected under copyright and trademark law. Any reproduction, decompilation, reverse engineering, or distribution without explicit written permission is strictly prohibited.</p>
+            </div>
+            <p>A personal, non-transferable, limited license is granted to use the application solely in accordance with these Terms.</p>
+        </div>
+
+        <div class="policy-section">
+            <h2>8. Governing Law, Jurisdiction & Contact</h2>
+            <p>These Terms are governed by the laws of the <strong>People's Democratic Republic of Algeria</strong>. Any disputes shall be subject to the exclusive jurisdiction of the competent courts of Algiers, Algeria.</p>
+            <p><strong>Publisher:</strong> NexisCode Software Labs &nbsp;|&nbsp; <strong>Support:</strong> <a href="mailto:support@nexiscode.online">support@nexiscode.online</a> &nbsp;|&nbsp; <a href="https://nexiscode.online">nexiscode.online</a></p>
+        </div>
+
     </div>
 
-    <!-- 2. النسخة الفرنسية -->
-    <div id="sec-fr" class="content-section ltr-text">
-        <h2>1. Portée de l'Accord et Identité</h2>
-        <p>Bienvenue sur <strong>Stokko</strong>. Ces Conditions constituent un accord juridique contraignant entre vous (le "Marchand") et <strong>Nexiscode</strong>.</p>
+    <footer>
+        <p>© 2026 <strong>NexisCode Software Labs</strong>. جميع الحقوق محفوظة &nbsp;|&nbsp; All Rights Reserved &nbsp;|&nbsp; Tous droits réservés.</p>
+        <p style="margin-top:8px;">
+            <a href="https://nexiscode.online">nexiscode.online</a>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="https://nexiscode.online/stokko_privacy_policy.html">سياسة الخصوصية (Privacy Policy)</a>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>
+        </p>
+    </footer>
 
-        <h2>2. Nature du Service (Utilitaire B2B Uniquement)</h2>
-        <p>Stokko est strictement un utilitaire logiciel B2B (Business-to-Business) local (Offline-First) :</p>
-        <ul>
-            <li><strong>Pas une plateforme e-commerce :</strong> Stokko n'est ni une boutique en ligne, ni un intermédiaire de paiement.</li>
-            <li><strong>Pas de transactions directes consommateurs :</strong> L'Application agit uniquement comme un grand livre comptable numérique local.</li>
-        </ul>
-
-        <h2>3. Limitation de Responsabilité & Produits Réglementés</h2>
-        <p>Le catalogue de codes-barres est un simple dictionnaire indicatif "en l'état".</p>
-        <p><strong>Responsabilité 100% au Marchand :</strong> Le commerçant est seul responsable de la légalité de ses stocks physiques (y compris tabac, vapotage, produits pharmaceutiques) et de la conformité avec les réglementations fiscales et légales.</p>
-
-        <h2>4. Conservation Décennale & Fiscalité (Loi 07-11)</h2>
-        <p>Les registres de ventes sont conservés localement pour aider le commerçant à respecter l'obligation de <strong>conservation décennale (10 ans)</strong> des pièces comptables (Art. 11 de la loi 07-11 - SCF).</p>
-
-        <h2>5. Loi Applicable et Juridiction</h2>
-        <p>Ces Conditions sont régies par les lois de la <strong>République Algérienne Démocratique et Populaire</strong>. Tout litige sera soumis à la juridiction exclusive des tribunaux compétents d'<strong>Alger</strong>.</p>
-
-        <h2>6. Contact</h2>
-        <p>Éditeur & Marque : NexisCode Software Labs • Support : <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
-    </div>
-
-    <!-- 3. النسخة الإنجليزية -->
-    <div id="sec-en" class="content-section ltr-text">
-        <h2>1. Scope of Agreement & Identity</h2>
-        <p>These Terms of Service constitute a binding legal agreement between the Merchant and <strong>Nexiscode</strong>.</p>
-
-        <h2>2. Nature of Service (B2B Utility Only)</h2>
-        <p>Stokko is strictly an offline-first Point of Sale (POS) and inventory ledger software:</p>
-        <ul>
-            <li><strong>Not an E-Commerce Platform:</strong> Stokko does not facilitate, process, or intermediate consumer transactions or payments.</li>
-            <li><strong>Bookkeeping Tool:</strong> The Application serves strictly as a digital register and inventory ledger.</li>
-        </ul>
-
-        <h2>3. Strict Limitation of Liability & Regulated Goods</h2>
-        <p>The pre-loaded barcode database acts merely as a reference dictionary.</p>
-        <p><strong>100% Merchant Compliance:</strong> The Merchant is solely responsible for ensuring their physical inventory (including tobacco, age-restricted goods, pharmaceuticals) complies with all applicable local and national laws.</p>
-
-        <h2>4. 10-Year Record Retention (Law 07-11)</h2>
-        <p>Sales records are stored locally to assist Merchants in meeting the <strong>10-year statutory accounting retention obligation</strong> under Article 11 of Algerian Law 07-11 (SCF).</p>
-
-        <h2>5. Governing Law & Jurisdiction</h2>
-        <p>These Terms shall be governed by the laws of the <strong>People's Democratic Republic of Algeria</strong>. Exclusive jurisdiction rests with the competent courts of <strong>Algiers, Algeria</strong>.</p>
-
-        <h2>6. Contact Information</h2>
-        <p>Publisher & Developer: NexisCode Software Labs • Email: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
-    </div>
-
-    <div class="footer-note">
-        &copy; 2026 Stokko • Published by Nexiscode (<a href="https://nexiscode.online/">nexiscode.online</a>). All rights reserved.
-    </div>
 </div>
 
 <script>
-    function switchLang(lang, ev) {
-        document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-        
-        document.getElementById('sec-' + lang).classList.add('active');
-        if (ev && ev.target) {
-            ev.target.classList.add('active');
-        }
-        
-        if (lang === 'ar') {
-            document.body.setAttribute('dir', 'rtl');
-        } else {
-            document.body.setAttribute('dir', 'ltr');
-        }
+    function switchLanguage(lang, btn) {
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        document.getElementById('content-ar').style.display = 'none';
+        document.getElementById('content-fr').style.display = 'none';
+        document.getElementById('content-en').style.display = 'none';
+
+        const titles = {
+            ar: ['شروط الخدمة واتفاقية الاستخدام', 'آخر تحديث: 16 أوت 2026 | الإصدار 2.0 (المطابق لمتطلبات Google Play)'],
+            fr: ["Conditions Générales d'Utilisation", 'Dernière mise à jour : 16 Août 2026 | Version 2.0 (Conforme Google Play)'],
+            en: ['Terms of Service', 'Last Updated: August 16, 2026 | Version 2.0 (Google Play Compliant)']
+        };
+
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+        document.getElementById('mainTitle').innerText = titles[lang][0];
+        document.getElementById('lastUpdated').innerText = titles[lang][1];
+        document.getElementById('content-' + lang).style.display = 'block';
     }
 </script>
 
