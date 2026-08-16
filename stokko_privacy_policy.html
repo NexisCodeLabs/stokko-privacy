@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية | Stokko Privacy Policy - Nexiscode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E65100;
+            --primary-dark: #BF360C;
+            --primary-light: #FFE0B2;
+            --bg: #F8F9FA;
+            --surface: #FFFFFF;
+            --text-main: #212121;
+            --text-muted: #616161;
+            --border: #E0E0E0;
+            --shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: var(--primary);
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .tab-btn {
+            background: #EEEEEE;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: #FFFFFF;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .ltr-text {
+            direction: ltr;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+        }
+        h2 {
+            color: var(--primary-dark);
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            border-right: 4px solid var(--primary);
+            padding-right: 12px;
+        }
+        .ltr-text h2 {
+            border-right: none;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+        p, ul {
+            margin-bottom: 15px;
+            color: #37474F;
+        }
+        ul {
+            padding-right: 20px;
+        }
+        .ltr-text ul {
+            padding-right: 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .card-highlight {
+            background: #FFF8E1;
+            border: 1px solid #FFE082;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 20px 0;
+            font-size: 14.5px;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>STOKKO — سياسة الخصوصية الرسمية</h1>
+        <span class="badge">آخر تحديث / Last Updated: 16 أوت 2026</span>
+    </div>
+
+    <!-- تبديل اللغة -->
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchLang('ar', event)">العربية 🇩🇿</button>
+        <button class="tab-btn" onclick="switchLang('fr', event)">Français 🇫🇷</button>
+        <button class="tab-btn" onclick="switchLang('en', event)">English 🇬🇧</button>
+    </div>
+
+    <!-- 1. النسخة العربية -->
+    <div id="sec-ar" class="content-section active">
+        <h2>1. إطار الامتثال القانوني</h2>
+        <p>تلتزم <strong>Nexiscode</strong> والمطور المستقل <strong>Mohssin Badji Amrane</strong> بحماية خصوصية مستخدمي تطبيق Stokko وفق أعلى المعايير القانونية الصارمة، وتحديداً:</p>
+        <ul>
+            <li><strong>القانون الجزائري رقم 18-07:</strong> المتعلق بحماية الأشخاص الطبيعيين في مجال معالجة المعطيات ذات الطابع الشخصي.</li>
+            <li><strong>اللائحة العامة لحماية البيانات (GDPR):</strong> المعيار الأوروبي لحماية البيانات الشخصية (Regulation EU 2016/679).</li>
+        </ul>
+
+        <h2>2. الخصوصية بالتصميم ومعالجة البيانات (Privacy by Design)</h2>
+        <p>يعمل تطبيق Stokko وفق مبدأ <strong>"المحلي أولاً مع انعدام نقل المعطيات الشخصية للسحابة"</strong>:</p>
+        <ul>
+            <li><strong>البيانات الشخصية الحساسة (محلياً فقط):</strong> أسماء الزبائن الحقيقية، أرقام هواتفهم، عناوينهم، وسجلات ديونهم وبيانات الموردين تُخزن <strong>حصرياً ومحلياً داخل ذاكرة هاتف التاجر</strong> في قاعدة بيانات مشفرة (Room DB) بتقنية AES-256. <strong>لا يتم نقل أو رفع أي من هذه البيانات المعرّفة للأشخاص إلى خوادم سحابية خارجية نهائياً.</strong></li>
+            <li><strong>المزامنة السحابية لحسابات VIP:</strong> تقتصر المزامنة السحابية المشفرة (عبر Google Firebase) على البيانات غير المعرّفة للأشخاص؛ مثل: كميات المخزون، أسعار السلع، أرقام المعاملات، والأسماء المستعارة (Aliases) المجهولة لتمكين الكاشير من تسجيل المبيعات دون كشف الهوية الحقيقية للزبائن.</li>
+            <li><strong>هوية نقاط البيع والعمال:</strong> المعاملات السحابية تسجل فقط بمعرفات نقاط البيع (POS IDs) والأجهزة دون معالجة الهويات الشخصية للعمال.</li>
+        </ul>
+
+        <div class="card-highlight">
+            🛡️ <strong>حماية قانونية كاملة للتاجر:</strong> بما أن الهويات الحقيقية للزبائن والموردين تبقى في جهازك المحلي فقط ولا تعبر أي خوادم خارجية، فإن نشاطك التجاري محمي ومطابق تماماً لمتطلبات القانون 18-07 دون الحاجة لتراخيص نقل بيانات دولية.
+        </div>
+
+        <h2>3. إخلاء المسؤولية الجبائية وحفظ السجلات (القانون 07-11)</h2>
+        <p>يحتفظ تطبيق Stokko بسجلات المبيعات والعمليات المحاسبية محلياً في جهاز التاجر لتمكينه من الوفاء بالتزامه القانوني بحفظ الوثائق المحاسبية لمدة <strong>10 سنوات</strong> طبقاً للمادة 11 من القانون 07-11 (النظام المحاسبي المالي SCF).</p>
+        <p>التاجر هو المسؤول القانوني والجبائي الحصري عن صحة معاملاته، واستخراج وطباعة فواتيره الرسمية المتضمنة لرقمه الجبائي (NIF)، وتقديم تصريحاته لمصالح الضرائب. التقارير التقديرية داخل التطبيق (مثل TVA وIFU) هي أدوات استرشادية داخلية ولا تُعد وثائق تصريح رسمي.</p>
+
+        <h2>4. الكتالوج المشترك للباركود</h2>
+        <p>عند مسح باركود غير مسجل، يشارك التطبيق فقط بيانات الباركود العامة (الرقم، اسم السلعة، الفئة). <strong>ولا يشارك نهائياً:</strong> أسعار الشراء، أسعار البيع، أرباح المتجر، كميات المخزون، أو هوية وموقع المحل.</p>
+
+        <h2>5. حقوق الحذف والاتصال</h2>
+        <ul>
+            <li><strong>محلياً:</strong> إلغاء تثبيت التطبيق يمسح قاعدة البيانات المحلية المشفرة نهائياً.</li>
+            <li><strong>سحابياً (VIP):</strong> يمكن طلب الحذف النهائي للحساب ومخلفات السحابة فوراً عبر إعدادات التطبيق أو بمراسلة: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</li>
+            <li><strong>الناشر القانوني:</strong> مطور البرمجيات المستقل Mohssin Badji Amrane (الاسم التجاري: Nexiscode).</li>
+        </ul>
+    </div>
+
+    <!-- 2. النسخة الفرنسية -->
+    <div id="sec-fr" class="content-section ltr-text">
+        <h2>1. Cadre Juridique et Conformité</h2>
+        <p><strong>Nexiscode</strong> et le développeur indépendant <strong>Mohssin Badji Amrane</strong> s'engagent à protéger la vie privée des utilisateurs de Stokko selon les normes les plus strictes :</p>
+        <ul>
+            <li><strong>Loi algérienne n° 18-07 :</strong> Relative à la protection des personnes physiques dans le traitement des données à caractère personnel.</li>
+            <li><strong>Règlement Général sur la Protection des Données (RGPD) :</strong> Norme européenne de protection des données (UE 2016/679).</li>
+        </ul>
+
+        <h2>2. Confidentialité dès la Conception (Privacy by Design)</h2>
+        <p>Stokko repose sur une architecture <strong>"Locale d'abord et sans transfert de données personnelles"</strong> :</p>
+        <ul>
+            <li><strong>Données Personnelles Locales Uniquement :</strong> Les noms réels, numéros de téléphone et coordonnées des clients (débiteurs) et fournisseurs sont stockés <strong>exclusivement sur la mémoire locale de l'appareil</strong> dans une base chiffrée AES-256 (Room DB). <strong>Aucune donnée nominative n'est transmise vers des serveurs Cloud externes.</strong></li>
+            <li><strong>Synchronisation Cloud Pseudonymisée (VIP) :</strong> La synchronisation multi-appareils via Google Firebase ne transmet que des métadonnées non nominatives (stocks, totaux de vente, pseudonymes / alias).</li>
+            <li><strong>Anonymisation des Caissiers :</strong> Les transactions sont associées à des identifiants de terminaux/caisses (POS IDs) sans traitement des données nominatives des employés.</li>
+        </ul>
+
+        <h2>3. Conservation Comptable et Responsabilité Fiscale (Loi 07-11)</h2>
+        <p>Les registres de ventes sont conservés localement de manière permanente pour aider le commerçant à respecter l'obligation de <strong>conservation décennale (10 ans)</strong> des pièces comptables (Art. 11 de la loi 07-11 - SCF).</p>
+        <p>Le commerçant est seul responsable de ses déclarations fiscales et de l'émission de factures avec son NIF. Les rapports de TVA/IFU intégrés sont indicatifs pour la gestion interne.</p>
+
+        <h2>4. Catalogue Global de Codes-Barres</h2>
+        <p>Le partage de métadonnées de codes-barres est strictement anonyme. Il ne partage JAMAIS vos prix d'achat/vente, vos niveaux de stock, vos bilans financiers, ou l'identité de vos débiteurs.</p>
+
+        <h2>5. Droits de Suppression et Contact</h2>
+        <p>Pour toute demande d'assistance ou de suppression définitive de compte cloud : <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
+        <p><strong>Éditeur Légal :</strong> Développeur indépendant Mohssin Badji Amrane (Marque : Nexiscode).</p>
+    </div>
+
+    <!-- 3. النسخة الإنجليزية -->
+    <div id="sec-en" class="content-section ltr-text">
+        <h2>1. Legal Compliance Framework</h2>
+        <p><strong>Nexiscode</strong> and independent software developer <strong>Mohssin Badji Amrane</strong> are committed to protecting user privacy under the highest regulatory standards:</p>
+        <ul>
+            <li><strong>Algerian Law No. 18-07:</strong> Protection of Individuals in Personal Data Processing.</li>
+            <li><strong>General Data Protection Regulation (GDPR):</strong> European Union Regulation (EU) 2016/679.</li>
+        </ul>
+
+        <h2>2. Privacy by Design & Zero-PII Cloud Ingestion</h2>
+        <p>Stokko operates on a strict <strong>Offline-First & Zero-PII Transmission</strong> architecture:</p>
+        <ul>
+            <li><strong>Strictly Local PII Storage:</strong> Real customer names, phone numbers, addresses, debt ledgers, and supplier contact information are stored <strong>strictly on the local device</strong> in an AES-256 encrypted Room DB. <strong>No customer/supplier personal identifiable information (PII) is ever uploaded or transmitted to external cloud servers.</strong></li>
+            <li><strong>Pseudonymized VIP Cloud Sync:</strong> Multi-device synchronization for VIP tiers via Google Firebase is limited exclusively to non-PII transaction metadata, inventory counts, product catalogs, and anonymized debtor aliases.</li>
+            <li><strong>Cashier Terminal Anonymization:</strong> Transaction logs record device/terminal identifiers (POS IDs) rather than personal employee records.</li>
+        </ul>
+
+        <h2>3. Statutory Record Retention & Fiscal Responsibility (Law 07-11)</h2>
+        <p>Sales and journal ledger records are preserved permanently on the merchant's local device to assist in fulfilling the <strong>10-year statutory accounting retention obligation</strong> under Article 11 of Algerian Law 07-11 (Financial Accounting System - SCF).</p>
+        <p>The Merchant remains solely and exclusively responsible for generating legal invoices bearing their Tax ID (NIF/NIS) and filing statutory tax returns. Any estimated tax calculations (TVA/IFU) provided in the Application are internal management estimates only.</p>
+
+        <h2>4. Barcode Crowdsourcing Protection</h2>
+        <p>Anonymized barcode scans only contribute public product titles and categories. Commercial secrets (buying/selling prices, margins, stock levels, store identity) are never collected or shared.</p>
+
+        <h2>5. Contact & Data Deletion</h2>
+        <p>Requests for account and cloud ledger deletion can be submitted anytime to: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
+        <p><strong>Legal Publisher:</strong> Independent Developer Mohssin Badji Amrane (Trading brand: Nexiscode).</p>
+    </div>
+
+    <div class="footer-note">
+        &copy; 2026 Stokko • Published by Nexiscode (<a href="https://nexiscode.online/">nexiscode.online</a>). All rights reserved.
+    </div>
+</div>
+
+<script>
+    function switchLang(lang, ev) {
+        document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        
+        document.getElementById('sec-' + lang).classList.add('active');
+        if (ev && ev.target) {
+            ev.target.classList.add('active');
+        }
+        
+        if (lang === 'ar') {
+            document.body.setAttribute('dir', 'rtl');
+        } else {
+            document.body.setAttribute('dir', 'ltr');
+        }
+    }
+</script>
+
+</body>
+</html>
