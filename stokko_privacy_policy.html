@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سياسة الخصوصية | Stokko Privacy Policy - NexisCode</title>
+    <meta name="description" content="Stokko App Privacy Policy — NexisCode Software Labs. Compliant with Algerian Law 18-07, Law 07-11, and GDPR.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,144 +16,138 @@
             --bg-main: #FAFAFA;
             --surface: #FFFFFF;
             --text-main: #212121;
-            --text-muted: #616161;
+            --text-muted: #757575;
             --border: #EEEEEE;
-            --border-active: #FFE0B2;
-            --radius-lg: 16px;
+            --radius-lg: 18px;
             --radius-md: 10px;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
-            --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
+            --shadow-md: 0 8px 32px rgba(0,0,0,0.07);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-main);
+            font-family: 'Cairo', 'Inter', -apple-system, sans-serif;
+            background: var(--bg-main);
             color: var(--text-main);
-            line-height: 1.8;
-            padding: 24px 16px;
+            line-height: 1.85;
+            padding: 24px 16px 48px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 880px;
             margin: 0 auto;
             background: var(--surface);
             border-radius: var(--radius-lg);
-            padding: 40px;
+            padding: 48px 44px;
             box-shadow: var(--shadow-md);
             border: 1px solid var(--border);
         }
 
-        header {
-            text-align: center;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 24px;
-            margin-bottom: 32px;
-        }
+        header { text-align: center; border-bottom: 2px solid var(--border); padding-bottom: 28px; margin-bottom: 36px; }
 
         .brand-badge {
             display: inline-block;
             background: var(--primary-light);
             color: var(--primary-dark);
             font-weight: 700;
-            font-size: 0.9rem;
-            padding: 6px 16px;
+            font-size: 0.88rem;
+            padding: 5px 16px;
             border-radius: 50px;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            letter-spacing: 0.4px;
         }
 
         h1 {
-            font-size: 2.2rem;
-            color: var(--text-main);
+            font-size: 2rem;
             font-weight: 800;
+            color: var(--text-main);
             margin-bottom: 8px;
+            letter-spacing: -0.3px;
         }
 
-        .last-updated {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+        .last-updated { color: var(--text-muted); font-size: 0.93rem; }
 
         .lang-switch {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin: 24px 0 32px;
+            margin: 28px 0 0;
+            flex-wrap: wrap;
         }
 
         .lang-btn {
             background: #F5F5F5;
-            border: 1px solid #E0E0E0;
+            border: 1.5px solid #E0E0E0;
             color: var(--text-main);
-            padding: 8px 18px;
+            padding: 8px 22px;
             border-radius: 50px;
+            font-family: inherit;
             font-weight: 700;
+            font-size: 0.92rem;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-size: 0.9rem;
         }
 
         .lang-btn.active, .lang-btn:hover {
             background: var(--primary);
-            color: #FFFFFF;
+            color: #FFF;
             border-color: var(--primary);
         }
 
-        .policy-section {
-            margin-bottom: 32px;
-        }
+        .policy-section { margin-bottom: 36px; }
 
         h2 {
-            font-size: 1.35rem;
+            font-size: 1.22rem;
             color: var(--primary-dark);
+            font-weight: 800;
             margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 700;
+            padding-bottom: 8px;
+            border-bottom: 1.5px solid var(--primary-light);
         }
 
-        p, li {
-            color: #424242;
-            font-size: 1.05rem;
-            margin-bottom: 12px;
-            text-align: justify;
-        }
+        p, li { color: #424242; font-size: 1.03rem; margin-bottom: 10px; }
 
-        ul {
-            padding-right: 24px;
-            margin-bottom: 16px;
-        }
+        ul { padding-right: 22px; margin-bottom: 14px; }
+        html[dir="ltr"] ul { padding-right: 0; padding-left: 22px; }
 
-        html[dir="ltr"] ul {
-            padding-right: 0;
-            padding-left: 24px;
-        }
+        li { margin-bottom: 8px; }
+
+        a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
 
         .highlight-box {
             background: #FFF8E1;
             border-right: 4px solid #FFA000;
-            padding: 16px 20px;
+            padding: 15px 18px;
             border-radius: var(--radius-md);
-            margin: 16px 0;
+            margin: 18px 0;
         }
 
-        html[dir="ltr"] .highlight-box {
-            border-right: none;
-            border-left: 4px solid #FFA000;
-        }
+        html[dir="ltr"] .highlight-box { border-right: none; border-left: 4px solid #FFA000; }
 
         .highlight-box p {
             margin-bottom: 0;
-            color: #5D4037;
+            color: #4E342E;
             font-weight: 600;
+            font-size: 1rem;
         }
+
+        .permissions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+            margin: 14px 0 20px;
+        }
+
+        .perm-card {
+            background: #F9F9F9;
+            border: 1px solid #EEEEEE;
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+        }
+
+        .perm-card strong { display: block; font-size: 1rem; color: var(--primary-dark); margin-bottom: 4px; }
+        .perm-card span { font-size: 0.95rem; color: #555; }
 
         footer {
             margin-top: 40px;
@@ -160,100 +155,128 @@
             border-top: 1px solid var(--border);
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 700;
+            font-size: 0.93rem;
+            line-height: 1.9;
         }
 
         @media (max-width: 600px) {
-            .container {
-                padding: 24px 16px;
-            }
-            h1 {
-                font-size: 1.7rem;
-            }
-            h2 {
-                font-size: 1.2rem;
-            }
+            .container { padding: 28px 18px; }
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.1rem; }
+            p, li { font-size: 0.98rem; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+
     <header>
         <div class="brand-badge">NexisCode Software Labs</div>
         <h1 id="mainTitle">سياسة الخصوصية وحماية المعطيات</h1>
-        <div class="last-updated" id="lastUpdated">آخر تحديث: 16 أوت 2026 | الإصدار 2.4</div>
-        
+        <div class="last-updated" id="lastUpdated">آخر تحديث: 16 أوت 2026 &nbsp;|&nbsp; الإصدار 3.0</div>
         <div class="lang-switch">
-            <button class="lang-btn active" onclick="switchLanguage('ar')">🇩🇿 العربية</button>
-            <button class="lang-btn" onclick="switchLanguage('fr')">🇫🇷 Français</button>
-            <button class="lang-btn" onclick="switchLanguage('en')">🇬🇧 English</button>
+            <button class="lang-btn active" onclick="switchLanguage('ar', this)">🇩🇿 العربية</button>
+            <button class="lang-btn" onclick="switchLanguage('fr', this)">🇫🇷 Français</button>
+            <button class="lang-btn" onclick="switchLanguage('en', this)">🇬🇧 English</button>
         </div>
     </header>
 
-    <!-- CONTENT: ARABIC -->
+    <!-- ══════════════════ ARABIC ══════════════════ -->
     <div id="content-ar">
+
         <div class="policy-section">
             <h2>1. إطار الامتثال التشريعي والقانوني</h2>
             <p>يلتزم فريق <strong>NexisCode Software Labs</strong> بحماية خصوصية وأمان مستخدمي تطبيق <strong>Stokko</strong> وفق أرقى معايير الامتثال الرقمي، وتحديداً:</p>
             <ul>
                 <li><strong>القانون الجزائري رقم 18-07:</strong> المتعلق بحماية الأشخاص الطبيعيين في مجال معالجة المعطيات ذات الطابع الشخصي.</li>
                 <li><strong>القانون الجزائري رقم 07-11:</strong> المتضمن النظام المحاسبي المالي (SCF) وقواعد حفظ السجلات التجارية.</li>
-                <li><strong>اللائحة العامة لحماية البيانات (GDPR):</strong> المعيار الأوروبي لحماية الخصوصية الرقمية.</li>
+                <li><strong>اللائحة العامة لحماية البيانات (GDPR):</strong> المعيار الأوروبي لحماية الخصوصية الرقمية (EU 2016/679).</li>
             </ul>
         </div>
 
         <div class="policy-section">
-            <h2>2. توصيف الأسماء ومحدودية التعريف (Non-Identifiable Descriptors)</h2>
+            <h2>2. توصيف الأسماء ومحدودية التعريف <span style="font-weight:400;font-size:0.95rem;">(Non-Identifiable Descriptors)</span></h2>
             <p>يعمل تطبيق Stokko في إدارة ديون المحلات وفق منهجية المعالجة المجردة:</p>
             <ul>
-                <li><strong>الأسماء العرفية والتجارية فقط:</strong> يُتيح التطبيق للتاجر تسجيل اسم مبسط أو عرفي للزبون (مثل: <em>"حسين الكهربائي"</em>، <em>"عمي رابح"</em>، <em>"أمين"</em>) بهدف إسناد المعاملة المالية في دفتر الديون الداخلي.</li>
-                <li><strong>انعدام المعطيات المحددة للهوية (No Identifiable PII):</strong> لا يقوم التطبيق بطلب أو جمع أو معالجة الألقاب العائلية الرسمية، أو أرقام بطاقات الهوية والتعريف الوطني (NIN)، أو وثائق الحالة المدنية. وبالتالي، فإن الاسم المسجل منفرداً لا يمكنه بأي حال من الأحوال تحديد هوية الشخص الطبيعي بصفة مباشرة أو قاطعة وفقاً للمادة 3 من القانون 18-07.</li>
+                <li><strong>الأسماء العرفية والتجارية فقط:</strong> يُتيح التطبيق للتاجر تسجيل اسم مبسط أو عرفي للزبون (مثل: <em>"حسين الكهربائي"</em>، <em>"عمي رابح"</em>، <em>"أمين"</em>) بهدف إسناد المعاملة المالية في دفتر الديون الداخلي للمحل.</li>
+                <li><strong>انعدام المعطيات المحددة للهوية:</strong> لا يقوم التطبيق بطلب أو جمع أو معالجة الألقاب العائلية الرسمية، أو أرقام بطاقة التعريف الوطني (NIN)، أو وثائق الحالة المدنية. وبالتالي، فإن الاسم المُسجَّل منفرداً <strong>لا يمكنه بأي حال تحديد هوية الشخص الطبيعي</strong> بصفة مباشرة أو قاطعة، وفقاً للمادة 3 من القانون 18-07.</li>
             </ul>
             <div class="highlight-box">
-                <p>💡 حماية الهوية: يتم التعامل مع أسماء الزبائن كوصف وظيفي داخلي بين أجهزة المحل المصرح لها فقط، وتُعالج المعاملات المالية في إطار تنفيذ العقد التجاري المباشر بين التاجر وعميله.</p>
+                <p>💡 الأسماء المُسجَّلة هي وصف وظيفي داخلي (Functional Descriptor) محصور بين أجهزة المحل المصرح لها، وتُعالَج المعاملات في إطار تنفيذ العقد التجاري المباشر بين التاجر وزبونه (المادتان 7 و 9 من القانون 18-07).</p>
             </div>
         </div>
 
         <div class="policy-section">
-            <h2>3. التشفير والمزامنة السحابية الخاصة (حسابات VIP)</h2>
+            <h2>3. التشفير والمزامنة السحابية الخاصة <span style="font-weight:400;font-size:0.95rem;">(حسابات VIP)</span></h2>
             <ul>
-                <li><strong>التشفير المحلي التام (AES-256):</strong> كافة السجلات المالية، والأسعار، والمبيعات تُخزن محلياً على جهاز المستخدم في قاعدة بيانات مشفرة بـ <code>SQLCipher AES-256</code> ومحمية بمعالج الأمان المادي للجهاز (Android Keystore).</li>
-                <li><strong>المزامنة السحابية المغلقة:</strong> لحسابات VIP متعددة الأجهزة، تتم مزامنة دفتر الديون والمخزون عبر شبكة مشفرة باتصال آمن (TLS/SSL) محصورة حصرياً بين أجهزة المحل التابعة لنفس التاجر (صاحب المحل والكاشير).</li>
+                <li><strong>التشفير المحلي التام (AES-256):</strong> كافة السجلات المالية، والأسعار، والمبيعات تُخزن محلياً على جهاز المستخدم في قاعدة بيانات مشفرة بـ <code>SQLCipher AES-256</code> ومحمية بمعالج الأمان المادي للجهاز <code>(Android Keystore)</code>.</li>
+                <li><strong>المزامنة السحابية المغلقة:</strong> لحسابات VIP متعددة الأجهزة، تتم مزامنة دفتر الديون والمخزون عبر اتصال مشفر (TLS/SSL) محصور حصرياً بين أجهزة المحل التابعة لنفس التاجر (صاحب المحل والكاشير).</li>
                 <li><strong>انعدام المشاركة الخارجية:</strong> لا يتم بيع، أو تأجير، أو مشاركة أي جزء من سجلات المحل مع أي طرف ثالث أو شركات إعلانية على الإطلاق.</li>
             </ul>
         </div>
 
         <div class="policy-section">
-            <h2>4. حفظ السجلات وإخلاء المسؤولية الجبائية (القانون 07-11)</h2>
+            <h2>4. حفظ السجلات وإخلاء المسؤولية الجبائية <span style="font-weight:400;font-size:0.95rem;">(القانون 07-11)</span></h2>
             <p>يحتفظ التطبيق بسجلات الحركات المالية والمبيعات محلياً لتمكين التاجر من الوفاء بالتزامه القانوني بحفظ الوثائق المحاسبية لمدة 10 سنوات طبقاً للمادة 11 من القانون 07-11.</p>
-            <p>التاجر هو المسؤول القانوني والحصري عن فواتيره وتصريحاته الجبائية لدى إدارة الضرائب؛ وتُعتبر تقارير الضرائب المدمجة (TVA و IFU) أدوات استرشادية وتقديرية للمحاسبة الداخلية فقط.</p>
+            <p>التاجر هو المسؤول القانوني والحصري عن فواتيره وتصريحاته الجبائية لدى إدارة الضرائب. وتُعتبر تقارير الضرائب المدمجة في التطبيق (TVA و IFU) أدوات استرشادية وتقديرية للمحاسبة الداخلية فقط، ولا تُعدّ وثائق تصريح رسمية.</p>
         </div>
 
         <div class="policy-section">
-            <h2>5. كتالوج الباركود العام وحقوق المستخدم</h2>
+            <h2>5. كتالوج الباركود المشترك</h2>
             <ul>
-                <li><strong>الكتالوج المشترك:</strong> مساهمات الباركود تقتصر حصرياً على البيانات العامة للسلعة (الرقم التسلسلي واسم المنتج)، ولا تشارك أبداً أسعار الشراء، أو هوامش الربح، أو موقع المحل.</li>
-                <li><strong>حذف البيانات:</strong> يمكن للمستخدم مسح بياناته محلياً فوراً بإلغاء التثبيت، أو طلب الحذف النهائي لحسابه السحابي بمراسلة: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</li>
+                <li><strong>بيانات عامة فقط:</strong> مساهمات الباركود تقتصر حصرياً على البيانات العامة للسلعة (الرقم التسلسلي واسم المنتج والفئة). ولا تُشارَك أبداً أسعار الشراء، أو هوامش الربح، أو كميات المخزون، أو هوية وموقع المحل.</li>
             </ul>
         </div>
+
+        <div class="policy-section">
+            <h2>6. أذونات الجهاز، الخدمات المستخدمة وحقوق المستخدم</h2>
+
+            <p><strong>أ. أذونات الجهاز المُستخدمة:</strong></p>
+            <div class="permissions-grid">
+                <div class="perm-card">
+                    <strong>📷 الكاميرا</strong>
+                    <span>حصرياً لمسح الرموز الشريطية وتحديد المنتجات. لا تُلتقط أي صور أو مقاطع مرئية.</span>
+                </div>
+                <div class="perm-card">
+                    <strong>💾 التخزين</strong>
+                    <span>لتصدير الفواتير والتقارير بصيغة PDF و CSV على ذاكرة الجهاز المحلية.</span>
+                </div>
+                <div class="perm-card">
+                    <strong>🌐 الإنترنت</strong>
+                    <span>لمزامنة بيانات المتجر بين الأجهزة المصرح لها (VIP)، وتحديث الكتالوج، والمصادقة.</span>
+                </div>
+            </div>
+
+            <p><strong>ب. الخدمات الخارجية الخاضعة لسياسات خصوصيتها المستقلة:</strong></p>
+            <ul>
+                <li><strong>Google Firebase (Firestore & Authentication):</strong> مُستخدم للمزامنة السحابية الآمنة وإدارة حسابات VIP. البيانات المُرسَلة مشفرة ومحدودة وفق الفقرة 3 أعلاه. راجع <a href="https://firebase.google.com/support/privacy" target="_blank">سياسة خصوصية Firebase</a>.</li>
+                <li><strong>Google Play Services:</strong> مُستخدم لتوثيق الهوية وضمان سلامة التطبيق. راجع <a href="https://policies.google.com/privacy" target="_blank">سياسة خصوصية Google</a>.</li>
+            </ul>
+
+            <p><strong>ج. حقوق المستخدم الكاملة:</strong></p>
+            <ul>
+                <li><strong>حق الوصول والتصحيح:</strong> يمكن للمستخدم الاطلاع على جميع بياناته وتعديلها مباشرة من داخل التطبيق في أي وقت.</li>
+                <li><strong>حق حذف الحساب والبيانات:</strong> يوفر التطبيق ميزة <strong>الحذف الكامل للحساب والبيانات السحابية</strong> من داخل الإعدادات مباشرة. يمكن أيضاً طلب الحذف عبر: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>. يُحذف الحساب نهائياً خلال 30 يوماً من تاريخ الطلب.</li>
+                <li><strong>حق نقل البيانات:</strong> يمكن تصدير جميع بيانات المتجر (المنتجات، المبيعات، التقارير) بصيغة CSV في أي وقت.</li>
+                <li><strong>خصوصية الأطفال:</strong> التطبيق مُوجَّه حصرياً للتجار البالغين (18 سنة فأكثر). لا يتم جمع أي بيانات تتعلق بالأطفال ولا نوجه إليهم أي محتوى.</li>
+            </ul>
+
+            <p><strong>د. تحديثات هذه السياسة:</strong> في حال أي تغيير جوهري في كيفية معالجة البيانات، يتم إخطار المستخدمين عبر إشعار داخل التطبيق قبل 15 يوماً من دخول التحديث حيز التنفيذ.</p>
+        </div>
+
     </div>
 
-    <!-- CONTENT: FRENCH -->
+    <!-- ══════════════════ FRANÇAIS ══════════════════ -->
     <div id="content-fr" style="display:none;">
+
         <div class="policy-section">
             <h2>1. Cadre Juridique et Conformité</h2>
-            <p>L'équipe <strong>NexisCode Software Labs</strong> s'engage à protéger la vie privée et les données commerciales des utilisateurs de <strong>Stokko</strong> selon les normes réglementaires :</p>
+            <p>L'équipe <strong>NexisCode Software Labs</strong> s'engage à protéger la vie privée et les données commerciales des utilisateurs de <strong>Stokko</strong> selon les normes réglementaires les plus strictes :</p>
             <ul>
                 <li><strong>Loi algérienne n° 18-07 :</strong> Relative à la protection des personnes physiques dans le traitement des données à caractère personnel.</li>
-                <li><strong>Loi algérienne n° 07-11 :</strong> Portant Système Comptable Financier (SCF) et conservation décennale des pièces.</li>
-                <li><strong>Règlement Général sur la Protection des Données (RGPD) :</strong> Norme européenne (UE 2016/679).</li>
+                <li><strong>Loi algérienne n° 07-11 :</strong> Portant Système Comptable Financier (SCF) et conservation décennale des pièces comptables.</li>
+                <li><strong>Règlement Général sur la Protection des Données (RGPD) :</strong> Norme européenne de référence (EU 2016/679).</li>
             </ul>
         </div>
 
@@ -261,44 +284,84 @@
             <h2>2. Descripteurs Fonctionnels et Non-Identifiabilité</h2>
             <p>Dans la gestion des créances et du carnet de dettes, Stokko adopte une architecture respectueuse de l'anonymat :</p>
             <ul>
-                <li><strong>Noms d'usage uniquement :</strong> L'application permet d'enregistrer un nom usuel ou commercial (ex. <em>"Hocine Electricien"</em>, <em>"Amine"</em>) pour attribuer les transactions dans le carnet interne.</li>
-                <li><strong>Absence de données nominatives directes :</strong> L'application ne collecte ni n'exige de nom de famille officiel, numéro d'identification nationale (NIN), ou document d'état civil. Isolément, ces désignations ne permettent en aucun cas d'identifier directement une personne physique au sens de l'article 3 de la loi 18-07.</li>
+                <li><strong>Noms d'usage uniquement :</strong> L'application permet au commerçant d'enregistrer un nom usuel ou commercial (ex. <em>"Hocine Electricien"</em>, <em>"Amine"</em>) pour attribuer des transactions dans le carnet interne de la boutique.</li>
+                <li><strong>Absence de données nominatives directes :</strong> L'application ne collecte ni n'exige de nom de famille officiel, de numéro d'identification nationale (NIN), ou de document d'état civil. Pris isolément, ces désignations <strong>ne permettent en aucun cas d'identifier directement une personne physique</strong>, au sens de l'article 3 de la loi 18-07.</li>
             </ul>
             <div class="highlight-box">
-                <p>💡 Traitement Contractuel : Ces descripteurs sont strictement cantonnés à la gestion interne de caisse et à l'exécution du contrat de vente à crédit entre le commerçant et son client.</p>
+                <p>💡 Traitement Contractuel : Ces descripteurs sont strictement réservés à la comptabilité interne de caisse et à l'exécution du contrat de vente à crédit entre le commerçant et son client (Art. 7 et 9, Loi 18-07).</p>
             </div>
         </div>
 
         <div class="policy-section">
-            <h2>3. Chiffrement et Synchronisation Cloud Sécurisée (VIP)</h2>
+            <h2>3. Chiffrement et Synchronisation Cloud Sécurisée <span style="font-weight:400;font-size:0.95rem;">(Comptes VIP)</span></h2>
             <ul>
-                <li><strong>Chiffrement Local Intégral (AES-256) :</strong> Vos registres et ventes sont protégés sur l'appareil par SQLCipher AES-256 et scellés dans le processeur sécurisé (Android Keystore).</li>
-                <li><strong>Synchronisation Confinée :</strong> Pour les comptes multi-caisses VIP, la synchronisation est chiffrée de bout en bout (TLS/SSL) et strictement réservée aux terminaux autorisés de la même boutique.</li>
-                <li><strong>Aucun Partage Tiers :</strong> Vos données ne sont jamais vendues, louées ou transmises à des régies publicitaires.</li>
+                <li><strong>Chiffrement Local Intégral (AES-256) :</strong> Tous les registres financiers, prix et ventes sont protégés sur l'appareil par <code>SQLCipher AES-256</code>, scellé dans le processeur sécurisé <code>(Android Keystore)</code>.</li>
+                <li><strong>Synchronisation Confinée :</strong> Pour les comptes multi-caisses VIP, la synchronisation est chiffrée de bout en bout (TLS/SSL) et strictement réservée aux terminaux autorisés de la même boutique (propriétaire et caissier).</li>
+                <li><strong>Aucun Partage Tiers :</strong> Aucune donnée de la boutique n'est vendue, louée ou transmise à des régies publicitaires ou à des tiers.</li>
             </ul>
         </div>
 
         <div class="policy-section">
-            <h2>4. Conservation Comptable (Loi 07-11) et Fiscalité</h2>
-            <p>Les transactions sont conservées localement pour assister le commerçant dans son obligation légale de conservation des registres pendant 10 ans (Art. 11 de la loi 07-11). Les rapports fiscaux (TVA/IFU) intégrés constituent des outils indicatifs de gestion interne.</p>
+            <h2>4. Conservation Comptable et Responsabilité Fiscale <span style="font-weight:400;font-size:0.95rem;">(Loi 07-11)</span></h2>
+            <p>Les transactions sont conservées localement pour assister le commerçant dans son obligation légale de conservation des pièces comptables pendant 10 ans (Art. 11 de la loi 07-11 — SCF).</p>
+            <p>Le commerçant demeure seul responsable de l'émission de ses factures et de ses déclarations fiscales. Les rapports fiscaux intégrés (TVA/IFU) constituent des outils indicatifs de gestion interne et ne valent pas déclaration officielle.</p>
         </div>
 
         <div class="policy-section">
-            <h2>5. Droits et Suppression</h2>
-            <p>Pour toute demande de suppression définitive de compte ou d'assistance : <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
-            <p>Éditeur officiel : <strong>NexisCode Software Labs</strong>.</p>
+            <h2>5. Catalogue Commun de Codes-Barres</h2>
+            <ul>
+                <li><strong>Données publiques uniquement :</strong> Les contributions au catalogue se limitent strictement au code-barres, au nom du produit et à sa catégorie. Les prix d'achat, les marges, les niveaux de stock et l'identité de la boutique ne sont jamais partagés.</li>
+            </ul>
         </div>
+
+        <div class="policy-section">
+            <h2>6. Permissions Appareil, Services Tiers et Droits Utilisateurs</h2>
+
+            <p><strong>a. Permissions Utilisées :</strong></p>
+            <div class="permissions-grid">
+                <div class="perm-card">
+                    <strong>📷 Caméra</strong>
+                    <span>Exclusivement pour la lecture de codes-barres. Aucune image n'est capturée ou stockée.</span>
+                </div>
+                <div class="perm-card">
+                    <strong>💾 Stockage</strong>
+                    <span>Pour l'export local de factures PDF et rapports CSV sur l'appareil.</span>
+                </div>
+                <div class="perm-card">
+                    <strong>🌐 Internet</strong>
+                    <span>Pour la synchronisation multi-caisses VIP, les mises à jour du catalogue et l'authentification.</span>
+                </div>
+            </div>
+
+            <p><strong>b. Services Tiers (soumis à leurs propres politiques) :</strong></p>
+            <ul>
+                <li><strong>Google Firebase (Firestore & Auth) :</strong> Synchronisation cloud chiffrée pour les comptes VIP. Les données transmises sont chiffrées et limitées (cf. Section 3). <a href="https://firebase.google.com/support/privacy" target="_blank">Politique de confidentialité Firebase</a>.</li>
+                <li><strong>Google Play Services :</strong> Authentification et vérification de l'intégrité de l'application. <a href="https://policies.google.com/privacy" target="_blank">Politique de confidentialité Google</a>.</li>
+            </ul>
+
+            <p><strong>c. Droits des Utilisateurs :</strong></p>
+            <ul>
+                <li><strong>Accès et Rectification :</strong> Consultez et modifiez toutes vos données directement depuis l'application à tout moment.</li>
+                <li><strong>Suppression du Compte et des Données :</strong> L'application intègre une fonctionnalité de <strong>suppression complète du compte et des données cloud</strong> directement depuis les Paramètres. Suppression définitive garantie sous 30 jours. Contact : <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</li>
+                <li><strong>Portabilité :</strong> Exportez toutes les données de votre boutique (produits, ventes, rapports) en CSV à tout moment.</li>
+                <li><strong>Protection des Mineurs :</strong> L'application est réservée aux commerçants adultes (+18 ans). Aucune donnée relative aux mineurs n'est collectée.</li>
+            </ul>
+
+            <p><strong>d. Modifications de la Politique :</strong> Tout changement substantiel sera notifié via une alerte in-app 15 jours avant son entrée en vigueur.</p>
+        </div>
+
     </div>
 
-    <!-- CONTENT: ENGLISH -->
+    <!-- ══════════════════ ENGLISH ══════════════════ -->
     <div id="content-en" style="display:none;">
+
         <div class="policy-section">
             <h2>1. Regulatory Compliance Framework</h2>
-            <p><strong>NexisCode Software Labs</strong> is committed to ensuring high data protection standards for <strong>Stokko</strong> users under:</p>
+            <p><strong>NexisCode Software Labs</strong> is committed to the highest data protection standards for <strong>Stokko</strong> users under:</p>
             <ul>
                 <li><strong>Algerian Law No. 18-07:</strong> Protection of Individuals in Personal Data Processing.</li>
                 <li><strong>Algerian Law No. 07-11:</strong> Financial Accounting System (SCF) and 10-year statutory record retention.</li>
-                <li><strong>General Data Protection Regulation (GDPR):</strong> Regulation (EU) 2016/679.</li>
+                <li><strong>General Data Protection Regulation (GDPR):</strong> European Union Regulation (EU) 2016/679.</li>
             </ul>
         </div>
 
@@ -306,70 +369,107 @@
             <h2>2. Functional Descriptors & Non-Identifiable Records</h2>
             <p>For internal debt ledger and credit sales operations, Stokko applies a non-identifiable approach:</p>
             <ul>
-                <li><strong>Informal / Commercial Handles:</strong> Users may record a customer reference name (e.g. <em>"Hocine Electrician"</em>, <em>"Uncle Rabah"</em>) strictly to assign ledger entries.</li>
-                <li><strong>No Direct PII Collection:</strong> The app does not collect family surnames, national ID numbers (NIN), or official civil registry data. In isolation, reference names cannot identify a natural person under Article 3 of Law 18-07.</li>
+                <li><strong>Informal / Commercial Handles Only:</strong> The app allows merchants to record a customer's informal or trade reference (e.g. <em>"Hocine Electrician"</em>, <em>"Uncle Rabah"</em>, <em>"Amine"</em>) strictly to assign ledger entries in the store's internal records.</li>
+                <li><strong>No Direct PII Collection:</strong> The app does not request, collect, or process official family surnames, National ID numbers (NIN), or civil registry documents. Taken in isolation, reference names <strong>cannot identify a natural person</strong> in any direct or definitive manner under Article 3 of Law 18-07.</li>
             </ul>
             <div class="highlight-box">
-                <p>💡 Contractual Trade Purpose: Descriptors are used solely for private internal accounting and store point-of-sale execution between the merchant and the customer.</p>
+                <p>💡 Contractual Trade Purpose: These descriptors serve exclusively as internal accounting handles for store-to-POS transaction execution — processed under contractual trade basis (Art. 7 & 9, Law 18-07).</p>
             </div>
         </div>
 
         <div class="policy-section">
-            <h2>3. AES-256 Storage & Private Multi-Device Sync (VIP)</h2>
+            <h2>3. AES-256 Storage & Private Multi-Device Sync <span style="font-weight:400;font-size:0.95rem;">(VIP)</span></h2>
             <ul>
-                <li><strong>Full-Disk Encryption:</strong> On-device database is encrypted with SQLCipher AES-256 and backed by hardware Android Keystore.</li>
-                <li><strong>Private Cloud Synchronization:</strong> Multi-terminal VIP sync is transmitted via TLS/SSL strictly between the merchant's authenticated store devices.</li>
-                <li><strong>Zero Third-Party Sharing:</strong> No store or customer records are sold, traded, or shared with advertising networks.</li>
+                <li><strong>Full On-Device Encryption (AES-256):</strong> All financial records, pricing, and sales are stored locally in a <code>SQLCipher AES-256</code> encrypted database, sealed by the device's hardware security processor <code>(Android Keystore)</code>.</li>
+                <li><strong>Private Cloud Synchronization:</strong> For VIP multi-terminal accounts, synchronization is end-to-end encrypted (TLS/SSL) and strictly confined to the merchant's authenticated store devices (owner & cashier terminals).</li>
+                <li><strong>Zero Third-Party Sharing:</strong> No store or customer records are sold, rented, or shared with advertising networks or external parties.</li>
             </ul>
         </div>
 
         <div class="policy-section">
-            <h2>4. Accounting Retention & Tax Disclaimer (Law 07-11)</h2>
-            <p>Journal records are retained on-device to support the merchant's 10-year statutory accounting obligation under Article 11 of Law 07-11. Embedded tax estimates (TVA/IFU) are internal managerial tools.</p>
+            <h2>4. Accounting Retention & Tax Disclaimer <span style="font-weight:400;font-size:0.95rem;">(Law 07-11)</span></h2>
+            <p>Transaction records are retained on-device to support the merchant's 10-year statutory accounting obligation under Article 11 of Algerian Law 07-11 (Financial Accounting System — SCF).</p>
+            <p>The merchant is solely and exclusively responsible for issuing legal invoices bearing their Tax ID (NIF/NIS) and filing statutory tax returns. Embedded tax estimates (TVA/IFU) are internal management tools only and do not constitute official filings.</p>
         </div>
 
         <div class="policy-section">
-            <h2>5. User Rights & Contact</h2>
-            <p>For support or complete account/cloud ledger deletion: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
-            <p>Publisher & Developer: <strong>NexisCode Software Labs</strong>.</p>
+            <h2>5. Shared Barcode Catalog</h2>
+            <ul>
+                <li><strong>Public Product Data Only:</strong> Barcode contributions are strictly limited to the product serial number, name, and category. Purchase prices, profit margins, stock levels, and store identity are never collected or shared.</li>
+            </ul>
         </div>
+
+        <div class="policy-section">
+            <h2>6. Device Permissions, Third-Party Services & User Rights</h2>
+
+            <p><strong>a. Device Permissions Used:</strong></p>
+            <div class="permissions-grid">
+                <div class="perm-card">
+                    <strong>📷 Camera</strong>
+                    <span>Solely for barcode scanning to identify products. No images or video are captured or stored.</span>
+                </div>
+                <div class="perm-card">
+                    <strong>💾 Storage</strong>
+                    <span>For local export of PDF invoices and CSV reports to the device's storage.</span>
+                </div>
+                <div class="perm-card">
+                    <strong>🌐 Internet</strong>
+                    <span>For VIP multi-device sync, catalog updates, and account authentication.</span>
+                </div>
+            </div>
+
+            <p><strong>b. Third-Party Services (subject to their own policies):</strong></p>
+            <ul>
+                <li><strong>Google Firebase (Firestore & Authentication):</strong> Encrypted cloud sync for VIP accounts. Data transmitted is encrypted and limited per Section 3. <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a>.</li>
+                <li><strong>Google Play Services:</strong> Used for user authentication and app integrity verification. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.</li>
+            </ul>
+
+            <p><strong>c. User Rights:</strong></p>
+            <ul>
+                <li><strong>Access & Rectification:</strong> View and edit all your data directly within the app at any time.</li>
+                <li><strong>Account & Data Deletion:</strong> The app provides a built-in <strong>full account and cloud data deletion</strong> feature directly in Settings. Permanent deletion is guaranteed within 30 days of request. Contact: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</li>
+                <li><strong>Data Portability:</strong> Export all store data (products, sales, reports) as CSV at any time from within the app.</li>
+                <li><strong>Children's Privacy:</strong> The app is intended exclusively for adult merchants aged 18 and over. No data relating to minors is collected or processed.</li>
+            </ul>
+
+            <p><strong>d. Policy Updates:</strong> Material changes to this policy will be notified via an in-app alert at least 15 days before taking effect.</p>
+        </div>
+
     </div>
 
     <footer>
-        <p>&copy; 2026 <strong>NexisCode Software Labs</strong>. جميع الحقوق محفوظة | All Rights Reserved.</p>
-        <p><a href="https://nexiscode.online">nexiscode.online</a> | <a href="https://nexiscode.online/stokko_terms.html">شروط الخدمة (Terms of Service)</a></p>
+        <p>© 2026 <strong>NexisCode Software Labs</strong>. جميع الحقوق محفوظة &nbsp;|&nbsp; All Rights Reserved &nbsp;|&nbsp; Tous droits réservés.</p>
+        <p style="margin-top:8px;">
+            <a href="https://nexiscode.online">nexiscode.online</a>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="https://nexiscode.online/stokko_terms.html">شروط الخدمة | Terms of Service | CGU</a>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>
+        </p>
     </footer>
+
 </div>
 
 <script>
-    function switchLanguage(lang) {
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    function switchLanguage(lang, btn) {
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
         document.getElementById('content-ar').style.display = 'none';
         document.getElementById('content-fr').style.display = 'none';
         document.getElementById('content-en').style.display = 'none';
 
-        if (lang === 'ar') {
-            document.documentElement.setAttribute('dir', 'rtl');
-            document.documentElement.setAttribute('lang', 'ar');
-            document.getElementById('content-ar').style.display = 'block';
-            document.getElementById('mainTitle').innerText = 'سياسة الخصوصية وحماية المعطيات';
-            document.getElementById('lastUpdated').innerText = 'آخر تحديث: 16 أوت 2026 | الإصدار 2.4';
-            event.target.classList.add('active');
-        } else if (lang === 'fr') {
-            document.documentElement.setAttribute('dir', 'ltr');
-            document.documentElement.setAttribute('lang', 'fr');
-            document.getElementById('content-fr').style.display = 'block';
-            document.getElementById('mainTitle').innerText = 'Politique de Confidentialité';
-            document.getElementById('lastUpdated').innerText = 'Dernière mise à jour : 16 Août 2026 | Version 2.4';
-            event.target.classList.add('active');
-        } else {
-            document.documentElement.setAttribute('dir', 'ltr');
-            document.documentElement.setAttribute('lang', 'en');
-            document.getElementById('content-en').style.display = 'block';
-            document.getElementById('mainTitle').innerText = 'Privacy Policy';
-            document.getElementById('lastUpdated').innerText = 'Last Updated: August 16, 2026 | Version 2.4';
-            event.target.classList.add('active');
-        }
+        const titles = {
+            ar: ['سياسة الخصوصية وحماية المعطيات', 'آخر تحديث: 16 أوت 2026 | الإصدار 3.0'],
+            fr: ['Politique de Confidentialité', 'Dernière mise à jour : 16 Août 2026 | Version 3.0'],
+            en: ['Privacy Policy', 'Last Updated: August 16, 2026 | Version 3.0']
+        };
+
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+        document.getElementById('mainTitle').innerText = titles[lang][0];
+        document.getElementById('lastUpdated').innerText = titles[lang][1];
+        document.getElementById('content-' + lang).style.display = 'block';
     }
 </script>
 
