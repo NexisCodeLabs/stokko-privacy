@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شروط الخدمة | Stokko Terms of Service - Nexiscode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E65100;
+            --primary-dark: #BF360C;
+            --primary-light: #FFE0B2;
+            --bg: #F8F9FA;
+            --surface: #FFFFFF;
+            --text-main: #212121;
+            --text-muted: #616161;
+            --border: #E0E0E0;
+            --shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: var(--primary);
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .tab-btn {
+            background: #EEEEEE;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: #FFFFFF;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .ltr-text {
+            direction: ltr;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+        }
+        h2 {
+            color: var(--primary-dark);
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            border-right: 4px solid var(--primary);
+            padding-right: 12px;
+        }
+        .ltr-text h2 {
+            border-right: none;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+        p, ul {
+            margin-bottom: 15px;
+            color: #37474F;
+        }
+        ul {
+            padding-right: 20px;
+        }
+        .ltr-text ul {
+            padding-right: 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .card-highlight {
+            background: #FFEBEE;
+            border: 1px solid #FFCDD2;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 20px 0;
+            font-size: 14.5px;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>STOKKO — شروط وسياسات الخدمة</h1>
+        <span class="badge">آخر تحديث / Last Updated: 16 أوت 2026</span>
+    </div>
+
+    <!-- تبديل اللغة -->
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchLang('ar', event)">العربية 🇩🇿</button>
+        <button class="tab-btn" onclick="switchLang('fr', event)">Français 🇫🇷</button>
+        <button class="tab-btn" onclick="switchLang('en', event)">English 🇬🇧</button>
+    </div>
+
+    <!-- 1. النسخة العربية -->
+    <div id="sec-ar" class="content-section active">
+        <h2>1. نطاق الاتفاقية والهوية التجارية</h2>
+        <p>مرحباً بكم في <strong>Stokko</strong> (المشار إليه بـ "التطبيق" أو "الخدمة"). تمثل هذه الشروط اتفاقية قانونية ملزمة بينكم (المشار إليكم بـ "التاجر" أو "المستخدم") وبين <strong>Nexiscode</strong> والناشر ومطور البرمجيات المستقل <strong>Mohssin Badji Amrane</strong>.</p>
+        <p>بتحميلك للتطبيق أو استخدامه، فإنك توافق على الالتزام بشروط هذه الاتفاقية.</p>
+
+        <h2>2. طبيعة الخدمة (أداة B2B لإدارة نقاط البيع والمخازن)</h2>
+        <p>تطبيق Stokko هو أداة برمجية موجهة للشركات والأعمال (B2B) فقط ومصمم ليعمل محلياً (Offline-First):</p>
+        <ul>
+            <li><strong>ليس منصة تجارة إلكترونية:</strong> تطبيق Stokko ليس متجراً رقمياً، ولا منصة تجارة إلكترونية، ولا سوقاً استهلاكياً، ولا بوابة دفع وسيطة.</li>
+            <li><strong>انعدام المعاملات مع المستهلكين:</strong> لا نقوم بتسيير أو معالجة أو التوسط في المعاملات المالية والتجارية بين التاجر والمستهلك النهائي. التطبيق يعمل فقط كدفتر حسابات رقمي لتسجيل مبيعاتك ومخزونك محلياً.</li>
+        </ul>
+
+        <h2>3. إخلاء المسؤولية الصارم وبند السلع المقيدة والمنظمة</h2>
+        <p>يوفر التطبيق قاعدة بيانات مرجعية بالباركود للمساعدة في سرعة التعرف على المنتجات:</p>
+        <ul>
+            <li><strong>قاموس مرجعي:</strong> قاعدة البيانات المرفقة هي قاموس استرشادي "كما هو" ولا نضمن دقة أو قانونية أي اسم أو تصنيف وارد فيها.</li>
+            <li><strong>مسؤولية المخزون صفر:</strong> لا نتحمل أي مسؤولية قانونية أو رقابية عن السلع المادية الفعلية التي يختار التاجر تخزينها، مسحها، أو بيعها.</li>
+            <li><strong>السلع المقيدة والمنظمة:</strong> ينطبق هذا الإخلاء التام على التبغ، السجائر الإلكترونية، المواد الصيدلانية والأدوية، والسلع المقيدة بالسن.</li>
+            <li><strong>مسؤولية التاجر 100%:</strong> التاجر هو المسؤول الوحيد والحصري عن مطابقة نشاطه وتراخيصه وفواتيره مع القوانين السارية في بلده.</li>
+        </ul>
+
+        <h2>4. حفظ السجلات والمسؤولية الجبائية (القانون 07-11)</h2>
+        <p>يحتفظ التطبيق بسجلات المبيعات والعمليات المحاسبية محلياً في جهاز التاجر لمساعدته على الوفاء بالتزامه القانوني بحفظ الوثائق المحاسبية لمدة <strong>10 سنوات</strong> طبقاً للمادة 11 من القانون 07-11 (النظام المحاسبي المالي SCF).</p>
+        <p>التاجر هو المسؤول الحصري عن صحة معاملاته، واستخراج فواتيره الرسمية المتضمنة لرقمه الجبائي (NIF)، وتقديم تصريحاته لمصالح الضرائب.</p>
+
+        <h2>5. فئات الحسابات والاشتراكات</h2>
+        <ul>
+            <li><strong>الفئة المجانية:</strong> تُخزن كافة السجلات محلياً في جهاز التاجر.</li>
+            <li><strong>الفئة الذهبية (VIP):</strong> تتيح المزامنة السحابية متعددة الأجهزة عبر Google Firebase وتُفوتر عبر نظام Google Play الرسمي.</li>
+        </ul>
+
+        <h2>6. القانون المعمول به وفض النزاعات</h2>
+        <p>تخضع هذه الشروط وتفسر وفقاً لقوانين <strong>الجمهورية الجزائرية الديمقراطية الشعبية</strong>، ويكون الاختصاص القضائي الحصري للمحاكم المختصة في <strong>الجزائر العاصمة</strong>.</p>
+
+        <h2>7. معلومات الاتصال والناشر</h2>
+        <p>الاسم التجاري: Nexiscode • المالك والناشر: Mohssin Badji Amrane • البريد الإلكتروني: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
+    </div>
+
+    <!-- 2. النسخة الفرنسية -->
+    <div id="sec-fr" class="content-section ltr-text">
+        <h2>1. Portée de l'Accord et Identité</h2>
+        <p>Bienvenue sur <strong>Stokko</strong>. Ces Conditions constituent un accord juridique contraignant entre vous (le "Marchand") et <strong>Nexiscode</strong> / <strong>Mohssin Badji Amrane</strong>.</p>
+
+        <h2>2. Nature du Service (Utilitaire B2B Uniquement)</h2>
+        <p>Stokko est strictement un utilitaire logiciel B2B (Business-to-Business) local (Offline-First) :</p>
+        <ul>
+            <li><strong>Pas une plateforme e-commerce :</strong> Stokko n'est ni une boutique en ligne, ni un intermédiaire de paiement.</li>
+            <li><strong>Pas de transactions directes consommateurs :</strong> L'Application agit uniquement comme un grand livre comptable numérique local.</li>
+        </ul>
+
+        <h2>3. Limitation de Responsabilité & Produits Réglementés</h2>
+        <p>Le catalogue de codes-barres est un simple dictionnaire indicatif "en l'état".</p>
+        <p><strong>Responsabilité 100% au Marchand :</strong> Le commerçant est seul responsable de la légalité de ses stocks physiques (y compris tabac, vapotage, produits pharmaceutiques) et de la conformité avec les réglementations fiscales et légales.</p>
+
+        <h2>4. Conservation Décennale & Fiscalité (Loi 07-11)</h2>
+        <p>Les registres de ventes sont conservés localement pour aider le commerçant à respecter l'obligation de <strong>conservation décennale (10 ans)</strong> des pièces comptables (Art. 11 de la loi 07-11 - SCF).</p>
+
+        <h2>5. Loi Applicable et Juridiction</h2>
+        <p>Ces Conditions sont régies par les lois de la <strong>République Algérienne Démocratique et Populaire</strong>. Tout litige sera soumis à la juridiction exclusive des tribunaux compétents d'<strong>Alger</strong>.</p>
+
+        <h2>6. Contact</h2>
+        <p>Éditeur : Mohssin Badji Amrane (Nexiscode) • Support : <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
+    </div>
+
+    <!-- 3. النسخة الإنجليزية -->
+    <div id="sec-en" class="content-section ltr-text">
+        <h2>1. Scope of Agreement & Identity</h2>
+        <p>These Terms of Service constitute a binding legal agreement between the Merchant and <strong>Nexiscode</strong> / independent developer <strong>Mohssin Badji Amrane</strong>.</p>
+
+        <h2>2. Nature of Service (B2B Utility Only)</h2>
+        <p>Stokko is strictly an offline-first Point of Sale (POS) and inventory ledger software:</p>
+        <ul>
+            <li><strong>Not an E-Commerce Platform:</strong> Stokko does not facilitate, process, or intermediate consumer transactions or payments.</li>
+            <li><strong>Bookkeeping Tool:</strong> The Application serves strictly as a digital register and inventory ledger.</li>
+        </ul>
+
+        <h2>3. Strict Limitation of Liability & Regulated Goods</h2>
+        <p>The pre-loaded barcode database acts merely as a reference dictionary.</p>
+        <p><strong>100% Merchant Compliance:</strong> The Merchant is solely responsible for ensuring their physical inventory (including tobacco, age-restricted goods, pharmaceuticals) complies with all applicable local and national laws.</p>
+
+        <h2>4. 10-Year Record Retention (Law 07-11)</h2>
+        <p>Sales records are stored locally to assist Merchants in meeting the <strong>10-year statutory accounting retention obligation</strong> under Article 11 of Algerian Law 07-11 (SCF).</p>
+
+        <h2>5. Governing Law & Jurisdiction</h2>
+        <p>These Terms shall be governed by the laws of the <strong>People's Democratic Republic of Algeria</strong>. Exclusive jurisdiction rests with the competent courts of <strong>Algiers, Algeria</strong>.</p>
+
+        <h2>6. Contact Information</h2>
+        <p>Publisher: Mohssin Badji Amrane (Nexiscode) • Email: <a href="mailto:support@nexiscode.online">support@nexiscode.online</a>.</p>
+    </div>
+
+    <div class="footer-note">
+        &copy; 2026 Stokko • Published by Nexiscode (<a href="https://nexiscode.online/">nexiscode.online</a>). All rights reserved.
+    </div>
+</div>
+
+<script>
+    function switchLang(lang, ev) {
+        document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        
+        document.getElementById('sec-' + lang).classList.add('active');
+        if (ev && ev.target) {
+            ev.target.classList.add('active');
+        }
+        
+        if (lang === 'ar') {
+            document.body.setAttribute('dir', 'rtl');
+        } else {
+            document.body.setAttribute('dir', 'ltr');
+        }
+    }
+</script>
+
+</body>
+</html>
