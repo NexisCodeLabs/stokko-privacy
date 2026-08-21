@@ -487,17 +487,62 @@
       overflow: hidden;
       box-shadow: 0 25px 60px -15px rgba(0,0,0,0.6);
     }
-    .mockup-header {
-      background: rgba(0,0,0,0.3);
-      padding: 10px 14px;
+    
+    /* Authentic Windows 11 Titlebar */
+    .mockup-header-win {
+      background: rgba(18, 18, 22, 0.95);
+      padding: 0 14px;
+      height: 38px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid var(--card-border);
+      user-select: none;
     }
-    .mockup-dots { display: flex; gap: 5px; }
-    .mockup-dots span { width: 9px; height: 9px; border-radius: 50%; }
-    .mockup-title { font-size: 0.72rem; font-weight: 700; color: var(--ink-muted); text-transform: uppercase; }
+    .win-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .win-icon {
+      width: 16px; height: 16px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+    }
+    .mockup-title-win { 
+      font-size: 0.76rem; 
+      font-weight: 700; 
+      color: var(--ink-dim); 
+      font-family: var(--font-en);
+    }
+    
+    /* Windows Control Buttons (Minimize, Maximize, Close) */
+    .win-controls {
+      display: flex;
+      align-items: center;
+      margin-inline-start: auto;
+      height: 100%;
+    }
+    .win-btn {
+      width: 38px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-muted);
+      font-size: 0.72rem;
+      transition: background 0.15s, color 0.15s;
+    }
+    .win-btn:hover {
+      background: rgba(255,255,255,0.08);
+      color: var(--ink);
+    }
+    .win-btn.close:hover {
+      background: #e81123;
+      color: #fff;
+    }
+
     .mockup-body {
       padding: 18px;
       background: var(--bg-soft);
@@ -724,7 +769,7 @@
     .hw-card p { font-size: 0.82rem; color: var(--ink-dim); line-height: 1.5; }
 
     /* ==========================================================================
-       PRICING (CLEAN PILL SWITCH & FIXED NUMBERS)
+       PRICING (MATHEMATICALLY ACCURATE 33% / 4 MONTHS FREE DISCOUNT)
        ========================================================================== */
     .pricing {
       padding: 80px 0;
@@ -737,8 +782,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 44px;
+      flex-wrap: wrap;
     }
     .billing-pill {
       display: flex;
@@ -765,9 +811,9 @@
       background: var(--primary-dim);
       border: 1px solid var(--primary-border);
       color: var(--primary);
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       font-weight: 800;
-      padding: 4px 12px;
+      padding: 6px 14px;
       border-radius: var(--radius-full);
     }
 
@@ -1035,7 +1081,7 @@
         </button>
 
         <!-- CTA Direct to WhatsApp -->
-        <a href="https://wa.me/213770000000?text=Salam%2C%20je%20suis%20intéressé%20par%20Stokko%20POS" target="_blank" class="btn btn-primary btn-sm" data-i18n="nav.cta">طلب Stokko الآن</a>
+        <a href="#" class="btn btn-primary btn-sm wa-link" data-wa="general" data-i18n="nav.cta">طلب Stokko الآن</a>
 
         <!-- Hamburger for Mobile -->
         <button class="menu-toggle" id="menuToggle">
@@ -1054,7 +1100,7 @@
     <a href="#pricing" class="mob-link" data-i18n="nav.pricing">الأسعار</a>
     <a href="#faq" class="mob-link" data-i18n="nav.faq">الأسئلة الشائعة</a>
     <a href="#contact" class="mob-link" data-i18n="nav.contact">تواصل معنا</a>
-    <a href="https://wa.me/213770000000?text=Salam%2C%20je%20suis%20intéressé%20par%20Stokko%20POS" target="_blank" class="btn btn-primary" style="margin-top:20px;" data-i18n="nav.cta">طلب Stokko الآن</a>
+    <a href="#" class="btn btn-primary wa-link" data-wa="general" style="margin-top:20px;" data-i18n="nav.cta">طلب Stokko الآن</a>
   </div>
 
   <main id="top">
@@ -1092,7 +1138,7 @@
                 <span data-i18n="hero.btnGooglePlay">تحميل من Google Play</span>
               </a>
 
-              <a href="https://wa.me/213770000000?text=Salam%2C%20je%20souhaite%20obtenir%20la%20version%20Desktop%20(Windows)%20de%20Stokko" target="_blank" class="btn btn-outline btn-lg">
+              <a href="#" class="btn btn-outline btn-lg wa-link" data-wa="windows">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.551H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.849"/></svg>
                 <span data-i18n="hero.btnWindowsRequest">طلب نسخة الويندوز (PC)</span>
               </a>
@@ -1115,23 +1161,30 @@
 
           </div>
 
-          <!-- Hero Mockup & Demo -->
+          <!-- Hero Mockup & Demo (Authentic Windows Title Bar) -->
           <div class="hero-mockup-container">
             
             <div class="desktop-mockup">
-              <div class="mockup-header">
-                <div class="mockup-dots">
-                  <span style="background:#ef4444;"></span>
-                  <span style="background:#eab308;"></span>
-                  <span style="background:#22c55e;"></span>
+              <!-- Windows 11 Header Style -->
+              <div class="mockup-header-win">
+                <div class="win-brand">
+                  <div class="win-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.551H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.849"/></svg>
+                  </div>
+                  <div class="mockup-title-win">Stokko POS — Windows Desktop</div>
                 </div>
-                <div class="mockup-title">Stokko Desktop POS</div>
-                <div class="demo-badge-sync" data-i18n="hero.synced">متزامن سحابياً</div>
+
+                <div class="win-controls">
+                  <div class="win-btn" title="Minimize">─</div>
+                  <div class="win-btn" title="Maximize">▢</div>
+                  <div class="win-btn close" title="Close">✕</div>
+                </div>
               </div>
 
               <div class="mockup-body">
                 <div class="demo-pos-top">
                   <strong style="font-size:0.85rem;" data-i18n="hero.quickPos">سلة المبيعات السريعة (جرب النقر)</strong>
+                  <div class="demo-badge-sync" data-i18n="hero.synced">متزامن سحابياً</div>
                 </div>
 
                 <div class="demo-products-list">
@@ -1331,7 +1384,7 @@
     </section>
 
     <!-- ==========================================================================
-         PRICING (FIXED TYPOGRAPHY & CLEAN PILL SWITCH)
+         PRICING (MATHEMATICALLY ACCURATE 33% / 4 MONTHS FREE DISCOUNT)
          ========================================================================== -->
     <section id="pricing" class="pricing">
       <div class="wrap">
@@ -1347,7 +1400,7 @@
             <div class="billing-opt active" id="btnMonthly" onclick="setBilling('monthly')" data-i18n="pricing.monthly">اشتراك شهري</div>
             <div class="billing-opt" id="btnYearly" onclick="setBilling('yearly')" data-i18n="pricing.yearly">اشتراك سنوي</div>
           </div>
-          <span class="discount-tag" data-i18n="pricing.discount">وفر 20% سنوياً</span>
+          <span class="discount-tag" data-i18n="pricing.discount">وفر 33% سنوياً (4 أشهر مجاناً)</span>
         </div>
 
         <div class="pricing-grid">
@@ -1387,7 +1440,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.p2F5">نسخ احتياطي سحابي تلقائي</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.p2F6">دعم فني مخصص وأولوية بالتحديثات</span></li>
             </ul>
-            <a href="https://wa.me/213770000000?text=Salam%2C%20je%20souhaite%20activer%20le%20Pack%20VIP%20de%20Stokko" target="_blank" class="btn btn-primary" data-i18n="pricing.p2Btn">تفعيل باقة VIP الآن</a>
+            <a href="#" class="btn btn-primary wa-link" data-wa="vip" data-i18n="pricing.p2Btn">تفعيل باقة VIP الآن</a>
           </div>
 
           <!-- Plan 3: Lifetime -->
@@ -1404,7 +1457,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.p3F3">تحديثات مستمرة ومجانية</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.p3F4">مساعدة في الإعداد وربط الطابعات</span></li>
             </ul>
-            <a href="https://wa.me/213770000000?text=Salam%2C%20je%20souhaite%20acheter%20la%20Licence%20Lifetime%20de%20Stokko" target="_blank" class="btn btn-outline" data-i18n="pricing.p3Btn">طلب الرخصة الدائمة</a>
+            <a href="#" class="btn btn-outline wa-link" data-wa="lifetime" data-i18n="pricing.p3Btn">طلب الرخصة الدائمة</a>
           </div>
 
         </div>
@@ -1446,7 +1499,7 @@
               <p data-i18n="getApp.windowsDesc">نسخة متكاملة مخصصة للحواسيب وشاشات اللمس All-in-One. تواصل معنا مباشرة لإرسال ملف التثبيت ومساعدتك في الإعداد.</p>
             </div>
             <div>
-              <a href="https://wa.me/213770000000?text=Salam%2C%20je%20souhaite%20obtenir%20la%20version%20Desktop%20(Windows)%20de%20Stokko" target="_blank" class="btn btn-whatsapp" style="width:100%;">
+              <a href="#" class="btn btn-whatsapp wa-link" data-wa="windows" style="width:100%;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                 <span data-i18n="getApp.windowsBtn">تواصل عبر WhatsApp لطلب النسخة</span>
               </a>
@@ -1527,7 +1580,7 @@
         </div>
 
         <div class="contact-btns">
-          <a href="https://wa.me/213770000000?text=Salam%2C%20je%20suis%20intéressé%20par%20Stokko%20POS" target="_blank" class="btn btn-whatsapp btn-lg">
+          <a href="#" class="btn btn-whatsapp btn-lg wa-link" data-wa="general">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
             <span data-i18n="contact.btnWhatsApp">محادثة مباشرة عبر WhatsApp</span>
           </a>
@@ -1554,6 +1607,11 @@
        JAVASCRIPT & TRANSLATIONS
        ========================================================================== -->
   <script>
+    // ==========================================================================
+    // CONFIGURATION: SET YOUR WHATSAPP NUMBER HERE (IN ONE PLACE)
+    // ==========================================================================
+    const WHATSAPP_PHONE = "213791418030"; // <-- ضع رقمك الحقيقي هنا بصيغة 213xxxxxxxxx
+
     const i18nData = {
       ar: {
         dir: 'rtl',
@@ -1626,7 +1684,7 @@
           desc: 'خطط مرنة تناسب المحلات الصغيرة والأنشطة التجارية المتوسطة والكبيرة بدون أي رسوم خفية.',
           monthly: 'اشتراك شهري',
           yearly: 'اشتراك سنوي',
-          discount: 'وفر 20% سنوياً',
+          discount: 'وفر 33% سنوياً (4 أشهر مجاناً)',
           p1Title: 'النسخة المجانية (Starter)',
           p1Desc: 'مثالية للمحلات الناشئة والتجربة',
           p1Price: 'د.ج / دائماً مجاناً',
@@ -1640,7 +1698,7 @@
           p2Title: 'باقة VIP للمحترفين',
           p2Desc: 'الحل الشامل والمثالي لأصحاب المحلات',
           p2PriceMonth: 'د.ج / شهرياً',
-          p2PriceYear: 'د.ج / سنوياً (خصم 20%)',
+          p2PriceYear: 'د.ج / سنوياً (وفر 33%)',
           p2F1: 'منتجات ومبيعات غير محدودة',
           p2F2: 'تزامن سحابي بين الهاتف والكمبيوتر',
           p2F3: 'سجل كامل لديون العملاء والموردين',
@@ -1763,7 +1821,7 @@
           desc: 'Des formules flexibles adaptées aux petites boutiques comme aux commerces en pleine croissance.',
           monthly: 'Facturation Mensuelle',
           yearly: 'Facturation Annuelle',
-          discount: '-20% par an',
+          discount: 'Économisez 33% (4 mois offerts)',
           p1Title: 'Gratuit (Starter)',
           p1Desc: 'Idéal pour démarrer et tester',
           p1Price: 'DZD / Gratuit à vie',
@@ -1777,7 +1835,7 @@
           p2Title: 'Pack VIP Pro',
           p2Desc: 'La solution complète pour commerçants',
           p2PriceMonth: 'DZD / mois',
-          p2PriceYear: 'DZD / an (-20%)',
+          p2PriceYear: 'DZD / an (-33%)',
           p2F1: 'Produits et ventes illimités',
           p2F2: 'Synchronisation temps réel Mobile & PC',
           p2F3: 'Gestion complète des dettes clients/fournisseurs',
@@ -1900,7 +1958,7 @@
           desc: 'Flexible plans suited for small starter stores as well as growing retail operations.',
           monthly: 'Monthly Billing',
           yearly: 'Yearly Billing',
-          discount: 'Save 20% Yearly',
+          discount: 'Save 33% Yearly (4 Months Free)',
           p1Title: 'Starter Free',
           p1Desc: 'Perfect for testing and small startups',
           p1Price: 'DZD / Free forever',
@@ -1914,7 +1972,7 @@
           p2Title: 'VIP Pro Pack',
           p2Desc: 'Complete solution for growing stores',
           p2PriceMonth: 'DZD / month',
-          p2PriceYear: 'DZD / year (Save 20%)',
+          p2PriceYear: 'DZD / year (Save 33%)',
           p2F1: 'Unlimited products and sales',
           p2F2: 'Instant Mobile & PC Cloud Sync',
           p2F3: 'Full customer & supplier debt book',
@@ -1974,6 +2032,39 @@
       { name: 'بسكويت فاخر', price: 150, qty: 1 }
     ];
 
+    // WhatsApp Message Generator based on Intent and Lang
+    function updateWhatsAppLinks() {
+      const messages = {
+        general: {
+          ar: 'السلام عليكم، أرغب في الاستفسار والحصول على برنامج Stokko POS',
+          fr: 'Bonjour, je souhaite me renseigner et obtenir le logiciel Stokko POS',
+          en: 'Hello, I would like to inquire about and get Stokko POS software'
+        },
+        windows: {
+          ar: 'السلام عليكم، أرغب في الحصول على نسخة Stokko لسطح المكتب (Windows PC) وتجربتها',
+          fr: 'Bonjour, je souhaite obtenir la version Desktop (Windows PC) de Stokko',
+          en: 'Hello, I would like to request the Desktop (Windows PC) version of Stokko'
+        },
+        vip: {
+          ar: 'السلام عليكم، أرغب في الاشتراك في باقة VIP لتطبيق Stokko POS',
+          fr: 'Bonjour, je souhaite souscrire au Pack VIP pour Stokko POS',
+          en: 'Hello, I would like to subscribe to the VIP Pack for Stokko POS'
+        },
+        lifetime: {
+          ar: 'السلام عليكم، أرغب في شراء رخصة مدى الحياة (Lifetime) لبرنامج Stokko POS',
+          fr: 'Bonjour, je souhaite acheter la Licence Lifetime pour Stokko POS',
+          en: 'Hello, I would like to purchase the Lifetime License for Stokko POS'
+        }
+      };
+
+      document.querySelectorAll('.wa-link').forEach(link => {
+        const intent = link.getAttribute('data-wa') || 'general';
+        const msg = (messages[intent] && messages[intent][currentLang]) || messages.general[currentLang];
+        link.href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
+        link.target = '_blank';
+      });
+    }
+
     function applyLang(lang) {
       if (!i18nData[lang]) lang = 'ar';
       currentLang = lang;
@@ -2001,6 +2092,7 @@
 
       renderBilling();
       renderDemoCart();
+      updateWhatsAppLinks();
     }
 
     function setBilling(mode) {
