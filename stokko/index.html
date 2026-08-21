@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stokko — برنامج إدارة المبيعات والمخزون ونقاط البيع POS للأندرويد وسطح المكتب</title>
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Stokko — برنامج إدارة المبيعات والمخزون ونقاط البيع POS">
+  <meta name="description" content="إدارة متكاملة لنشاطك التجاري في جيبك وعلى حاسوبك. تطبيق أندرويد وبرنامج سطح مكتب لإدارة المبيعات والكاشير والمخزون والديون مع مزامنة سحابية وعمل كامل بدون إنترنت.">
+  <meta name="keywords" content="Stokko, POS app, Caisse Android, Logiciel Caisse Algerie, gestion de stock, point de vente, كاشير الجزائر, برنامج كaisse, نقاط بيع, إدارة المخزون, ديون الزبائن">
+  <meta name="author" content="NexisCodeLabs">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nexiscode.online/">
+  <meta property="og:title" content="Stokko — نظام الكاشير والمخزون للأندرويد والكمبيوتر">
+  <meta property="og:description" content="برنامج متكامل وسريع للمحلات التجارية والشركات، يعمل بدون إنترنت مع مزامنة فورية وطباعة فواتير حرارية.">
+  <meta property="og:image" content="assets/logo.webp">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/logo.webp">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Ambient Aurora Glows -->
+  <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora-blob aurora-blob-1"></div>
+    <div class="aurora-blob aurora-blob-2"></div>
+    <div class="aurora-blob aurora-blob-3"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      
+      <!-- Brand Logo & Title -->
+      <a href="#top" class="brand-group">
+        <div class="brand-logo">
+          <img src="assets/logo.webp" alt="Stokko Logo" width="42" height="42">
+        </div>
+        <div class="brand-title">Stokko<span class="accent">.</span></div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-menu">
+        <a href="#features" class="nav-link" data-i18n="nav.features">المميزات</a>
+        <a href="#ecosystem" class="nav-link" data-i18n="nav.ecosystem">التزامن والأجهزة</a>
+        <a href="#showcase" class="nav-link" data-i18n="nav.showcase">الواجهات</a>
+        <a href="#hardware" class="nav-link" data-i18n="nav.hardware">الطابعات والعتاد</a>
+        <a href="#pricing" class="nav-link" data-i18n="nav.pricing">الأسعار</a>
+        <a href="#faq" class="nav-link" data-i18n="nav.faq">الأسئلة الشائعة</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">تواصل معنا</a>
+      </nav>
+
+      <!-- Action Controls (Lang Switcher, Theme, Audio, CTA) -->
+      <div class="nav-actions">
+        
+        <!-- Language Selector -->
+        <div class="lang-selector">
+          <button class="lang-btn" id="langBtn" aria-label="Change Language">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span id="currentLangLabel">العربية</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-item active" data-lang="ar">العربية (AR) <span>🇩🇿</span></button>
+            <button class="lang-item" data-lang="fr">Français (FR) <span>🇫🇷</span></button>
+            <button class="lang-item" data-lang="en">English (EN) <span>🇬🇧</span></button>
+          </div>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button class="icon-ctrl-btn" id="themeToggle" aria-label="Toggle Theme" title="تبديل الوضع الليلي / النهاري">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Sound Toggle -->
+        <button class="icon-ctrl-btn" id="soundToggle" aria-label="Toggle Audio" title="كتم / تفعيل الصوت">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        </button>
+
+        <!-- Download CTA -->
+        <a href="#download" class="btn btn-primary btn-sm" data-i18n="nav.downloadCta">تحميل Stokko مجاناً</a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <a href="#features" class="nav-link" data-i18n="nav.features">المميزات</a>
+    <a href="#ecosystem" class="nav-link" data-i18n="nav.ecosystem">التزامن والأجهزة</a>
+    <a href="#showcase" class="nav-link" data-i18n="nav.showcase">الواجهات</a>
+    <a href="#hardware" class="nav-link" data-i18n="nav.hardware">الطابعات والعتاد</a>
+    <a href="#pricing" class="nav-link" data-i18n="nav.pricing">الأسعار</a>
+    <a href="#faq" class="nav-link" data-i18n="nav.faq">الأسئلة الشائعة</a>
+    <a href="#contact" class="nav-link" data-i18n="nav.contact">تواصل معنا</a>
+    <a href="#download" class="btn btn-primary" style="margin-top:20px;" data-i18n="nav.downloadCta">تحميل Stokko مجاناً</a>
+  </div>
+
+  <main id="top">
+    
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section class="hero-section">
+      <div class="wrap">
+        <div class="hero-grid">
+          
+          <!-- Left: Hero Text & CTAs -->
+          <div class="hero-content">
+            <div class="badge-pill">
+              <span class="badge-dot"></span>
+              <span data-i18n="hero.badge">جاهز للتحميل على أندرويد وسطح المكتب</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span data-i18n="hero.titleLine1">إدارة متكاملة لنشاطك التجاري</span><br>
+              <span class="highlight" data-i18n="hero.titleHighlight">في جيبك وعلى حاسوبك</span><br>
+              <span data-i18n="hero.titleLine2">بكل سرعة وبدون إنترنت</span>
+            </h1>
+
+            <p class="hero-desc" data-i18n="hero.description">
+              برنامج Stokko يجمع بين قوة تطبيق الأندرويد وبرنامج سطح المكتب لإدارة المبيعات (POS)، المخزون، ديون العملاء والموردين، مع مزامنة سحابية لحظية وطباعة الفواتير الحرارية.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="https://play.google.com/store/apps/details?id=com.nexiscode.stokko" target="_blank" class="btn btn-primary btn-lg">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.38 2.38 0 0 1-.61-1.63V3.444c0-.64.228-1.218.61-1.63zM15.207 13.414l2.585 2.586-11.455 6.613 8.87-9.199zm0-2.828L6.337 1.387l11.455 6.613-2.585 2.586zm1.414 1.414l3.657 2.112c1.033.596 1.033 1.569 0 2.166l-3.657 2.112-2.121-2.122 2.121-4.268z"/></svg>
+                <span data-i18n="hero.googlePlay">تحميل من Google Play</span>
+              </a>
+              <a href="#download" class="btn btn-outline btn-lg">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.551H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.849"/></svg>
+                <span data-i18n="hero.windowsExe">تحميل للويندوز (PC)</span>
+              </a>
+            </div>
+
+            <div class="hero-stats-strip">
+              <div class="hero-stat-item">
+                <h4 data-i18n="hero.stat1Val">100%</h4>
+                <p data-i18n="hero.stat1Label">يعمل بدون إنترنت (Offline-First)</p>
+              </div>
+              <div class="hero-stat-item">
+                <h4 data-i18n="hero.stat2Val">0 ثانية</h4>
+                <p data-i18n="hero.stat2Label">تزامن فوري بين الهاتف والكمبيوتر</p>
+              </div>
+              <div class="hero-stat-item">
+                <h4 data-i18n="hero.stat3Val">58 / 80mm</h4>
+                <p data-i18n="hero.stat3Label">دعم الطابعات الحرارية والبلوتوث</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Dual Device Interactive Frame -->
+          <div class="hero-mockups-wrap">
+            
+            <!-- Laptop / Desktop POS Simulator Frame -->
+            <div class="laptop-frame">
+              <div class="laptop-topbar">
+                <div class="window-dots">
+                  <span class="dot-red"></span>
+                  <span class="dot-yellow"></span>
+                  <span class="dot-green"></span>
+                </div>
+                <div class="laptop-badge">Stokko Desktop &amp; Web POS</div>
+                <div class="sync-indicator" data-i18n="hero.statusSynced">متزامن سحابياً</div>
+              </div>
+
+              <div class="laptop-screen">
+                <div class="pos-sim-header">
+                  <div class="pos-sim-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <span data-i18n="hero.liveCart">سلة المبيعات السريعة (جرب النقر)</span>
+                  </div>
+                </div>
+
+                <!-- Clickable Demo Products Grid -->
+                <div class="pos-products-grid">
+                  <div class="pos-prod-chip" data-prod-id="1">
+                    <div class="pos-prod-name" data-i18n="hero.sampleProduct1">مشروب غازي 1 لتر</div>
+                    <div class="pos-prod-price">200 د.ج <span>+</span></div>
+                  </div>
+                  <div class="pos-prod-chip" data-prod-id="2">
+                    <div class="pos-prod-name" data-i18n="hero.sampleProduct2">بسكويت شوكولاتة فاخر</div>
+                    <div class="pos-prod-price">150 د.ج <span>+</span></div>
+                  </div>
+                  <div class="pos-prod-chip" data-prod-id="3">
+                    <div class="pos-prod-name" data-i18n="hero.sampleProduct3">منظف أرضيات 3 لتر</div>
+                    <div class="pos-prod-price">600 د.ج <span>+</span></div>
+                  </div>
+                  <div class="pos-prod-chip" data-prod-id="4">
+                    <div class="pos-prod-name" data-i18n="hero.sampleProduct4">زيت زيتون بكر 1 لتر</div>
+                    <div class="pos-prod-price">500 د.ج <span>+</span></div>
+                  </div>
+                </div>
+
+                <!-- Live Dynamic Cart -->
+                <div class="pos-cart-box">
+                  <div id="posCartRows">
+                    <!-- Populated dynamically via JS -->
+                  </div>
+                  <div class="pos-cart-total">
+                    <span data-i18n="hero.totalLabel">المجموع الكلي:</span>
+                    <span class="val" id="posCartTotalVal">950 د.ج</span>
+                  </div>
+                </div>
+
+                <button class="pos-pay-btn" id="posPayBtn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                  <span data-i18n="hero.btnCashPay">قبض نقدي و طباعة الوصل</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Floating Mobile Phone Mockup -->
+            <div class="phone-mockup-float">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img src="assets/screenshots/media_86c43269-680b-4de3-abc4-225f46066d04_1780592794442.png" alt="Stokko Mobile POS App" style="border-radius:18px; width:100%; height:auto;">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURES SECTION
+         ========================================================================== -->
+    <section id="features" class="features-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="features.tag">حل متكامل لإدارة تجارتك</div>
+          <h2 data-i18n="features.title">كل ما تحتاجه لإدارة محلك في برنامج واحد</h2>
+          <p data-i18n="features.desc">صُمم Stokko خصيصاً ليلبي متطلبات المحلات والأنشطة التجارية في الجزائر والعالم العربي، مع مراعاة السرعة والعمل دون اتصال.</p>
+        </div>
+
+        <div class="features-grid">
+          
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </div>
+            <h3 data-i18n="features.f1Title">نقطة بيع كاشير فائقة السرعة</h3>
+            <p data-i18n="features.f1Desc">إتمام عمليات البيع بثوانٍ معدودة، قراءة الباركود عبر كاميرا الهاتف أو القارئ الخارجي، وحساب الباقي تلقائياً.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <h3 data-i18n="features.f2Title">إدارة المخزون والتنبيهات الذكية</h3>
+            <p data-i18n="features.f2Desc">متابعة دقيقة لحركة السلع، جرد تلقائي، وإشعارات مبكرة عند اقتراب نفاد المنتجات أو انتهاء تاريخ الصلاحية.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h3 data-i18n="features.f3Title">سجل الديون (الزبائن والموردين)</h3>
+            <p data-i18n="features.f3Desc">دفتر ديون إلكتروني محكم؛ تسجيل الكريدي، الدفعات الجزئية، كشف حساب مفصل لكل عميل، ومشاركة الفواتير عبر واتساب.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+            </div>
+            <h3 data-i18n="features.f4Title">يعمل 100% بدون إنترنت + تزامن سحابي</h3>
+            <p data-i18n="features.f4Desc">واصل البيع والجرد حتى مع انقطاع الشبكة، ويقوم النظام بمزامنة كافة الحركات تلقائياً فور عودة الاتصال بأمان تام.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <h3 data-i18n="features.f5Title">تقارير مالية وحساب الأرباح الصافية</h3>
+            <p data-i18n="features.f5Desc">إحصائيات تفصيلية لحجم المبيعات اليومية والشهرية، هوامش الربح الصافي، المنتجات الأكثر مبيعاً، وتصدير إكسل و PDF.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 data-i18n="features.f6Title">تعدد المستخدمين والصلاحيات</h3>
+            <p data-i18n="features.f6Desc">إنشاء حسابات مخصصة للكاشير والعمال مع تقييد الوصول للأرباح والإعدادات الحساسة، مع تسجيل كل حركة باسم المستخدم.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ECOSYSTEM / SYNC SECTION
+         ========================================================================== -->
+    <section id="ecosystem" class="ecosystem-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="ecosystem.tag">منظومة عمل موحدة</div>
+          <h2 data-i18n="ecosystem.title">الهاتف والكمبيوتر يعملان معاً بانسجام تام</h2>
+          <p data-i18n="ecosystem.desc">تحكم في متجرك بالطريقة التي تناسبك: استخدم الهاتف أثناء الحركة في المحل أو الجرد، واستخدم الكمبيوتر في مكتب الإدارة وطباعة فواتير A4 الكبيرة.</p>
+        </div>
+
+        <div class="ecosystem-grid">
+          
+          <div class="eco-card">
+            <div class="eco-card-header">
+              <div class="eco-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+              </div>
+              <h3 data-i18n="ecosystem.mobileCardTitle">تطبيق الهاتف الذكي (Android)</h3>
+            </div>
+            <p data-i18n="ecosystem.mobileCardDesc">خفيف، فائق السرعة، يتيح لك البيع وقراءة الباركود عبر الكاميرا ومتابعة متجرك أينما كنت.</p>
+            <div class="eco-pills">
+              <div class="eco-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span data-i18n="ecosystem.mobilePill1">قارئ باركود بالكاميرا</span>
+              </div>
+              <div class="eco-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span data-i18n="ecosystem.mobilePill2">طباعة بلوتوث محمولة</span>
+              </div>
+              <div class="eco-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span data-i18n="ecosystem.mobilePill3">إشعارات فورية للجرد</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="eco-card">
+            <div class="eco-card-header">
+              <div class="eco-card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <h3 data-i18n="ecosystem.desktopCardTitle">برنامج سطح المكتب (Windows &amp; Web)</h3>
+            </div>
+            <p data-i18n="ecosystem.desktopCardDesc">شاشة عريضة مريحة، إدارة الفواتير والموردين، طباعة A4 و A5، وتوافق كامل مع شاشات اللمس وطابعات USB.</p>
+            <div class="eco-pills">
+              <div class="eco-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span data-i18n="ecosystem.desktopPill1">طباعة حرارية USB &amp; WiFi</span>
+              </div>
+              <div class="eco-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span data-i18n="ecosystem.desktopPill2">تصدير تقارير Excel المتقدمة</span>
+              </div>
+              <div class="eco-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span data-i18n="ecosystem.desktopPill3">إدخال دفعات سلع بالجملة</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="sync-banner-bar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          <span data-i18n="ecosystem.syncTag">قاعدة بيانات موحدة وفورية عبر السحابة (Real-time Cloud Sync)</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SHOWCASE SECTION (SCREENSHOTS GALLERY)
+         ========================================================================== -->
+    <section id="showcase" class="showcase-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="showcase.tag">معاينة حية للنظام</div>
+          <h2 data-i18n="showcase.title">واجهات سهلة، عصرية، ومريحة للعين</h2>
+          <p data-i18n="showcase.desc">صممت واجهات Stokko بأعلى معايير تجربة المستخدم لتقليل عدد النقرات وتسريع العمل اليومي.</p>
+        </div>
+
+        <!-- Showcase Tabs -->
+        <div class="showcase-tabs">
+          <button class="showcase-tab-btn active" data-tab="mobile" data-i18n="showcase.tabMobile">واجهات الموبايل (Android)</button>
+          <button class="showcase-tab-btn" data-tab="desktop" data-i18n="showcase.tabDesktop">واجهات الكمبيوتر (Desktop)</button>
+        </div>
+
+        <!-- Showcase Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Injected dynamically via JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         HARDWARE & PRINTERS SECTION
+         ========================================================================== -->
+    <section id="hardware" class="hardware-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="hardware.tag">توافق كامل مع المعدات</div>
+          <h2 data-i18n="hardware.title">يتصل بسهولة مع كافة أجهزة الكاشير</h2>
+          <p data-i18n="hardware.desc">لا تحتاج لشراء أجهزة باهظة؛ Stokko متوافق مع كافة الطابعات والقوارئ المتوفرة في السوق.</p>
+        </div>
+
+        <div class="hardware-grid">
+          
+          <div class="hardware-card">
+            <div class="hw-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            </div>
+            <h3 data-i18n="hardware.h1Title">طابعات الإيصالات الحرارية</h3>
+            <p data-i18n="hardware.h1Desc">دعم مقاسات 58mm و 80mm عبر تقنية Bluetooth، كابل USB، أو شبكة الـ Wi-Fi والشبكة المحلية LAN.</p>
+          </div>
+
+          <div class="hardware-card">
+            <div class="hw-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5v14M8 5v14M12 5v14M17 5v14M21 5v14"></path></svg>
+            </div>
+            <h3 data-i18n="hardware.h2Title">قارئات الباركود (Barcode)</h3>
+            <p data-i18n="hardware.h2Desc">دعم القوارئ السلكية واللاسلكية (1D و 2D / QR Code)، بالإضافة لإمكانية استعمال كاميرا هاتفك كقارئ فائق الدقة.</p>
+          </div>
+
+          <div class="hardware-card">
+            <div class="hw-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="6" y1="12" x2="18" y2="12"></line></svg>
+            </div>
+            <h3 data-i18n="hardware.h3Title">درج النقود الآلي (Cash Drawer)</h3>
+            <p data-i18n="hardware.h3Desc">فتح تلقائي لدرج النقود عبر منفذ الطابعة RJ11 فور تأكيد عملية البيع والقبض.</p>
+          </div>
+
+          <div class="hardware-card">
+            <div class="hw-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3 data-i18n="hardware.h4Title">شاشات اللمس والكمبيوتر</h3>
+            <p data-i18n="hardware.h4Desc">واجهة مرنة تدعم شاشات اللمس في أجهزة All-in-One POS واللابتوبات بكفاءة عالية.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PRICING PLANS SECTION
+         ========================================================================== -->
+    <section id="pricing" class="pricing-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="pricing.tag">باقات واضحة ومناسبة</div>
+          <h2 data-i18n="pricing.title">استثمر في راحة بالك ونمو تجارتك</h2>
+          <p data-i18n="pricing.desc">خطط مرنة تناسب المحلات الصغيرة والأنشطة التجارية المتوسطة والكبيرة بدون أي رسوم خفية.</p>
+        </div>
+
+        <!-- Pricing Billing Toggle -->
+        <div class="pricing-toggle-wrap">
+          <span class="pricing-toggle-btn active" data-i18n="pricing.monthly">اشتراك شهري</span>
+          <div class="switch-bar" id="pricingSwitch">
+            <div class="switch-knob"></div>
+          </div>
+          <span class="pricing-toggle-btn" data-i18n="pricing.yearly">اشتراك سنوي</span>
+          <span class="badge-pill" style="margin-bottom:0;" data-i18n="pricing.yearlyDiscount">خصم 20% لفترة محدودة</span>
+        </div>
+
+        <div class="pricing-grid">
+          
+          <!-- Plan 1: Starter Free -->
+          <div class="pricing-card">
+            <h3 data-i18n="pricing.plan1Title">النسخة المجانية (Starter)</h3>
+            <p class="plan-desc" data-i18n="pricing.plan1Desc">مثالية للمحلات الناشئة والتجربة</p>
+            <div class="price-row">
+              <span class="amount" data-i18n="pricing.plan1Price">0 د.ج</span>
+              <span class="period" data-i18n="pricing.plan1Period">/ دائماً مجاناً</span>
+            </div>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan1F1">إدارة حتى 100 منتج</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan1F2">نقطة بيع كاشير سريعة</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan1F3">العمل دون اتصال بالإنترنت</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan1F4">طباعة وصولات حرارية</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan1F5">مستخدم واحد</span></li>
+            </ul>
+            <a href="#download" class="btn btn-outline" data-i18n="pricing.plan1Btn">ابدأ مجاناً الآن</a>
+          </div>
+
+          <!-- Plan 2: VIP Pro (Most Popular) -->
+          <div class="pricing-card popular">
+            <div class="popular-badge" data-i18n="pricing.plan2Popular">الأكثر طلباً</div>
+            <h3 data-i18n="pricing.plan2Title">باقة VIP للمحترفين</h3>
+            <p class="plan-desc" data-i18n="pricing.plan2Desc">الحل الشامل والمثالي لأصحاب المحلات</p>
+            <div class="price-row">
+              <span class="amount" id="plan2Price" data-i18n="pricing.plan2Price">1,500 د.ج</span>
+              <span class="period" id="plan2Period" data-i18n="pricing.plan2Period">/ شهرياً</span>
+            </div>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan2F1">منتجات ومبيعات غير محدودة</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan2F2">تزامن سحابي فوري بين الموبايل والكمبيوتر</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan2F3">سجل كامل لديون العملاء والموردين</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan2F4">تقارير مالية متقدمة وحساب الأرباح الصافية</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan2F5">نسخ احتياطي سحابي تلقائي وآمن</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan2F6">دعم فني مخصص وأولوية في التحديثات</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" data-i18n="pricing.plan2Btn">تفعيل باقة VIP الآن</a>
+          </div>
+
+          <!-- Plan 3: Lifetime -->
+          <div class="pricing-card">
+            <h3 data-i18n="pricing.plan3Title">رخصة مدى الحياة (Lifetime)</h3>
+            <p class="plan-desc" data-i18n="pricing.plan3Desc">ادفع مرة واحدة وامتلك البرنامج للأبد</p>
+            <div class="price-row">
+              <span class="amount" data-i18n="pricing.plan3Price">29,000 د.ج</span>
+              <span class="period" data-i18n="pricing.plan3Period">/ تدفع مرة واحدة</span>
+            </div>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan3F1">كافة مميزات باقة VIP بدون اشتراك شهري</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan3F2">تثبيت على الهاتف والكمبيوتر</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan3F3">تحديثات مستمرة ومجانية</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span data-i18n="pricing.plan3F4">مساعدة في الإعداد وربط الطابعات</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-outline" data-i18n="pricing.plan3Btn">شراء الرخصة الدائمة</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DOWNLOAD CENTER SECTION
+         ========================================================================== -->
+    <section id="download" class="download-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="download.tag">التحميل والتثبيت</div>
+          <h2 data-i18n="download.title">حمّل Stokko وابدأ إدارة محلك في دقيقتين</h2>
+          <p data-i18n="download.desc">اختر نسختك المفضلة، التطبيق متاح للتحميل الفوري والمجاني.</p>
+        </div>
+
+        <div class="download-grid">
+          
+          <!-- Android Card -->
+          <div class="dl-platform-card">
+            <div class="dl-card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 0 0-.1521-.5676.416.416 0 0 0-.5676.1521l-2.0223 3.503C15.5902 8.411 13.8533 8.1 12 8.1c-1.8533 0-3.5902.311-5.1368.8497L4.8409 5.4467a.4161.4161 0 0 0-.5677-.1521.4157.4157 0 0 0-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>
+            </div>
+            <h3 data-i18n="download.androidTitle">نسخة أندرويد (Mobile &amp; Tablet)</h3>
+            <p data-i18n="download.androidDesc">متوافقة مع جميع الهواتف والأجهزة اللوحية بنظام Android 8.0 فما فوق.</p>
+            <div class="dl-actions-group">
+              <a href="https://play.google.com/store/apps/details?id=com.nexiscode.stokko" target="_blank" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.38 2.38 0 0 1-.61-1.63V3.444c0-.64.228-1.218.61-1.63zM15.207 13.414l2.585 2.586-11.455 6.613 8.87-9.199zm0-2.828L6.337 1.387l11.455 6.613-2.585 2.586zm1.414 1.414l3.657 2.112c1.033.596 1.033 1.569 0 2.166l-3.657 2.112-2.121-2.122 2.121-4.268z"/></svg>
+                <span data-i18n="download.btnPlayStore">تحميل من Google Play</span>
+              </a>
+              <a href="https://github.com/badjimohssin/dzcaisse/releases" target="_blank" class="btn btn-outline">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span data-i18n="download.btnApk">تحميل ملف APK مباشر (v2.4)</span>
+              </a>
+            </div>
+            <div class="dl-req-specs" data-i18n="download.androidReq">المتطلبات: Android 8.0+ · المساحة: ~18MB</div>
+          </div>
+
+          <!-- Windows Card -->
+          <div class="dl-platform-card">
+            <div class="dl-card-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.551H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.849"/></svg>
+            </div>
+            <h3 data-i18n="download.windowsTitle">نسخة الويندوز (Desktop PC &amp; Laptop)</h3>
+            <p data-i18n="download.windowsDesc">برنامج تثبيت مباشر لأنظمة Windows 10 و Windows 11 (64-bit).</p>
+            <div class="dl-actions-group">
+              <a href="https://github.com/badjimohssin/dzcaisse/releases" target="_blank" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span data-i18n="download.btnWindowsExe">تحميل برنامج التثبيت (.exe)</span>
+              </a>
+              <a href="#contact" class="btn btn-outline">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span data-i18n="download.btnWebAccess">فتح نسخة الويب (Online POS)</span>
+              </a>
+            </div>
+            <div class="dl-req-specs" data-i18n="download.windowsReq">المتطلبات: Windows 10/11 (64-bit) · Java 17+ · المساحة: ~45MB</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FAQ SECTION
+         ========================================================================== -->
+    <section id="faq" class="faq-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="faq.tag">الأسئلة المتكررة</div>
+          <h2 data-i18n="faq.title">كل ما يدور في ذهنك حول Stokko</h2>
+          <p data-i18n="faq.desc">إجابات دقيقة على أكثر الأسئلة شيوعاً من زبائننا وتجارنا.</p>
+        </div>
+
+        <div class="faq-accordion-wrap">
+          
+          <div class="faq-item open">
+            <button class="faq-question">
+              <span data-i18n="faq.q1">هل يمكنني استخدام Stokko بدون اتصال بالإنترنت؟</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer" data-i18n="faq.a1">
+              نعم، بالتأكيد! صُمم Stokko وفق بنية Offline-First، بحيث يمكنك إجراء المبيعات، تسجيل الديون، وطباعة الفواتير بدون أي اتصال بالإنترنت. وعند عودة الاتصال، يتم التزامن تلقائياً مع السحابة وأجهزتك الأخرى.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span data-i18n="faq.q2">كيف يتم التزامن بين الهاتف والكمبيوتر؟</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer" data-i18n="faq.a2">
+              بمجرد تسجيل الدخول بنفس الحساب على هاتفك وعلى برنامج الكمبيوتر، تتصل الأجهزة بنفس قاعدة البيانات السحابية الآمنة، وتظهر أي عملية بيع أو تعديل مخزون على الهاتف فوراً على شاشة الحاسوب في أجزاء من الثانية.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span data-i18n="faq.q3">ما هي الطابعات المتوافقة مع البرنامج؟</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer" data-i18n="faq.a3">
+              يدعم Stokko جميع أنواع الطابعات الحرارية مقاس 58mm و 80mm عبر البلوتوث للهاتف، وعبر كابل USB أو الشبكة المحلية (WiFi/LAN) للحاسوب، إضافة إلى إمكانية طباعة فواتير A4 العادية.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span data-i18n="faq.q4">هل بياناتي ومبيعاتي في أمان؟</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer" data-i18n="faq.a4">
+              نعم تماماً. بياناتك مشفرة ومحفوظة محلياً على جهازك ومحفوظة بنسخة احتياطية على خوادم سحابية مؤمنة عالية الاعتمادية، ولا يمكن لأي شخص الاطلاع على أرقامك ومبيعاتك إلا بحسابك الشخصي.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span data-i18n="faq.q5">هل يتوفر دعم فني ومساعدة في الإعداد؟</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="faq-answer" data-i18n="faq.a5">
+              نعم، فريق الدعم الفني لـ NexisCode جاهز دائماً لمساعدتك عبر WhatsApp والهاتف للإجابة عن استفساراتك وتوجيهك في إعداد الطابعات واستيراد المنتجات.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT & WHATSAPP SECTION
+         ========================================================================== -->
+    <section id="contact" class="contact-section">
+      <div class="wrap">
+        <div class="section-head" style="margin-bottom:20px;">
+          <div class="eyebrow" data-i18n="contact.tag">تواصل مع فريقنا</div>
+          <h2 data-i18n="contact.title">نحن هنا لمساعدتك وتطوير تجارتك</h2>
+          <p data-i18n="contact.desc">هل لديك استفسار أو ترغب في استشارة مخصصة لنشاطك التجاري؟ تواصل معنا مباشرة.</p>
+        </div>
+
+        <div class="contact-actions-row">
+          <a href="https://wa.me/213770000000?text=Salam%2C%20I%20am%20interested%20in%20Stokko%20POS" target="_blank" class="btn btn-whatsapp btn-lg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span data-i18n="contact.whatsappBtn">محادثة مباشرة عبر WhatsApp</span>
+          </a>
+          <a href="mailto:contact@nexiscode.online" class="btn btn-outline btn-lg">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span data-i18n="contact.emailBtn">مراسلتنا عبر البريد الإلكتروني</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        
+        <div class="footer-brand">
+          <div class="brand-group">
+            <div class="brand-logo" style="width:34px; height:34px;">
+              <img src="assets/logo.webp" alt="Stokko Logo" width="34" height="34">
+            </div>
+            <div class="brand-title" style="font-size:1.3rem;">Stokko<span class="accent">.</span></div>
+          </div>
+          <p data-i18n="footer.brandDesc">Stokko هو نظام متكامل لإدارة المخزون ونقاط البيع POS للهواتف الذكية وسطح المكتب، مطور بواسطة استوديو NexisCodeLabs.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer.linksTitle">روابط سريعة</h4>
+          <ul>
+            <li><a href="#features" data-i18n="nav.features">المميزات</a></li>
+            <li><a href="#ecosystem" data-i18n="nav.ecosystem">التزامن والأجهزة</a></li>
+            <li><a href="#showcase" data-i18n="nav.showcase">الواجهات</a></li>
+            <li><a href="#pricing" data-i18n="nav.pricing">الأسعار</a></li>
+            <li><a href="#download" data-i18n="nav.download">التحميل</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer.productsTitle">منتجاتنا</h4>
+          <ul>
+            <li><a href="https://play.google.com/store/apps/details?id=com.nexiscode.stokko" target="_blank">Stokko POS (Android)</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.badj.energyz" target="_blank">EnergyZ Battery Monitor</a></li>
+            <li><a href="https://nexiscode.online/" target="_blank">NexisCodeLabs Studio</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="copyright" data-i18n="footer.allRights">جميع الحقوق محفوظة © 2026 NexisCodeLabs · Stokko POS.</div>
+        <div class="legal-links" style="display:flex; gap:16px;">
+          <a href="https://nexiscode.online/stokko_privacy_policy.html" target="_blank" data-i18n="footer.privacy">سياسة الخصوصية</a>
+          <a href="https://nexiscode.online/stokko_terms_of_service.html" target="_blank" data-i18n="footer.terms">شروط الاستخدام</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <div class="lightbox-img-box">
+      <img id="lightboxImg" src="" alt="Screenshot Fullscreen">
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
