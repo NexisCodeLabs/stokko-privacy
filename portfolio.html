@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Mohssin Badji | NexisCode</title>
+<meta name="author" content="Mohssin Badji">
+<meta name="description" content="Mohssin Badji — Android developer with a background in industrial automation. Freelance Android development since 2021, creator of Stokko and EnergyZ at NexisCodeLabs.">
+<meta name="keywords" content="Mohssin Badji, Android developer Algeria, NexisCode, portfolio, industrial automation, IoT developer">
+<link rel="canonical" href="https://nexiscode.online/portfolio.html">
+<meta property="og:title" content="Mohssin Badji — Portfolio">
+<meta property="og:description" content="Android developer with a background in industrial automation and IoT. Freelance since 2021.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nexiscode.online/portfolio.html">
+<link rel="icon" href="LOGO.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  var savedTheme = localStorage.getItem('nx-theme');
+  var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  if(savedTheme === 'light' || (!savedTheme && prefersLight)){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-mark"><img src="LOGO.png" alt="NexisCode"></div>
+    <div class="loader-word">Nexis<span class="accent">Code</span></div>
+    <div class="loader-bar"><span id="loaderFill"></span></div>
+    <div class="loader-pct" id="loaderPct">0%</div>
+  </div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="grain"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<nav class="scrollspy" id="scrollspy">
+  <button data-target="#top" data-label="البداية" class="active" aria-label="البداية"></button>
+  <button data-target="#about" data-label="من هو" aria-label="من هو"></button>
+  <button data-target="#skills" data-label="المهارات" aria-label="المهارات"></button>
+  <button data-target="#work" data-label="الأعمال" aria-label="الأعمال"></button>
+  <button data-target="#contact" data-label="تواصل" aria-label="تواصل"></button>
+</nav>
+
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><img src="LOGO.png" alt="NexisCode logo">Nexis<span class="accent">Code</span></a>
+    <nav class="nav-links">
+      <a href="index.html" class="scramble">Home</a>
+      <a href="#work" class="scramble">Work</a>
+      <a href="#about" class="scramble">About</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound" title="Toggle click sound">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+      </button>
+      <a class="btn btn-outline magnetic" href="#contact">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+    <div class="nn-readout" id="nnReadout" aria-hidden="true">epoch 000 · loss 1.0000</div>
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Mohssin Badji</span>
+      <h1 id="heroTitle"></h1>
+      <p>Android developer with a background in industrial automation. Since 2021 I've been designing and shipping mobile applications — before that, I was wiring PLCs and building IoT systems for real factories.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid magnetic" href="#work">See my work</a>
+        <a class="btn btn-outline magnetic" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">About</span>
+        <h2>From industrial automation to Android development.</h2>
+      </div>
+
+      <div class="about-inner" style="align-items:start;">
+        <div class="reveal">
+          <p style="margin-bottom:18px;">I hold a Master's degree in Automation &amp; Industrial Computing. During my final year, I built an IoT solar-energy monitoring system at Algeria's Renewable Energy Development Center (CDER) — acquiring sensor data and building a real-time Android interface to visualize it. That project convinced me that the most interesting problems live at the intersection of hardware and software.</p>
+          <p>Since 2021, I've worked as a freelance Android developer, designing and shipping custom applications for clients across different platforms — including apps published on Google Play. NexisCodeLabs grew out of that work: a small studio built around tools that actually hold up in daily, real-world use.</p>
+        </div>
+        <div class="stat-grid reveal" data-parallax="-0.03">
+          <div><span class="num" data-count="2021">0</span><span class="lbl">Freelancing since</span></div>
+          <div><span class="num">MSc</span><span class="lbl">Automation &amp; Industrial Computing</span></div>
+          <div><span class="num">IoT</span><span class="lbl">Solar monitoring system, CDER</span></div>
+          <div><span class="num">DZ</span><span class="lbl">Based in Algeria</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" style="border-top:1px solid var(--line);padding:110px 0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Skills</span>
+        <h2>Tools I reach for.</h2>
+      </div>
+
+      <div class="skills-grid stagger">
+        <div class="skill-card">
+          <h4>Programming</h4>
+          <div class="chip-row">
+            <span class="chip">Kotlin</span>
+            <span class="chip">Jetpack Compose</span>
+            <span class="chip">Java</span>
+            <span class="chip">C++</span>
+            <span class="chip">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h4>Industrial &amp; Control</h4>
+          <div class="chip-row">
+            <span class="chip">PID Control</span>
+            <span class="chip">PLC / SCADA</span>
+            <span class="chip">Grafcet</span>
+            <span class="chip">Ladder Logic</span>
+            <span class="chip">Modbus</span>
+            <span class="chip">TIA Portal</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h4>Connected Systems</h4>
+          <div class="chip-row">
+            <span class="chip">IoT</span>
+            <span class="chip">Firebase</span>
+            <span class="chip">Supabase</span>
+            <span class="chip">Sensor Integration</span>
+            <span class="chip">Real-time Supervision</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h4>Tools &amp; Workflow</h4>
+          <div class="chip-row">
+            <span class="chip">Android Studio</span>
+            <span class="chip">Git</span>
+            <span class="chip">VS Code</span>
+            <span class="chip">Technical UI/UX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey" style="border-top:1px solid var(--line);padding:110px 0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Journey</span>
+        <h2>A few milestones.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2023 — Present</div>
+          <h4>NexisCodeLabs</h4>
+          <p>Built and published Stokko and EnergyZ on Google Play. Growing a small independent studio around Android tools that hold up in real daily use.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2021 — Present</div>
+          <h4>Freelance Android Developer</h4>
+          <p>Designing and shipping custom Android applications for clients across freelance platforms, from first concept to a published app.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2021</div>
+          <h4>Final-Year Internship — CDER</h4>
+          <p>Centre de Développement des Énergies Renouvelables, Algeria. Designed an IoT solar-energy monitoring system: sensor acquisition, signal processing, and a real-time Android interface for control and visualization.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Earlier</div>
+          <h4>Master's Degree — Automation &amp; Industrial Computing</h4>
+          <p>PID regulation, Grafcet, ladder logic, PLC programming, and industrial supervision — the foundation that still shapes how I approach software today.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="border-top:1px solid var(--line);padding:110px 0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Selected work</span>
+        <h2>Things I've built.</h2>
+      </div>
+
+      <div class="work-grid stagger">
+        <div class="mini-card">
+          <div class="mini-top">
+            <h4 class="scramble">Stokko</h4>
+            <span class="badge-live" style="font-size:.7rem;">Live</span>
+          </div>
+          <p>Inventory management and POS system for Algerian retail — barcode scanning, stock alerts, debt books, and cloud sync, built for shops that need it to work offline first.</p>
+          <div class="stack-row" style="margin-bottom:0;">
+            <span class="chip">Kotlin</span>
+            <span class="chip">Jetpack Compose</span>
+            <span class="chip">Supabase</span>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-top">
+            <h4 class="scramble">EnergyZ</h4>
+            <span class="stat-pill">4.8★ Play Store</span>
+          </div>
+          <p>Battery health and charging monitor using native Android APIs — real-time voltage, current, and performance tracking with alerts.</p>
+          <div class="stack-row" style="margin-bottom:0;">
+            <span class="chip">Android APIs</span>
+            <span class="chip">Java</span>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-top">
+            <h4 class="scramble">Solar IoT Monitoring</h4>
+            <span class="case-tag">Case study</span>
+          </div>
+          <p>An IoT supervision system for solar energy performance, built during my final-year internship at CDER — sensor data acquisition paired with a real-time Android control interface.</p>
+          <div class="stack-row" style="margin-bottom:0;">
+            <span class="chip">IoT</span>
+            <span class="chip">Firebase</span>
+            <span class="chip">Android</span>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-top">
+            <h4 class="scramble">Vocalify</h4>
+            <span class="soon-pill">Coming soon</span>
+          </div>
+          <p>Fast, offline-ready text-to-speech conversion using native Android TTS engines — lightweight and distraction-free.</p>
+          <div class="stack-row" style="margin-bottom:0;">
+            <span class="chip">TTS Engine</span>
+            <span class="chip">Android</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="aurora" aria-hidden="true" style="opacity:.4;"><span></span><span></span></div>
+    <div class="wrap reveal">
+      <span class="eyebrow" style="justify-content:center;">Get in touch</span>
+      <h2 style="margin-top:18px;">Let's build something.</h2>
+      <p>Available for freelance Android projects and technical collaborations.</p>
+      <a class="mail-link" href="mailto:mohssin.badjii@gmail.com">mohssin.badjii@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="brand" style="font-size:1.05rem;"><img src="LOGO.png" alt="NexisCode logo" style="width:34px;height:34px;">Nexis<span class="accent">Code</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="copyright">© 2026 Mohssin Badji · NexisCodeLabs · Algeria</div>
+  </div>
+</footer>
+
+<script>window.HERO_HTML = "I build systems<br><span class=\"hl\">that work — in code</span><br>and the real world.";</script>
+<script src="app.js"></script>
+</body>
+</html>
